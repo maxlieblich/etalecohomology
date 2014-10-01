@@ -25,7 +25,7 @@ What is $\Hom_C(G/H, F(G))$? Well, $\Hom_C(G, S)$ for any $G$-set $S$ is the sam
 
 This identifies $F(U)$ with $\Hom_C(U, F(G))$, as desired. QED
 
-**Upshot**: a sheaf on $G$ is a $G$-set, and a sheaf of abelian group is a $G$-module. (Be careful about profinite groups and continuity/discreteness conditions!)
+**Upshot**: a sheaf on $G$-set is a $G$-set, and a sheaf of abelian group is a $G$-module. (Be careful about profinite groups and continuity/discreteness conditions!)
 
 ### Topological spaces, big and small
 
