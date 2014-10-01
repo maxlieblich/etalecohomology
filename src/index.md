@@ -5,9 +5,33 @@ header-includes: |
     <script src="js/downloadepub.js" type="text/javascript"></script>
     <script src="js/gotorepo.js" type="text/javascript"></script>
     <script src="js/loader.js" type="text/javascript"></script>
-    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript">
+            MathJax.Hub.Config({
+              TeX: {
+                Macros: {
+                  ms: ["{\\mathscr{#1}}",1],
+                  A: "{\\bf{A}}",
+                  C: "{\\bf{C}}",
+                  P: "{\\bf{C}}",
+                  Z: "{\\bf{Z}}",
+                  F: "{\\bf{F}}",
+                  H: "{\\operatorname{H}}",
+                  ch: "{\\operatorname{char}}",
+                  Hom: "{\\operatorname{Hom}}",
+                  Set: "{\\underline{\\operatorname{Set}}}",
+                  FinSet: "{\\underline{\\operatorname{FinSet}}}",
+                  Open: "{\\operatorname{Open}}",
+                  Top: "{\\operatorname{Top}}",
+                  Sh: "{\\operatorname{Sh}}",
+                  PreSh: "{\\operatorname{PreSh}}",
+                  Spec: "{\\operatorname{Spec}}",
+                  Et: "{\\operatorname{Et}}"
+                }
+              }
+            });
+    </script>
 css: stylesheets/styles.css
-title: Math 126
+title: Etale cohomology
 ...
 
 <div class="wrapper">

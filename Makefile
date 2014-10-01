@@ -99,11 +99,11 @@ build/html/index.html: $(index) src/index.layout
 
 build/html/%.html: src/%.md
 	@mkdir -p $(@D)
-	pandoc --write=html5 --output=$@ --smart --mathjax $<
+	pandoc --write=html5 --output=$@ --smart --mathjax --filter=./utils/theorem.py $<
 
 build/html/%-st.html: src/%.md src/includes.html
 	@mkdir -p $(@D)
-	pandoc --write=html5 --output=$@ --smart --standalone \
+	pandoc -f markdown+tex_math_single_backslash --write=html5 --output=$@ --smart --standalone \
 		--mathjax="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" \
 		--css=stylesheets/pandoc.css --include-in-header=src/includes.html $<
 
@@ -136,8 +136,8 @@ gotorepojs := build/html/js/gotorepo.js
 $(gotorepojs):
 	@mkdir -p $(@D)
 	echo "function GotoRepo(){window.location=\"$(shell echo $(repo) | sed -e 's+^git@github.com:+https://github.com/+' -e 's+.git$$++')\";}" > $@
-
-deploy: html $(EPUB) $(downloadepubjs) $(gotorepojs)
+#$(EPUB) 
+deploy: html $(downloadepubjs) $(gotorepojs)
 	rm -rf build/html/.git
 	git init build/html
 	git --git-dir=build/html/.git remote add origin $(repo)
