@@ -330,6 +330,13 @@ section {
   padding-bottom:50px;
 }
 
+dt.math {
+  font-weight: bold;
+}
+
+dd.math {
+  font-style: italic;
+}
 
 /* Footer */
 
