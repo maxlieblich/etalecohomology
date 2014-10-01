@@ -1,6 +1,6 @@
 $(function (){
-  location.hash = "#welcome.html";
-  loader("welcome.html");
+  var loc = location.hash.length < 2 ? "welcome.html" : location.hash.substring(1);
+  loader(loc);
 });
 
 var loader = function (s) {
@@ -9,7 +9,7 @@ var loader = function (s) {
       var result = $(data);
       $("#content").html(result);
       // send event to Google Analytics
-      ga('send', 'event', 'content', 'load', s);
+      //ga('send', 'event', 'content', 'load', s);
       // process math
       MathJax.Hub.Queue(["Typeset", MathJax.Hub, "content"]);
   });
