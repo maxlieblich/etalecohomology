@@ -2,3 +2,5 @@
 *.DS_Store
 /js-src/gooan.js
 /build
+test.json
+/MathJax
