@@ -19,7 +19,7 @@ But then there is a covering of the form $G\to U$ (given by choosing an element 
 
 By the sheaf property, we conclude that 
 $$F(G\times_U G)\cong \prod_{h\in H} F(G).$$
-What are the maps $F(G)\to \prod_HF(G)$? The first one is the diagonal map, while the second one is the product of the maps $F(G)\to F(G)$ given by the right action of $H$. The equalizer of the maps is precisely the $H$-invariant part of $F(G)$.
+What are the maps $F(G)\to \prod_HF(G)$? The first one is the diagonal map, while the second one is the product of the maps $F(G)\to F(G)$ given by the right action of $H$. The equalizer of the maps is precisely the $H$-invariant part of $F(G)$.(Question from Hao: Why is the first map diagonal and second map as claimed?)
 
 What is $\Hom_C(G/H, F(G))$? Well, $\Hom_C(G, S)$ for any $G$-set $S$ is the same as $S$, so $\Hom_C(G/H, F(G))\subset F(G)$. It is the subset consisting of elements of $F(G)$ that are fixed by $H$, that is, $\alpha\in F(G)$ such that for all $h\in H$, the map $g\mapsto gh^{-1}$ sends $\alpha$ to $\alpha$. Call this $F(G)^{H}$.
 
