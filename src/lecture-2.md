@@ -52,8 +52,8 @@ Given any Grothendieck topology on $C$ and an object $X\in\C$, we get one on the
 Every category comes with a *canonical* topology.
 
 <div class="definition">
-A *universal effective epimorphism* in a category $C$ that admits fiber products is a map $X\to Y$ in $C$ such that for all $Z$, the diagram
-$$\Hom(X,Z)\to\Hom(Y,Z)\rightrightarrows\Hom(Y\times_X Y, Z)$$
+A *universal effective epimorphism* in a category $C$ that admits fiber products is a map $Y \to X$ in $C$ such that for all $Z$, the diagram
+$$\Hom(Y,Z)\to\Hom(X,Z)\rightrightarrows\Hom(Y\times_X Y, Z)$$
 is exact.
 </div>
 
