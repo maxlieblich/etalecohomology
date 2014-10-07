@@ -52,9 +52,36 @@ Given any Grothendieck topology on $C$ and an object $X\in\C$, we get one on the
 Every category comes with a *canonical* topology.
 
 <div class="definition">
-A *universal effective epimorphism* in a category $C$ that admits fiber products is a map $Y \to X$ in $C$ such that for all $Z$, the diagram
-$$\Hom(Y,Z)\to\Hom(X,Z)\rightrightarrows\Hom(Y\times_X Y, Z)$$
+A morphism $f: X \to Y$ in a catagory $C$ is an *epimorphism* if for any two morphism $g_1, g_2: Y \to Z$, $g_1 \circ f = g_2 \circ f$ implies $g_1=g_2$. 
+</div>
+
+An alternative way to say this is that a morphism $f: X \to Y$ is an epimorphism if the $\Hom(-,Z)$ functor sends $f$ to an injection:
+$$ \forall Z \in C, \Hom(Y, Z) \hookrightarrow \Hom(X,Z). $$ 
+
+In the category of sets, epimorphism are surjective maps. In the catagory of rings however, the map $\mathbf{Z} \to \mathbf{Q}$ is an epimorphism but not a surjection.
+</div>
+
+<div class="definition">
+In a category $C$ that admits fiber products, an epimorphism $f: X \to Y$ is *effective* if for all $Z$, the diagram
+$$\Hom(Y,Z)\to\Hom(X,Z)\rightrightarrows\Hom(Y\times_X Y, Z).$$
 is exact.
+</div>
+
+Another way to view this property is to say that the following diagram is both Cartesian and Cocartesian, i.e. that the fiber product is the limit and that $Y$ is the colimit:
+
+$$
+\begin{array}{ccc}
+  X \times_Y X & \rightarrow  & X \\
+  \downarrow & & \downarrow \\
+  X & \rightarrow & Y
+\end{array}
+$$
+
+In an abelian category all epimorphisms are effective. For an example of an epimorphism that is not effective consider the identity map between the real line with the discrete topology and the real line with the standard topology. This map is continuous and since it is surjective it is an epimorphism.  This is not an effective epimorphism since the diagram above fails to be Cocartesian. The map from the discrete line to itself that swaps two points does not factor through the standard line.
+</div>
+
+<div class="definition">
+An effective epimorphism is *universal* if it is stable under base change, i.e. given a map $W \to Y$ the map $X \times_Y W \to W$ is also an effective epimorphism.
 </div>
 
 <div class="definition">
