@@ -77,7 +77,7 @@ $$
 \end{array}
 $$
 
-In an abelian category all epimorphisms are effective. For an example of an epimorphism that is not effective consider the identity map between the real line with the discrete topology and the real line with the standard topology. This map is continuous and since it is surjective it is an epimorphism.  This is not an effective epimorphism since the diagram above fails to be Cocartesian. The map from the discrete line to itself that swaps two points does not factor through the standard line.
+In an abelian category all epimorphisms are effective. For an example of an epimorphism that is not effective consider the identity map between the real line with the discrete topology and the real line with the standard topology. This map is continuous and since it is surjective it is an epimorphism.  This is not an effective epimorphism since the diagram above fails to be Cocartesian. The map from the discrete line to itself that swaps two points does not factor through the standard line. Another example is the map $\mathbf{Z} \to \mathbf{Q}$ from before.
 </div>
 
 <div class="definition">
