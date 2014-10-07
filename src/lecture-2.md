@@ -63,8 +63,7 @@ In the category of sets, epimorphism are surjective maps. In the catagory of rin
 
 <div class="definition">
 In a category $C$ that admits fiber products, an epimorphism $f: X \to Y$ is *effective* if for all $Z$, the diagram
-$$\Hom(Y,Z)\to\Hom(X,Z)\rightrightarrows\Hom(Y\times_X Y, Z).$$
-is exact.
+$$\Hom(Y,Z)\to\Hom(X,Z)\rightrightarrows\Hom(Y\times_X Y, Z).$$ is exact.
 </div>
 
 Another way to view this property is to say that the following diagram is both Cartesian and Cocartesian, i.e. that the fiber product is the limit and that $Y$ is the colimit:
