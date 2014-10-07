@@ -52,13 +52,13 @@ Given any Grothendieck topology on $C$ and an object $X\in\C$, we get one on the
 Every category comes with a *canonical* topology.
 
 <div class="definition">
-A morphism $f: X \to Y$ in a catagory $C$ is an *epimorphism* if for any two morphism $g_1, g_2: Y \to Z$, $g_1 \circ f = g_2 \circ f$ implies $g_1=g_2$. 
+A morphism $f: X \to Y$ in a category $C$ is an *epimorphism* if for any two morphism $g_1, g_2: Y \to Z$, $g_1 \circ f = g_2 \circ f$ implies $g_1=g_2$. 
 </div>
 
 An alternative way to say this is that a morphism $f: X \to Y$ is an epimorphism if the $\Hom(-,Z)$ functor sends $f$ to an injection:
 $$ \forall Z \in C, \Hom(Y, Z) \hookrightarrow \Hom(X,Z). $$ 
 
-In the category of sets, epimorphism are surjective maps. In the catagory of rings however, the map $\mathbf{Z} \to \mathbf{Q}$ is an epimorphism but not a surjection.
+In the category of sets, epimorphism are surjective maps. In the category of rings however, the map $\mathbf{Z} \to \mathbf{Q}$ is an epimorphism but not a surjection.
 </div>
 
 <div class="definition">
@@ -136,3 +136,7 @@ Everybody's favorite example: $C=\Open(X)$, $C'=\Open(Y)$, $F$ is the pullback m
 <div class="question">
 Does a continuous map of topological spaces induce a morphism of *big* topologies? Does a morphism of big topologies always come from a continuous map of topological spaces?
 </div>
+
+### Content contributors
+
+@maxlieblich, @lucasvanmeter
