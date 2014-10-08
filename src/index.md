@@ -16,6 +16,7 @@ header-includes: |
                   Z: "{\\bf{Z}}",
                   F: "{\\bf{F}}",
                   H: "{\\operatorname{H}}",
+                  G: "{\\bf{G}}",
                   ch: "{\\operatorname{char}}",
                   Hom: "{\\operatorname{Hom}}",
                   Set: "{\\underline{\\operatorname{Set}}}",

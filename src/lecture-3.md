@@ -49,7 +49,7 @@ Are either of these functors fully faithful? Are they both fully faithful?
 
 ### The etale site of a field
 
-Let $K$ be a field. Let $\Et(K)$ be the opposite of the category of finite semisimple commutative $K$-algebras. By the classical structure theory, the objects of $C$ are $K$-algebras of the form $\prod L_i$ where each $L_i$ is a finite separable extension of $K$. In other words, $\Et(K)$ is the category of $K$-schemes of the form $\sqcup\Spec L_i$ with each $L_i$ a finite separable extenson of $K$.
+Let $K$ be a field. Let $\Et(K)$ be the category of etale $K$-schemes; by facts we will review soon, $\Et(K)$ is the category of $K$-schemes of the form $\sqcup\Spec L_i$ with each $L_i$ a finite separable extenson of $K$.
 
 A covering $\{U_i\to U\}$ in $C$ is a collection of maps such that $\sqcup U_i\to U$ is set-theoretically surjective.
 
@@ -58,7 +58,7 @@ Show that this is a site. Please.
 </div>
 
 Fix a separable closure $K\subset K^s$. Let $G$ be the Galois group of $K$. Define a functor
-$$\varepsilon:\Et(K)\to G-\FinSet$$
+$$\varepsilon:\Et(K)\to G-\Set$$
 that sends $L_i$ to the set of embeddings of $K$-algebras $L_i\hookrightarrow K^s$.
 
 <div class="theorem">
@@ -67,7 +67,48 @@ $\varepsilon$ is an equivalence of categories that preserves the topologies.
 **Proof**. Given an extension of separable extensions of $K$, say $L\subset M$, you already know from your algebra childhoods that any embedding $L\hookrightarrow K^s$ extends to an embedding $M\hookrightarrow K^s$. The rest is up to you. QED
 
 <div class="corollary">
-There is a natural equivalence of categories between sheaves of finite abelian groups on $\Et(K)$ and finite abelian $G_K$-modules.
+There is a natural equivalence of categories between sheaves of abelian groups on $\Et(K)$ and discrete continuous $G_K$-modules.
 </div>
 
-Do you see where this is going? Cohomology!
+This is why Galois cohomology is a special case of etale cohomology. Don't worry, we'll dig into this later.
+
+### The etale site of a scheme
+
+#### Quick reminder about etale maps
+
+<div class="lemma">
+Let $f:U\to X$ be a morphism of schemes that is locally of finite presentation.
+The following are equivalent:
+
+1. the sheaf $\Omega_{U/X}^1$ vanishes, and $f$ is flat;
+2. $f$ is smooth of relative dimension $0$
+3. for every $u\in U$ with image $x\in X$, there is an affine neighborhood $\Spec A$ of $x$ in $X$ and an affine neighborhood $\Spec B$ of $u$ in $U$ such that $f(U)\subset V$ and via $f$ we have an isomorphism $$B\cong A[x_1,\ldots,x_n]/(f_1,\ldots,f_n),$$ where the Jacobian matrix $|\partial f_i/\partial x_j|$ is invertible in $A$.
+4. given a square-zero extension $A\to A_0$ of rings, the map $$h_U(A)\to h_U(A_0)\times_{h_X(A_0)}h_X(A)$$ is bijective. In other words, in the commutative diagram $$\require{AMScd} \begin{CD} \Spec A_0 @>>> U\\ @VVV @VVV \\ \Spec A @>>> X\end{CD}$$ there is exactly one diagonal arrow from the lower left to the upper right. (This is the *infinitesimal lifting property*.)
+</div>
+
+<div class="lemma">
+If $f:U\to X$ and $g:V\to X$ are etale, then any $X$-map $h:U\to V$ is also etale.
+</div>
+**Proof**. Use the infinitesimal lifting property! QED
+
+#### Definition of the site
+
+The objects of $\Et(X)$ are etale morphisms $U\to X$, and the arrows are $X$-arrows. A covering is a collection of maps $\{U_i\to U\}$ that are jointly surjective.
+
+#### The big etale site
+
+Just like with topological spaces, we can define the *big* etale site. The category is all $X$-schemes, and the coverings are maps $\{U_i\to U\}$ that are each etale, and that are jointly surjective.
+
+### A few examples of etale sheaves
+
+Fix a base scheme $X$. Let's define some functors on the big etale site of $X$.
+
+- $\G_m:U\mapsto \mathscr{O}_U(U)^\times$
+- $\G_a:U\mapsto \mathscr{O}_U(U)$
+- $\mu_n:U\mapsto \G_m(u)[n]$
+- $\alpha_p:U\mapsto\{a\in\mathscr{O}_U(U) | a^p = 0\}$ (when $p\cdot 1=0\in\mathscr{O}_X(X)$)
+- Let's make more!
+
+### Content contributors
+
+@maxlieblich, @haochenuw

@@ -1,3 +1,3 @@
 # Sheafification and exact sequences
 
-Coming
+Coming soon
