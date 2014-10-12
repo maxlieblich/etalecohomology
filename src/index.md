@@ -25,8 +25,13 @@ header-includes: |
                   Top: "{\\operatorname{Top}}",
                   Sh: "{\\operatorname{Sh}}",
                   PreSh: "{\\operatorname{PreSh}}",
+                  Sch: "{\\operatorname{Sch}}",
                   Spec: "{\\operatorname{Spec}}",
-                  Et: "{\\operatorname{Et}}"
+                  Et: "{\\operatorname{Et}}",
+                  ET: "{\\operatorname{ET}}",
+                  ch: "{\\operatorname{char}}",
+                  R: "{\\bf{R}}",
+                  tensor: "{\\otimes}",
                 }
               }
             });
