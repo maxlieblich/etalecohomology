@@ -10,6 +10,7 @@ header-includes: |
               TeX: {
                 Macros: {
                   ms: ["{\\mathscr{#1}}",1],
+                  mf: ["{\\mathfrak{#1}}",1],
                   A: "{\\bf{A}}",
                   C: "{\\bf{C}}",
                   P: "{\\bf{C}}",
@@ -25,13 +26,19 @@ header-includes: |
                   Top: "{\\operatorname{Top}}",
                   Sh: "{\\operatorname{Sh}}",
                   PreSh: "{\\operatorname{PreSh}}",
+                  ab: "{\\operatorname{ab}}",
+                  Cov: "{\\operatorname{Cov}}",
                   Sch: "{\\operatorname{Sch}}",
                   Spec: "{\\operatorname{Spec}}",
+                  Site: "{\\operatorname{Site}}",
                   Et: "{\\operatorname{Et}}",
                   ET: "{\\operatorname{ET}}",
+                  ZAR: "{\\operatorname{ZAR}}",
                   ch: "{\\operatorname{char}}",
                   R: "{\\bf{R}}",
                   tensor: "{\\otimes}",
+                  colim: "{\\operatorname{colim}}",
+                  widebar: ["{\\overline{#1}}",1]
                 }
               }
             });

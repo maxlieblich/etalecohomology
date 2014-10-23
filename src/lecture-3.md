@@ -154,7 +154,7 @@ Here are a few exercises to help you feel these things out a bit.
 <div class="exercise">
 Try these:
 
-1. Show that any sheaf in the fppf topology is a sheaf in the etale topology, and any sheaf in the etale topology is a sheaf in the fppf topology.
+1. Show that any sheaf in the fppf topology is a sheaf in the etale topology, and any sheaf in the etale topology is a sheaf in the Zariski topology.
 2. Make an example of a sheaf in the big etale topology of $\Spec K$ that is not a sheaf in the fppf topology.
 3. Given a morphism of schemes $f:Y\to X$ and a quasi-coherent sheaf $F$ on $Y$, for each $i$ we can define a functor on $\Sch_X$ that sends $T$ to $\R^i (f_T)_\ast F_T$, the **Zariski** higher direct image of the pullback of $F$ to $Y_T$. Is this a sheaf on the big etale site of $X$? On the fppf site?
 4. Is there a "small fppf site of $X$"?
