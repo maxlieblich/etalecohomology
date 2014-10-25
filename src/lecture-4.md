@@ -120,7 +120,7 @@ A sequence $0\to F\to G\to H\to 0$ in $\PreSh^{\ab}(C)$ is exact if and only if 
 <div class="corollary">
 If $C$ is small (do I really need this?) then $\PreSh^{\ab}(C)$ contains enough injectives. Moreover, if $F$ is an injective presheaf then for any $c\in C$, the group $F(c)$ is injective (i.e., divisible).
 </div>
-**Proof**: Let $c\in C$ be an object. The singleton category $S$ admits a functor $S\to C$ that sends the single object $s$ to $c$, and this gives a morphism of sites $\sigma_c:\Site(C)\to\Site(S)$ such that for all $F\in\PreSh(C)$ we have $(\sigma_c)_\ast F(s) = F(c)$. Moreover, we know that we can calculate the left adjoint $\sigma_c^{-1}$ on $d$ by the formula $$\sigma_c^{-1}(G)(d) = \colim_{d\to c} F(d).$$ Since this is a filtering colimit of abelian groups, we see that $\sigma_c^{-1}$ is exact. But any functor with an exact left adjoint must send injectives to injectives. QED
+**Proof**: Let $c\in C$ be an object. The singleton category $S$ admits a functor $S\to C$ that sends the single object $s$ to $c$, and this gives a morphism of sites $\sigma_c:\Site(C)\to\Site(S)$ such that for all $F\in\PreSh(C)$ we have $(\sigma_c)_\ast F(s) = F(c)$. Moreover, we know that we can calculate the left adjoint $\sigma_c^{-1}$ on $d$ by the formula $$\sigma_c^{-1}(G)(d) = \colim_{d \to c} G(s).$$ Since this is a filtering colimit of abelian groups, we see that $\sigma_c^{-1}$ is exact. But any functor with an exact left adjoint must send injectives to injectives. QED
 
 It gets better!
 
