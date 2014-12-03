@@ -20,6 +20,7 @@ header-includes: |
                   G: "{\\bf{G}}",
                   ch: "{\\operatorname{char}}",
                   Hom: "{\\operatorname{Hom}}",
+                  Aut: "{\\operatorname{Aut}}",
                   Set: "{\\underline{\\operatorname{Set}}}",
                   FinSet: "{\\underline{\\operatorname{FinSet}}}",
                   Open: "{\\operatorname{Open}}",
@@ -38,7 +39,11 @@ header-includes: |
                   R: "{\\bf{R}}",
                   tensor: "{\\otimes}",
                   colim: "{\\operatorname{colim}}",
-                  widebar: ["{\\overline{#1}}",1]
+                  widebar: ["{\\overline{#1}}",1],
+                  Desc: "{\\operatorname{Desc}}",
+                  id: "{\\operatorname{id}}",
+                  pr: "{\\operatorname{pr}}",
+                  can: "{\\operatorname{can}}"
                 }
               }
             });

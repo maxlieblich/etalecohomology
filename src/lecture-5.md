@@ -1,3 +1,3 @@
 # Cech cohomology of presheaves
 
-Coming
+(A lot of stuff happened in class.)

@@ -1,3 +1,3 @@
 # Etale morphisms
 
-coming
+Worth a whole thing?

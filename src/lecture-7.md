@@ -1,3 +1,3 @@
 # Leray spectral sequence for a morphism of Grothendieck topologies
 
-Coming
+Done in class, but maybe this doesn't even need to be here.

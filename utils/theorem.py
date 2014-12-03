@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Pandoc filter to convert divs with class="theorem" to LaTeX
+Pandoc filter to convert divs with class="theorem", "proposition", etc. to LaTeX
 theorem environments in LaTeX output, and to numbered theorems
 in HTML output.
 """
@@ -10,7 +10,7 @@ from pandocfilters import toJSONFilter, RawBlock, Div
 
 theoremcount = 0
 
-environments = ["theorem", "lemma", "corollary", "definition", "example", "exercise", "question", "claim"]
+environments = ["theorem", "lemma", "corollary", "definition", "example", "exercise", "question", "claim", "proposition"]
 
 def latex(x):
   return RawBlock('latex',x)
