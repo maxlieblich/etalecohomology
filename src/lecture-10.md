@@ -109,5 +109,5 @@ We could ask more generally about descent theory respecting additional structure
 8. What about locally free sheaves?
 
 <div class="corollary">
-Locally free sheaves glue in the fppf topology.
+Locally free sheaves glue in the fppf topology. Yes!
 </div>
