@@ -55,22 +55,35 @@ Putting everything together, the objects making up the Brauer group -- the centr
 
 **Why do we care??**
 
-Because of the following awesome result.
+Being a central division algebra is not compatible with baea change (for example, $\H\tensor\C$ is isomorphic to $M_2(\C)$), but being a central simple algebra is. 
 
 <div class="proposition">
 If $A$ be a central simple algebra over $k$ and $L$ is a field extension of $k$, then $A\tensor_k L$ is a central simple algebra over $L$.
 </div>
-**Proof**. Centrality: the condition that $A$ is central can be written like this. There is a natural map $\alpha:A\to \Hom(A, A)$ that sends $a$ to the map sending $b$ to $ab-ba$. The center is precisely the kernel of this map. By flatness of everything over a field, if $k\to A$ identifies $k$ with $\ker(\alpha)$, the same is true of $L\to A\tensor_k L$.
+
+Before coming to the proof, we can ask two questions: if $A$ is central, is $A\tensor_k L$ central?  if $A$ is simple, is $A\tensor_k L$ simple?  
+
+**Proof**. Centrality: the condition that $A$ is central can be written like this. There is a natural map $\alpha:A\to \Hom(A, A)$ that sends $a$ to the map sending $b$ to $ab-ba$. The center is precisely the kernel of this map. By flatness of everything over a field, if $k\to A$ identifies $k$ with $\ker(\alpha)$, the same is true of $L\to A\tensor_k L$, i.e. $A$ is central if and only if $A \tensor_k L$ is central.
 
 Simplicity: the key here is the following amusing claim.
 
-**Claim**. Any non-zero two-sided ideal $J$ of $A\tensor_k L$ has non-zero intersection with $L$.
+**Claim**. If $A$ is a central simple algebra over $k$ and $L$ a field extension of $k$, any non-zero two-sided ideal $J$ of $A\tensor_k L$ has non-zero intersection with $L$.
 
 **Proof**. (Farb and Dennis, Lemma 3.7) Choose $x$ in $J$ that has an expression $x=\sum a_i\tensor\lambda_i$ with minimal length. This implies that the $\{a_i\}$ and $\{\lambda_i\}$ are linearly independent over $k$. Since $a_1\neq 0$ and $A$ is simple, we have that $Aa_1A=A$, so there are $x_j, y_j$ such that $\sum x_j a_1 y_j=1$. This means that
 $$x':=\sum_j x_j\tensor 1\left(\sum_i a_i\tensor\lambda_i\right)y_j\tensor 1=\sum_i a_i'\tensor\lambda_i$$
 is also in $J$, and $a_1'=1$ (so, in particular, $x'\neq 0$). For any $a\in A$, we have $$(a\tensor 1)x'-x'(a\tensor 1)=\sum_{i\geq 2}(aa'_i-a'_ia)\tensor\lambda_i$$ (as $a'_1=1$, so it is central). But $x$ had minimal length, when we conclude that $aa'_i=a'_ia$ for all $a$. Since $A$ is central, we have that each $a_i'$ is in $k$, whence $\sum a'_i\lambda_i=0$. But the $\lambda_i$ are assumed to be linearly independent! QED the claim.
 
 Conclusion: any non-zero two-sided ideal $J$ contains $(J\cap L)\cdot A\tensor L$, which is $A\tensor_k L$. But then any non-zero two-sided ideal is the whole ring, as desired. QED
+
+Note that in the claim above is not enough to assume that $A$ is only a simple algebra over $k$: if $k = \R$ and $A = L = \C$, then $A\tensor_k L = \C\tensor_\R \C = \C \times \C$ which is not a simple $\C$ algebra.  
+
+<div class="corollary">
+If $A_1$ and $A_2$ are central simple algebras over $k$, then $A_1 \tensor_k A_2$ is also a central simple algebra.
+</div>
+
+<div class="corollary"> 
+If $D_1$ and $D_2$ are central division algebras over $k$, then $D_1\tensor_k D_2$ is a central simple algebra, hence isomorphic to $M_n(D_3)$ for some central division algebra $D_3$.
+</div>
 
 <div class="corollary">
 Any central simple algebra $A$ over $k$ has the property that $A\tensor\overline k\cong M_n(\overline k)$ for some $n$. In fact, this is true over the *separable closure* of $k$.
