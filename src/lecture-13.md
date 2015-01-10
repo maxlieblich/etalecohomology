@@ -55,7 +55,7 @@ Putting everything together, the objects making up the Brauer group -- the centr
 
 **Why do we care??**
 
-Being a central division algebra is not compatible with base change (for example, $\H\tensor\C$ is isomorphic to $M_2(\C)$), but being a central simple algebra is. 
+Being a central division algebra is not compatible with base change (for example, $\mathbf{H}\tensor\mathbf{C}$ is isomorphic to $M_2(\mathbf{C})$), but being a central simple algebra is. 
 
 <div class="proposition">
 If $A$ be a central simple algebra over $k$ and $L$ is a field extension of $k$, then $A\tensor_k L$ is a central simple algebra over $L$.
@@ -73,7 +73,7 @@ is also in $J$, and $a_1'=1$ (so, in particular, $x'\neq 0$). For any $a\in A$, 
 
 Conclusion: any non-zero two-sided ideal $J$ contains $(J\cap L)\cdot A\tensor L$, which is $A\tensor_k L$. But then any non-zero two-sided ideal is the whole ring, as desired. QED
 
-Note that in the claim above is not enough to assume that $A$ is only a simple algebra over $k$: if $k = \R$ and $A = L = \C$, then $A\tensor_k L = \C\tensor_\R \C = \C \times \C$ which is not a simple $\C$ algebra.  
+Note that in the claim above is not enough to assume that $A$ is only a simple algebra over $k$: if $k = \mathbf{R}$ and $A = L = \mathbf{C}$, then $A\tensor_k L = \mathbf{C}\tensor_\mathbf{R} \mathbf{C}$, which is just $\mathbf{C} \times \mathbf{C}$ which is not a simple $\mathbf{C}$ algebra.  
 
 <div class="corollary">
 If $A_1$ and $A_2$ are central simple algebras over $k$, then $A_1 \tensor_k A_2$ is also a central simple algebra.
