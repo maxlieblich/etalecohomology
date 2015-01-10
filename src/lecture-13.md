@@ -59,9 +59,7 @@ Being a central division algebra is not compatible with baea change (for example
 
 <div class="proposition">
 If $A$ be a central simple algebra over $k$ and $L$ is a field extension of $k$, then $A\tensor_k L$ is a central simple algebra over $L$.
-</div>
-
-Before coming to the proof, we can ask two questions: if $A$ is central, is $A\tensor_k L$ central?  if $A$ is simple, is $A\tensor_k L$ simple?  
+</div> 
 
 **Proof**. Centrality: the condition that $A$ is central can be written like this. There is a natural map $\alpha:A\to \Hom(A, A)$ that sends $a$ to the map sending $b$ to $ab-ba$. The center is precisely the kernel of this map. By flatness of everything over a field, if $k\to A$ identifies $k$ with $\ker(\alpha)$, the same is true of $L\to A\tensor_k L$, i.e. $A$ is central if and only if $A \tensor_k L$ is central.
 
