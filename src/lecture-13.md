@@ -55,7 +55,7 @@ Putting everything together, the objects making up the Brauer group -- the centr
 
 **Why do we care??**
 
-Being a central division algebra is not compatible with baea change (for example, $\H\tensor\C$ is isomorphic to $M_2(\C)$), but being a central simple algebra is. 
+Being a central division algebra is not compatible with base change (for example, $\H\tensor\C$ is isomorphic to $M_2(\C)$), but being a central simple algebra is. 
 
 <div class="proposition">
 If $A$ be a central simple algebra over $k$ and $L$ is a field extension of $k$, then $A\tensor_k L$ is a central simple algebra over $L$.
