@@ -43,7 +43,10 @@ header-includes: |
                   Desc: "{\\operatorname{Desc}}",
                   id: "{\\operatorname{id}}",
                   pr: "{\\operatorname{pr}}",
-                  can: "{\\operatorname{can}}"
+                  can: "{\\operatorname{can}}",
+                  End: "{\\operatorname{End}}",
+                  Mod: "{\\operatorname{Mod}}",
+                  inj: "{\\hookrightarrow}"
                 }
               }
             });
@@ -55,9 +58,8 @@ title: Etale cohomology
 <div class="wrapper">
 <header>
 
-# Etale cohomology
+# Cohomology and friends
 
-Welcome to etale cohomology. 
 Fork me on GitHub, add your own thoughts, and send me a pull request!
 
 - <a class="buttons download" onclick="DownloadEpub();">Download ebook</a>
