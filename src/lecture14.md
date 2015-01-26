@@ -58,10 +58,10 @@ variety given by the conic $x^2 + y^2 + z^2 = 0$.
 
 Aside : What are the left ideals of $M_n(k) = End(V)$, where $V=k^n$. The left ideals are in $1-1$ correspondence with the subspaces of $V$. Every left ideal $I \subset Hom(V,V)$ corresponds to a subspace $W$ of $V$ where $W$ is the set of points in $V$ that vanish on all elements of $I$, i.e. $I=Hom(V/W,V)$. What are the right ideals $J$ of $End(V)$ ? They are also given by subspaces $W$ with the correspondence given by $J = Hom(V,W)$.
 
-
+The functor given by $f(M_n(k))$ is representable by $P^{n-1}$. To see this, we note that $Hom(X,\P^{n-1})$ is in bijection with invertible quotients of $O_X^{n+1}$. 
 
 <div class="corollary">
 Let $X$ be a Severi-Brauer variety over $Spec(k)$. Then $X \cong \P_k^{n-1}$ if and only if $X(k) \neq \emptyset$.
 </div>
 
-**Proof** It suffices to show that $X(k) \neq \emptyset$ will imply that $X \cong P_k^{n-1}$. Let $A$ be the CSA over $Spec(k)$ that corresponds to the variety $X$ in the construction above. The construction given above tells us that if $X(k) \neq emptyset$, then there exists a left ideal $I \subset A$ of rank $n$.  We get a map $\gamma : A \rightarrow End_k(I)$ where the vector space dimension of $A$ and $End_k(I) \cong M_n(k)$ equal $n^2$. Also, $A$ is simple. Hence, $\gamma$ has to be an isomorphism.  
+**Proof** It suffices to show that $X(k) \neq \emptyset$ will imply that $X \cong P_k^{n-1}$. Let $A$ be the CSA over $Spec(k)$ that corresponds to the variety $X$ in the construction above. The construction given above tells us that if $X(k) \neq emptyset$, then there exists a left ideal $I \subset A$ of rank $n$.  We get a non-zero map $\gamma : A \rightarrow End_k(I)$ where the vector space dimension of $A$ and $End_k(I) \cong M_n(k)$ equal $n^2$. Also, $A$ is simple. Hence, $\gamma$ has to be an isomorphism.  So, $A\cong M_n(k)$. We already saw that in this case, $f(A)$ is in fact the functor represented by $\P^{n-1}$.
