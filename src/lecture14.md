@@ -1,7 +1,13 @@
 Let's start with the short exact sequence 
 $$ 1 \rightarrow \G_m \rightarrow GL_n \rightarrow PGL_n \rightarrow 1. $$
 
-Here, $PGL_n$ is defined to be the sheafification of the cokernel presheaf $GL_n / \G_m$. We don't have sheaves of abelian groups and so we are not necessarily working with an abelian category (unless $n=1$). So how do we define derived functors ? We shall restrict ourselves to $H^1$ and motivate the definition in the non-abelian setting by first recalling properties of $H^1$ in the abelian sheaf setting.  First, some definitions.  
+What is $PGL_n$ ? The following are equivalent (which we state without proof for now). 
+1.  $PGL_n$ is defined to be the sheafification of the cokernel presheaf $GL_n / \G_m$. 
+2.  $PGL_n$ is defined to be $Aut(P^{n-1})$.
+3.  $PGL_n$ is defined to be  $Aut(M_n)$.
+4.  We can define $PGL_n / Spec(Z)$ to be the sheaf represented by the element $Spec S$, where $S$ is the degree zero part of  $Z[x_0 \ldots, x_n , det^{-1}]$ . And $PGL_n$ over any scheme $S$ is obtained via base change. 
+
+When $n \geq 2$, the sheaves $GL_n$ and $PGL_n$ do not always take values in the category of abelian groups. So we need to be a little careful when describing cohomology. Remember though that for abelian sheaf cohomology in the etale of fppf site, $H^1$ can be given by Cech $H^1$.  Let's motivate the definition for non-abelian $H^1$ by recalling what happens in the abelian case. First, some definitions.  In what follows, $H^1$ would denote Cech $H^1$. 
 
 **Torsors** : Let $G$ be a sheaf of groups on $\Et(X)$. Let $S$ be a sheaf of sets on which $G$ acts by the right. Then, $S$ is called a torsor for $G$ if 
 - there exists an etale covering $U \rightarrow X$ such that $S(U) \neq \emptyset$.
@@ -9,22 +15,25 @@ Here, $PGL_n$ is defined to be the sheafification of the cokernel presheaf $GL_n
 
 A torsor $S$ is called the trivial torsor if it is isomorphic as a sheaf to $S=G$ (with $G$ acting on $S=G$ by right multiplication). 
 
-##### An exercise : $H^1$ in terms of iso-classes ? 
+##### An exercise : Cech $H^1$ in terms of iso-classes ? 
 
-Let $G$ be an abelian sheaf on the small etale site $\Et(X)$. Prove that elements of $H^1(\Et(X), G)$ are in one-to-one bijection with the set of iso-classes of left $G$-torsors in the etale topology. 
+Let $G$ be an abelian sheaf on the small etale site $\Et(X)$. Prove that elements of $\hat{H}^1(X, G)$ are in one-to-one bijection with the set of iso-classes of left $G$-torsors in the etale topology. 
 
-**Proof** The proof is given in Milne's notes on Etale cohomology and we provide a sketch here. We proved last quarter that $H^1$ for sheaf cohomology on the etale site can actually be calculated using Cech cohomology. 
+**Proof** See Proposition 11.1 in Milne's notes on [Etale cohomology](http://www.jmilne.org/math/CourseNotes/LEC210.pdf). 
 
+<div class="corollary">
+Let $X$ be a scheme. There exists a bijection between elements of $H^1(X,Aut(F))$ and isomorphism classes of twisted forms of $F$.
+</div>
 
-### Non abelian $H^1$. 
+<div class="corollary">
+Let $X$ be a scheme. The elements of $H^1(X,PGL_n)$ classify isomorphism classes of . The elements of $H^1(X,PGL_n)$ also classify isomorphism classes of varieties $X$ over $Spec(k)$ such that $X \times \overline{k} \cong \P^{n-1}$. 
+</div>
 
-### Two descriptions of $H^1(\Et(X),PGL_n)$ :
+### A geometric construction relating the two descriptions of $H^1(X,PGL_n)$ :
 
 $$ f : \{\text{C.S.A.'s over $k$ of degree $n$} \} \rightarrow \{\text{Varieties of left ideals of $A$ of rank $n$}\}  $$
 
-### A geometric construction : 
-
-Now we won't give a proof of why the map $\F$ gives a bijection. However, let's give a description of the map. If $A$ is a CSA over $k$, then $f(A)$ is a functor that sends a $k$-scheme $T$ to the ideal $I_{A,T} \subset A_T$
+Now we won't give a proof of why the map $\F$ gives a bijection. However, let's give a description of the map and we'll see what it does to $M_n$. If $A$ is a CSA over $k$, then $f(A)$ is a functor that sends a $k$-scheme $T$ to the ideal $I_{A,T} \subset A_T$
 
 ### Severi-Brauer varieties  
 
