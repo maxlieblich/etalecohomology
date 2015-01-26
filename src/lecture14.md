@@ -7,7 +7,7 @@ What is $PGL_n$ ? The following are equivalent (which we state without proof for
 3.  $PGL_n$ is defined to be  $Aut(M_n)$.
 4.  We can define $PGL_n / Spec(Z)$ to be the sheaf represented by the element $Spec S$, where $S$ is the degree zero part of  $Z[x_0 \ldots, x_n , det^{-1}]$ . And $PGL_n$ over any scheme $S$ is obtained via base change. 
 
-When $n \geq 2$, the sheaves $GL_n$ and $PGL_n$ do not always take values in the category of abelian groups. So we need to be a little careful when describing cohomology. Remember though that for abelian sheaf cohomology in the etale of fppf site, $H^1$ can be given by Cech $H^1$.  Let's motivate the definition for non-abelian $H^1$ by recalling what happens in the abelian case. First, some definitions.  In what follows, $H^1$ would denote Cech $H^1$. 
+When $n \geq 2$, the sheaves $GL_n$ and $PGL_n$ do not always take values in the category of abelian groups. So we need to be a little careful when describing cohomology. Remember though that for abelian sheaf cohomology in the etale or fppf site, $H^1$ for abelian sheaf cohomology can be given by Cech cohomology $\hat{H}^1$ for presheaves.  Let's motivate the definition for non-abelian $H^1$ by recalling what happens in the abelian case. First, some definitions.  In what follows, $H^1$ would denote Cech $H^1$. 
 
 **Torsors** : Let $G$ be a sheaf of groups on $\Et(X)$. Let $S$ be a sheaf of sets on which $G$ acts by the right. Then, $S$ is called a torsor for $G$ if 
 - there exists an etale covering $U \rightarrow X$ such that $S(U) \neq \emptyset$.
@@ -21,25 +21,43 @@ Let $G$ be an abelian sheaf on the small etale site $\Et(X)$. Prove that element
 
 **Proof** See Proposition 11.1 in Milne's notes on [Etale cohomology](http://www.jmilne.org/math/CourseNotes/LEC210.pdf). 
 
-<div class="corollary">
-Let $X$ be a scheme. There exists a bijection between elements of $H^1(X,Aut(F))$ and isomorphism classes of twisted forms of $F$.
-</div>
+**TWisted forms**
+Two schemes $X$ and $Y$ are forms of each  other if $X \times k^{sep} \cong Y \times k^{sep}$. Let's work over the small etale side of a field $Spec(k)$. We saw last quarter that sheaves on this site are representable, by evaluating the sheaf $\F$ on $\colim_{L \subset k^{sep}} \F(k^{sep}/L)$.  
 
-<div class="corollary">
-Let $X$ be a scheme. The elements of $H^1(X,PGL_n)$ classify isomorphism classes of . The elements of $H^1(X,PGL_n)$ also classify isomorphism classes of varieties $X$ over $Spec(k)$ such that $X \times \overline{k} \cong \P^{n-1}$. 
-</div>
+<div class="lemma">
+Let $k$ be a field.  There exists a bijection between elements of $H^1(spec(k),Aut(F))$ and isomorphism classes of (twisted) forms of $F$.
+</div> 
+
+See Theorem 14.89 in[Algebraic Geometry - Schemes with Examples and exercises](https://www.math.ucdavis.edu/~blnli/buildings/bag.pdf). As an immediate corollary, we get the following corollary. 
 
 ### A geometric construction relating the two descriptions of $H^1(X,PGL_n)$ :
 
-$$ f : \{\text{C.S.A.'s over $k$ of degree $n$} \} \rightarrow \{\text{Varieties of left ideals of $A$ of rank $n$}\}  $$
+<div class="corollary">
+We have two description for the elements of $H^1(Speck, PGL_n)$
+1. Isomorphism classes of central simple algebras of degree $n$. 
+2. Isomorphism classes of varieties over $spec(k)$ that are isomorphic over $\bar{k}$ to $\P^{n-1}$.  These varieties are called **Severi-Brauer varieties**. 
+</div>
 
-Now we won't give a proof of why the map $\F$ gives a bijection. However, let's give a description of the map and we'll see what it does to $M_n$. If $A$ is a CSA over $k$, then $f(A)$ is a functor that sends a $k$-scheme $T$ to the ideal $I_{A,T} \subset A_T$
+What is the map relating these two descriptions ? 
 
-### Severi-Brauer varieties  
+$$ f : \{\text{C.S.A.'s over $k$ of degree $n$} \} \rightarrow \{\text{Severi-Brauer varieties that are forms of $\P^{n-1}$}\}  $$
 
-A Severi-Brauer variety over a field $k$ is an algebraic variety $X$ of dimension $n$ such that $X \times_k \overline{k} \cong \P^{n-1}_k$.
+We shall simply construct this map but won't give a proof of its bijection. For a proof, one can look at Chapter 8 and Chapter 14 in [Algebraic Geometry - Schemes with Examples and exercises](https://www.math.ucdavis.edu/~blnli/buildings/bag.pdf)
+
+Let $A$ be a CSA over $k$. Then we shall give a description of the functor that the variety $f(A)$ represents. 
+
+$$
+f(A) : k-schemes \rightarrow Sets 
+$$
+$$
+f(A) (T) = \{I \subset A_T | \text{ is a left ideal such that } A_T/I \text{ is a locally free sheaf of rank } n^2-n \}.
+$$
+
+For example, if $k=\R$, then the non-trivial element in the Brauer group given by the quarternions gets sent to the 
+variety given by the conic $x^2 + y^2 + z^2 = 0$. 
 
 Aside : What are the left ideals of $M_n(k) = End(V)$, where $V=k^n$. The left ideals are in $1-1$ correspondence with the subspaces of $V$. Every left ideal $I \subset Hom(V,V)$ corresponds to a subspace $W$ of $V$ where $W$ is the set of points in $V$ that vanish on all elements of $I$, i.e. $I=Hom(V/W,V)$. What are the right ideals $J$ of $End(V)$ ? They are also given by subspaces $W$ with the correspondence given by $J = Hom(V,W)$.
+
 
 
 <div class="corollary">
