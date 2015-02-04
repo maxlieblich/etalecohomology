@@ -1,0 +1,63 @@
+# The Brauer Group of a Scheme 
+
+At this point, we know what the Brauer group of a field is.  An obvious question to ask is: can we find a good notion of the Brauer group of an arbitrary ring?  Or perhaps even a scheme?  The answer is yes.  To do this we have to look at the Brauer group from the right perspective.  
+
+### Motivation and Definitions
+
+We defined the Brauer group of a field to be the group of central simple algebras over $k$, modulo Morita equivalence.  We have previously seen (How do I reference things??) that a $k$-algebra $A$ is central simple of finite rank if and only if there exists an $n>0$ such that
+
+$$A\otimes_k\overline{k}\cong M_n(\overline{k}))$$
+
+Here is a more geometric way of saying this.  Let $X=\spec k$.  Then, a central simple algebra over $k$ is the same thing as a quasi-coherent sheaf of $\mathcal{O}_X$-algebras $\mathcal{A}$ all of whose geometric fibers are (isomorphic to) matrix algebras.  (Sidenote: there is an analogy here with Galois theory.  A separable extension of fields can be thought of as a sheaf whose geometric fibers are disjoint unions of points.  We investigated this last quarter).  With this motivation in mind, we make the following definition:
+
+
+
+<div class="definition">
+Let $X$ be a scheme.  An Azumaya algebra of degree $n$ on $X$ is a locally free quasi-coherent sheaf $\mathcal{A}$ of $\mathcal{O}_X$-algebras of rank $n^2$ such that, for all geometric points $x\rightarrow X$, the fiber $\mathcal{A}\otimes k(x)$ is isomorphic to $M_n(k(x))$.  
+</div>
+
+
+There are other definitions of Azumaya algebras.  Here are two:
+
+
+<div class="definition">
+Let $X$ be a scheme.  An Azumaya algebra of degree $n$ on $X$ is a locally free quasi-coherent sheaf $\mathcal{A}$ of $\mathcal{O}_X$-algebras of rank $n^2$ such that there exists an fppf cover $U\to X$, with $\mathcal{A}|_U\cong M_n(\mathcal{O}_U)$.
+</div>
+
+
+This one seems closely related to the above one.  We are just thinking locally on an open cover, as opposed to stalk-locally.  Max sketched a proof that this definition and the above one are equivalent.  We won't attempt to reproduce thi here.  Before we give the third definition, recall the following characterization of central simple algebras:
+
+<div class="proposition">
+Let $A$ be an algebra over a field $k$.  Then, $A$ is a central simple algebra if and only if the map $\mu:A\otimes A^{\mbox{op}}\rightarrow\mbox{End}_k(A)$ given by $a\otimes b\mapsto(x\mapsto axb)$ is an isomorphism.
+<\div>
+
+If we sheafify everything in the above, we are led to the following definition:
+
+<div class="definition">
+Let $X$ be a scheme.  An Azumaya algebra of degree $n$ on $X$ is a locally free quasi-coherent sheaf $\mathcal{A}$ of $\mathcal{O}_X$-algebras of rank $n^2$ such that the map $\mu:\mathcal{A}\otimes\mathcal{A}^{\mbox{op}}\rightarrow\mathcal{End}(\mathcal{A})$ is an isomorphism.
+</div>
+
+
+(here the map $\mu$ is the global version of the previous algebra $\mu$).  This definition also turns out to be equivalent.  We will also not prove this here.  We will next give some (coerced) examples of Azumaya algebras.
+
+### Examples
+
+
+<div class="example">
+If $V$ is a locally free sheaf on $X$, then $\mathcal{End}(V)$ is an Azumaya algebra on $X$.
+<\div>
+
+To see that this is indeed an Azumaya algebra, note (for instance) such a sheaf satisfies definition (2), because the fppf topology is finer than the Zariski topology.  Here is something silly we can do:
+
+<div class="example">
+Let $X$ be a scheme, and take $a,b\in\mathcal{O}_X(X)^{\times}$.  Suppose that $2\in\mathcal{O}_X(X)^{\times}$.  Then, the sheaf
+$$\mathcal{O}_X\langle i,j\rangle/(i^2=a,j^2=b,ij=-ji)$$
+is an Azumaya algebra on $X$.
+<\div>
+
+
+
+
+
+
+
