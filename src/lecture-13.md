@@ -33,9 +33,9 @@ Recall that a ring is *simple* if it has no non-trivial two-sided ideals.
 <div class="theorem"> (Artin-Wedderburn, special case)
 An Artinian ring $A$ is simple if and only if the module category $\Mod_A$ is simple.
 </div>
-**Proof**. If the module category is simple, we have just seen that $A\cong\M_n(D)$, and it is an exercise that this ring is simple. (Just do linear algebra over a division ring! More precisely, why not classify all ideals -- left, right, two-sided -- in these rings while you're at it?) 
+**Proof**. If the module category is simple, we have just seen that $A\cong M_n(D)$, and it is an exercise that this ring is simple. (Just do linear algebra over a division ring! More precisely, why not classify all ideals -- left, right, two-sided -- in these rings while you're at it?) 
 
-So suppose that $A$ is a simple Artinian ring. First, given an $A$-module $M$, note that the annihilator of any element is a two-sided ideal of $A$ that does not contain $1$, hence is trivial. A minimal left ideal of $A$ (which exists because $A$ is Artinian!) is a simple module, so, in particular, $A$ has a faithful simple module that we will also call $M$. We will show that in fact $A$ can be written as $M^{\oplus m}$ for some $m$.
+So suppose that $A$ is a simple Artinian ring. First, given an $A$-module $M$, note that the annihilator of $M$ is a two-sided ideal of $A$ that does not contain $1$, hence is trivial. A minimal left ideal of $A$ (which exists because $A$ is Artinian!) is a simple module, so, in particular, $A$ has a faithful simple module that we will also call $M$. We will show that in fact $A$ can be written as $M^{\oplus m}$ for some $m$.
 
 This is a clever trick: a map $$f:A\to M^{\oplus n}$$ with minimal kernel must be injective. Indeed, if not, there is some $a$ such that $f(a)=0$. But $M$ is faithful, so there is an $m$ such that $am\neq 0$. We can thus create a new map $$f':A\to M^{\oplus n}\oplus M$$ by sending $a$ to $(f(a), am)$. This will have a smaller kernel!
 
