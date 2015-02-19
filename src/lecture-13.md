@@ -96,7 +96,7 @@ A field L is $C_1$ if any homogeneous polynomial in $n$ variables of degree $d <
 <div class="theorem">(Tsen's Theorem)
 A finite extension of $\overline k (t)$ is $C_1$. 
 </div>
-**Proof**. Let p(x_1,...,x_n) be a homogeneous polynomial of degree $d < n$ in $\overline k (t)$.  We want to find $a_1(t),...,a_n(t)$ in $\overline k (t)$, not all 0, such that $p(a_1(t),...,a_n(t)) = 0$.  
+**Proof**. Let $p(x_1,...,x_n)$ be a homogeneous polynomial of degree $d < n$ in $\overline k (t)$.  We want to find $a_1(t),...,a_n(t)$ in $\overline k (t)$, not all 0, such that $p(a_1(t),...,a_n(t)) = 0$.  
 Write $$a_i(t) = \sum_{j=0}^N b_{ij}t^j$$ and write $$p(t) = \sum_{l=0}^m f_l(t) q_l(x_1,...,x_n)$$ where $f_l(t) \in \overline k$, $q_l(x_1,...,x_n)$ is a degree $d$ monomial, and $m$ is the number of such monomials.  Then, 
 $$p(a_1(t),...,a_n(t) = \sum_{l=0}^m f_l(t) q_l(a_1(t),...,a_n(t)) = \sum_{r=0}^{Nd+M}g_r(\underline{b}_{ij})t^r$$
 where M is the max degree of the $f_l(t)$'s, for some polynomials $g_r$.  
@@ -109,21 +109,21 @@ Because $n-d > 0$, choosing $N$ sufficiently large guarantees a nontrivial solut
 <div class="proposition">
 Any central simple algebra $A$ over $k$ has the property that $A\tensor k^s\cong M_n(k^s)$ for some $n$, i.e. $A$ splits over a separable closure of $k$.  
 </div>
-**Proof**. Let \$I = Isom(A,M_n): CAlg_k \to Set$ be the functor taking a commutative $k$-algebra $R$ to the $R$-algebra isomorphism $A\tensor_k R \to $M_n(R)$.  This is a scheme because we can define $A$ and $M_n$ via generators and relations and then parametrize isomorphisms between them (linear maps with polynomial conditions).  This works in part because  $\phi: A\tensor R \to M_n(R)$ is an isomorphism if and only if, for all $\overline k$, $R\to k$, the map $\phi\tensor\overline k : A\tensor \overline k \to M_n(\overline k)$ is an isomorphism. 
+**Proof**. Let $I = Isom(A,M_n): CAlg_k \to Set$ be the functor taking a commutative $k$-algebra $R$ to the $R$-algebra isomorphism $A\tensor_k R \to $M_n(R)$.  This is a scheme because we can define $A$ and $M_n$ via generators and relations and then parametrize isomorphisms between them (linear maps with polynomial conditions).  This works in part because  $\phi: A\tensor R \to M_n(R)$ is an isomorphism if and only if, for all $\overline k$, $R\to k$, the map $\phi\tensor\overline k : A\tensor \overline k \to M_n(\overline k)$ is an isomorphism. 
 $I$ is nonempty because $A$ splits over $\overline k$ ($A\tensor_k \overline k \cong M_n(\overline k)$). 
 In fact, $I$ is a torsor under $Isom(M_n, M_n)$ in the fppf topology because it splits over $\overline k$ and any two elements of $I$ differ by an automorphism of $M_n$.  Using the Skolem-Noether Theorem (below) and descent in the fppf topology, we can then conclude $I$ is smooth, hence has a point over a separable extension. QED
 
 <div class="theorem">(Skolem-Noether) 
 The canonical sequence of Zariski sheaves $$ 1 \to \mathbf{G}_m \to GL_n \to Aut(M_n) \to 1 $$ is exact (with the last map conjugation by elements of $GL_n$).  
 </div>
-**Proof**.  First note that if $\alpha \in GL_n$ acts trivially, $\alpha t = t \alpha$ for all $t$, so $\alpha \in Z(M_n) \cap M_n^x $, hence $\alpha \in \mathbf{G}_m$.  
+**Proof**.  First note that if $\alpha \in GL_n$ acts trivially, $\alpha t = t \alpha$ for all $t$, so $ \alpha $ is in the intersection of $Z(M_n) $ and $ M_n^x $, hence $\alpha \in \mathbf{G}_m$.  
 To see exactness on the right, we use the following lemma.  QED. 
 
 **Lemma**. If $R$ is a local ring, then any automorphism $M_n(R) \to M_n(R)$ is conjugation by an invertible element $\alpha \in GL_n(R)$.  
 
 **Proof**. First, consider consider the classical case $R = k$, a field.  $M_n(k)$ has a unique simple module $V$.  If $\sigma \in Aut(M_n(k))$, consider the two actions of $M_n(k)$ on $V$ given by $(\alpha, v) \mapsto \alpha v$ and $(\alpha, v) \mapsto \sigma(\alpha) v$.  
 Because $V$ is simple, there is an $M_n(k)$ isomorphism of these actions, i.e. $\phi: V \to V$ such that $\phi(\alpha v) = \sigma(\alpha)\phi(v)$, but $\phi \in End(V) \cong M_n(k)$, hence $\sigma$ is conjugation by $\phi$.  
-For the general case, let $\sigma \in Aut(M_n(R))$.  There exists a unique $M_n(R)$ module $V$ that is free over $R$ of rank $n$.  Such a module exists (think columns) and is free because $M_n(R) \cong V^n$.  It is unique because if $V'$ is another such module, by tensoring with the residue field $k$ of $R$, we get an isomorphism $V\tensor k \to \V'\tensor k$.  Because $V$ is projective, this lifts to a map $V \to V'$, which is surjective by Nakayama's lemma.  But, $V$ and $V'$ are free of the same rank, hence it must be an isomorphism.  
+For the general case, let $\sigma \in Aut(M_n(R))$.  There exists a unique $M_n(R)$ module $V$ that is free over $R$ of rank $n$.  Such a module exists (think columns) and is free because $M_n(R) \cong V^n$.  It is unique because if $V'$ is another such module, by tensoring with the residue field $k$ of $R$, we get an isomorphism $V\tensor k \to V'\tensor k$.  Because $V$ is projective, this lifts to a map $V \to V'$, which is surjective by Nakayama's lemma.  But, $V$ and $V'$ are free of the same rank, hence it must be an isomorphism.  
 Then, the argument above implies $\sigma$ is conjugation.  QED. 
 
 ### A digression on rational points
