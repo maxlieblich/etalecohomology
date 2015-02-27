@@ -1,3 +1,5 @@
+Lecture notes from January 16, 2015.
+
 (Below is Yannick's reformating of Sid's LaTeX file based off of Yannick's handwritten notes.  Naturally, all mistakes are due to Sid.)
 
 Given a CSA over $k$, set
