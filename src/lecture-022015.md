@@ -5,7 +5,7 @@ Let $\pi: X \to S$ be a stack. We want to talk about sheaves on $X$, and in orde
 <div class="example">
 One can build a sheaf of groups on every stack, by considering the functor
 $$
-x\maspto Aut(x)
+x\mapsto Aut(x)
 $$
 where $Aut(x)$ is the group of automorphisms of $x$ in the fibered category, i.e. the isomorphisms $\psi:x\to x$ such that $\pi(\psi) = Id$.
 

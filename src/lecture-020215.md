@@ -8,7 +8,7 @@ $$
 which takes an $X$-scheme $T$ to the groupoid with
 $$
 \mathrm{Objects}\mathscr{I}(T)=\left\{\begin{array}{c}\text{Pairs }(V,\phi)\text{ where }V\text{ is a vector bundle on }X\\
-\text{and }\phi\text{ is an $\O_X$-algebra isomorphism }\phi:A_T\to\underline{\End}_{\mathscr{O}_X}(V)\end{array}\right\}.
+\text{and }\phi\text{ is an $\mathcal{O]_X$-algebra isomorphism }\phi:A_T\to\underline{\End}_{\mathscr{O}_X}(V)\end{array}\right\}.
 $$
 Here by ``vector bundle" we mean specifically a quasi-coherent sheaf $V$ on $X$ which is locally free of finite rank.  The morphisms between objects $\phi:A_T\to \underline{\End}_{\mathscr{O}_T}(V)$ and $\phi':A_T\to\underline{\End}_{\mathscr{O}_T}(V')$ in $\mathscr{I}(T)$ are given by vector bundle maps $\alpha:V\to V'$ fitting into the appropriate diagram, i.e. with $ad_{\alpha}\phi=\phi'$.
 \par
@@ -27,19 +27,19 @@ According to what I think I understood, an algebraic stack on the fppf site is a
 
 In our example the pairs $(V,\phi)$ satisfy descent in that (1) for any pair $b=(V,\phi)$, $b'=(V',\phi')$ in $\mathscr{I}(T)$ the functor
 $$
-\Isom_T(b,b'):\mathrm{Sch}/T\to \Set,\ \ 
-(U\to T)\mapsto \Isom_{\mathscr{I}(U)}(b|U,b'|U)
+\text{Isom}_T(b,b'):\mathrm{Sch}/T\to \Set,\ \ 
+(U\to T)\mapsto \text{Isom}_{\mathscr{I}(U)}(b|U,b'|U)
 $$
 is a sheaf on the fppf site $T_{fppf}$, and (2) We can construct a pair $(V,\phi)$ fppf locally via fppf descent for vector bundles.
 \par
   
 Another way to make this statement is as follows: suppose we have a fppf cover $U\to T$.  Then we can consider the diagram
 $$
-\mathscr{I}(T)\overset{(-)|U}\to\mathscr{I}(U)\overset{p_2^\ast}{\underset{p_1^\ast}\rightrightarrows}\mathscr{I}(U\times_T U).
+\mathscr{I}(T)\mathcal{O]verset{(-)|U}\to\mathscr{I}(U)\mathcal{O]verset{p_2^\ast}{\underset{p_1^\ast}\rightrightarrows}\mathscr{I}(U\times_T U).
 $$
 We would like to say that any object $(W,\psi)$ on $U$ mapping to ``the same" objects $(p^\ast_1 W, p^\ast_1\psi)$ and $(p^\ast_2 W,p_2^\ast \psi)$ under the (pullbacks of) the two projections comes from an object in $\mathscr{I}(T)$.  However, this stament is too coarse, as we explicitly need the information of the isomorphism $\beta:(p^\ast_1 W, p^\ast_1\psi)\to (p^\ast_2 W,p_2^\ast \psi)$.  To apply descent we also need to know that this isomorphism satisfies some compatibility criterion on tripple overlaps.  So we extend our above diagram slightly to get
 $$
-\mathscr{I}(T)\overset{(-)|U}\to\mathscr{I}(U)\overset{p_2^\ast}{\underset{p_1^\ast}\rightrightarrows}\mathscr{I}(U\times_T U)\overset{\to}{\underset{\to}\to}\mathscr{I}(U\times_T U\times_T U),
+\mathscr{I}(T)\mathcal{O]verset{(-)|U}\to\mathscr{I}(U)\mathcal{O]verset{p_2^\ast}{\underset{p_1^\ast}\rightrightarrows}\mathscr{I}(U\times_T U)\mathcal{O]verset{\to}{\underset{\to}\to}\mathscr{I}(U\times_T U\times_T U),
 $$
 where the three arrows are the pullbacks along the three possible projections $p_{ij}^\ast: U\times_T U\times_T U\to U\times_T U$.  With this diagram in hand we demand that any object $b$ in $\mathscr{I}(U)$ along with an isomorphism $\beta:p_1^\ast b\to p_2^\ast b$ which additionally satisfies 
 $$
@@ -70,7 +70,7 @@ $$
 Note that $D^G_{U/T}$ is a groupoid, as all of the maps are isomorphisms.  (They are induced by maps in $G(U)$.
 \par
 
-Let's let $f$ denote our covering $U\to T$.  Recall that in the statement that $G$ is the statement that for sequences $X\overset{g}\to  Y\overset{h}\to Z$ in $\mathcal{C}$ there are natural, compatible, isomorphisms $(hg)^\ast\overset{\cong}\to g^\ast h^\ast$.  Whence there is a canonical map of groupoids
+Let's let $f$ denote our covering $U\to T$.  Recall that in the statement that $G$ is the statement that for sequences $X\mathcal{O]verset{g}\to  Y\mathcal{O]verset{h}\to Z$ in $\mathcal{C}$ there are natural, compatible, isomorphisms $(hg)^\ast\mathcal{O]verset{\cong}\to g^\ast h^\ast$.  Whence there is a canonical map of groupoids
 $$
 \delta_{U/T}:G(T)\to D^G_{U/T}
 $$
@@ -87,19 +87,5 @@ implied by the pseudo-functor structure on $G$.
 <div class="remark">
 Let $G:\mathcal{C}^{op}\to \mathrm{Groupoid}$ be a pseudo-functor, as above.  We say descent is *effective* for $G$ if for any cover $U\to T$ the groupoid map $\delta_{U/T}$ is an equivalence of categories.  We say $G$ is a stack on $\mathcal{C}$ if
 -descent is effective for $G$ and
--for any $a,a'\in G(T)$, the presheaf $\Isom_T(a,a'):\mathcal{C}^{op}/T\to \Set$ is in fact a sheaf!
+-for any $a,a'\in G(T)$, the presheaf $\text{Isom}_T(a,a'):\mathcal{C}^{op}/T\to \Set$ is in fact a sheaf!
 </div>
-
-
-
-\end{document}
-
-
-
-
-
-
-
-
-
-

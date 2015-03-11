@@ -15,7 +15,7 @@ to be the functor taking a sheaf $M$ (of sets) to the value of $M$ on $X$, $\Gam
 Let $A$ be a sheaf of abelian groups on $C$ and consider an injective resolution $0\to A\to I^0\to I^1\to \cdots$.  Then we get a complex $\Gamma(I^\bullet)=0\to \Gamma(I^0)\to \Gamma(I^1)\to\cdots$ and take the cohomology to get $H^\bullet(C,A)$.  Let $d$ denote the differential on our complex $\Gamma(I^\bullet)$.  Below we will also employ the notation $I^\bullet(S)=0\to I^0(S)\to I^1(S)\to\cdots$, and $d|S$ for the differential on $I^\bullet(S)$.
 
 <div class="definition">
-Let $a\in \Gamma(I^2)$ be any cocylce, i.e. any element with $d(a)=0$.  We define the ``stack of trivializations of $a$" to be the CFG $\mathscr{G}_a$ with fibers $\mathscr{G}_a(S)$ given by the sets $\{b\in I^1(S):d(b)=a|S\}$.  Morphisms between objects $b$ and $b'$ in $\mathscr{G}_a(S)$ and $\mathscr{G}_a(S)$ are given by a map $S\to S'$ and $\gamma\in I^0(S)$ with $g(\gamma)=b-b'|S$.
+Let $a\in \Gamma(I^2)$ be any cocycle, i.e. any element with $d(a)=0$.  We define the ``stack of trivializations of $a$" to be the CFG $\mathscr{G}_a$ with fibers $\mathscr{G}_a(S)$ given by the sets $\{b\in I^1(S):d(b)=a|S\}$.  Morphisms between objects $b$ and $b'$ in $\mathscr{G}_a(S)$ and $\mathscr{G}_a(S)$ are given by a map $S\to S'$ and $\gamma\in I^0(S)$ with $g(\gamma)=b-b'|S$.
 </div>
 
 <div class="claim">
@@ -24,7 +24,7 @@ $\mathscr{G}_a$ is in fact a stack.  This follows form the fact that all the $I^
 
 ###{Properties of $\mathscr{G}_a$ and gerbs}
 
-Note that the automorphisms of a given $b$ in $\mathscr{G}_a(S)$ are exactly equal to the kernel of $d^0|S$.  However, by left exactness of the functor taking sections over $S$, the sequence $0\to A(S)\to I^0(S)\to I^1(S)$ is exact for all $S$.  So we have an identification $A(S)\overset{\cong}\to \ker(d_S^0)$ for all $S$.  Furthermore, we will have diagrams
+Note that the automorphisms of a given $b$ in $\mathscr{G}_a(S)$ are exactly equal to the kernel of $d^0|S$.  However, by left exactness of the functor taking sections over $S$, the sequence $0\to A(S)\to I^0(S)\to I^1(S)$ is exact for all $S$.  So we have an identification $A(S)\mathcal{O]verset{\cong}\to \ker(d_S^0)$ for all $S$.  Furthermore, we will have diagrams
 $$
 \require{AMScd} \begin{CD}
 A(S) @>>>> \mathrm{Aut}(b) \\
@@ -51,7 +51,7 @@ Any stack $\mathscr{G}$ with the above three properties is called an $A$-gerbe.
 As an example we can consider the stack $B\mathbb{G}_m$, which we interpret here as the stack of line bundles on a fixed base scheme $X$.  Objects in $B\mathbb{G}_m$ will be line bundles, and morphisms will be given by isomorphisms of line bundles.  Here $\mathcal{C}$ will be the fppf site on $X$.  
 \par
 
-Obviously $B\mathbb{G}_m(X)$ is nonempty, since $\O_X$ is a global line bundle.  So condition (1) will be satisfied.  For any $S\to X$, and line bundles $L$ and $L'$ on $S$, we can choose a cover $\{V_i\to S\}$ such that $L|V_i$ and $L'|V_i$ are free, and hence admit an isomorphism $L|V_i\overset{\cong}\to L|V_i$.  Whence we can take $V=\coprod_i V_i$ to get a cover $V\to S$ on which $L|V$ and $L'|V$ are isomorphic.  This gives (2).  For (3) we simply note that, for any line bundle $L$ on $S$, the canonical map $\O_S\to \underline{\mathrm{End}}_{\O_S}(L)$ given by left multiplication will be an isomoprhism.  This isomorphism restricts to give a natural isomorphism $\mathbb{G}_m(S)=\O_S^\ast(S)\to \mathrm{Aut}_{\O_S}(L)$, and subsequent sheaf isomorphism $(\mathbb{G}_m)_S\to \underline{\mathrm{Aut}}_{B\mathbb{G}_m}(L)$.
+Obviously $B\mathbb{G}_m(X)$ is nonempty, since $\mathcal{O]_X$ is a global line bundle.  So condition (1) will be satisfied.  For any $S\to X$, and line bundles $L$ and $L'$ on $S$, we can choose a cover $\{V_i\to S\}$ such that $L|V_i$ and $L'|V_i$ are free, and hence admit an isomorphism $L|V_i\mathcal{O]verset{\cong}\to L|V_i$.  Whence we can take $V=\coprod_i V_i$ to get a cover $V\to S$ on which $L|V$ and $L'|V$ are isomorphic.  This gives (2).  For (3) we simply note that, for any line bundle $L$ on $S$, the canonical map $\mathcal{O]_S\to \underline{\mathrm{End}}_{\mathcal{O]_S}(L)$ given by left multiplication will be an isomoprhism.  This isomorphism restricts to give a natural isomorphism $\mathbb{G}_m(S)=\mathcal{O]_S^\ast(S)\to \mathrm{Aut}_{\mathcal{O]_S}(L)$, and subsequent sheaf isomorphism $(\mathbb{G}_m)_S\to \underline{\mathrm{Aut}}_{B\mathbb{G}_m}(L)$.
 
 ###{Isoclasses of gerbs and $H^2(\mathcal{C},A)$}
 
