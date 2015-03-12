@@ -54,7 +54,7 @@ There is an isomorphism of $\mathbb{G}_{m}$-gerbes
 $$ \mathcal{M} \simeq B\mathbb{G}_{m} \times X. $$
 <\div>
 
-**Point of Proof** This alternative description gives a map $F \to Supp (F)$ and $M \to X$ that imply the isomorphism above. QED.
+**Point of Proof** This alternative description gives a map $F \to Supp (F)$ and $M \to X$ that, together, imply the isomorphism above. QED.
 
 Note: The stack $\mathcal{M}$ is a ``floppification'' of ${Hilb}^{1} ( X )$; alternatively one can view the punctual Hilbert scheme ${Hilb}^{1} ( X )$ as a rigidification of $\mathcal{M}$; since ${Hilb}^{1} ( X )$ classifies sheaves of length $1$ $\mathcal{T}$ with the extra structure of a morphism $\mathcal{O} \to \mathcal{T}$.
 
