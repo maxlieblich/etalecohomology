@@ -68,7 +68,7 @@ I think the answers are $\mathfrak{X}$ and $\mathfrak{Y}$ respectively.
 We conjectured in class that the moduli space of length $1$ $\mathfrak{X}$-twisted sheaves must be either $\mathfrak{X}$ or $B\mathbb{G}_{m} \times X$.  One way to distinguish the two is to determine if there is a global section over $id: X \to X$, which corresponds to the existence of an invertible $\mathfrak{X}$-twisted sheaf.  
 But, such a sheaf exists if and only if $[ \mathfrak{X} ] = 0$.  So, if $[ \mathfrak{X} ] \ne 0$, this moduli space certainly can't be $B\mathbb{G}_{m} \times X$, leading us to believe it is just $\mathfrak{X}$.  
 
-# Another proof that $\mathrm{Br} ( X )$ is torsion
+### Another proof that $\mathrm{Br} ( X )$ is torsion
 
 Consider the cocycle formulation of twisted sheaves. Let $U \to X$ be a Cech hypercover, and $a \in \mathbb{G}_{m} ( U \times_{X} U \times_{X} U )$ be a cocycle with class $[ \mathfrak{X} ]$. 
 A twisted sheaf is given by a sheaf $F$ on $U$ together with an isomorphism $\varphi : \mathrm{pr}_{1}^{\ast} F \to \mathrm{pr}_{2}^{\ast} F$ satisfying the $a$-twisted cocycle equation. Let $\delta$ be coboundary map, then $\delta \varphi =a^{-1}$.
