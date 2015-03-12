@@ -24,13 +24,13 @@ We can rephrase condition (M2) equivalently as follows:
 Note that Condition (M2') is compatible with base change.
 
 <div class="proposition">
-(M2) and (M2') are equivalent conditions
+(M2) and (M2') are equivalent conditions.
 <\div>
 
 **Proof** Consider the following Cartesian square
 $$ \begin{array}{ccc} X_{\bar{t}} & \overset{f}{\longrightarrow} & X_{T}\\
-       _{\pi} \downarrow &  & \downarrow_{q}\\
-       \bar{t} & \overset{g}{\longrightarrow} & T \end{array} $$
+_{\pi} \downarrow &  & \downarrow_{q}\\
+\bar{t} & \overset{g}{\longrightarrow} & T \end{array} $$
 where $\bar{t}$ is a geometric point of $T$. Then $F_{\bar{t}} =f^{\ast} F$. Suppose that $F_{\bar{t}}$ has length $1$, then $k ( \bar{t} ) \simeq \pi_{\ast} f^{\ast} F \simeq g^{\ast} q_{\ast} F$. Hence the geometric fibres of $q_{\ast} F$ are one dimensional. (This should imply $q_{\ast} F$ is locally free, at least if $T$ is reduced and $k= \bar{k}$ this is clear).
 Conversely, suppose $q_{\ast} F$ is locally free of rank $1$, then $\pi_{\ast} F_{\bar{t}} \simeq g^{\ast} q_{\ast} F \simeq k ( \bar{t} )$, so $F_{\bar{t}}$ has length $1$. QED. 
 
