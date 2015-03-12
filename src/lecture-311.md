@@ -23,7 +23,7 @@ We can rephrase condition (M2) equivalently as follows:
 
 Note that Condition (M2') is compatible with base change.
 
-<div class="lemma">
+<div class="proposition">
 (M2) and (M2') are equivalent conditions
 <\div>
 

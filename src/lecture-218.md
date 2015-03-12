@@ -4,7 +4,7 @@ Given a scheme $X$ and an Azumaya algebra $A$ on $X$, we've defined $I_A$ to be 
 
 ### Clarifying the question
 
-Last quarter we showed that we can consider any $X \in Sch_S $ as a sheaf in the fppf site, and any sheaf has an associated stack: given $F \in Sh(S)$, $F$ is a functor (so a psuedofunctor) from $S^{op}$ to $Set$, and any set is canonically a discrete groupoid (a groupoid with no non-identity arrows).  In this setting, descent theory is equivalent to the sheaf condition, so descent theory is effective, so $F$ is a stack. 
+Last quarter we showed that we can consider any $X \in Sch/S $ as a sheaf in the fppf site, and any sheaf has an associated stack: given $F \in Sh(S)$, $F$ is a functor (so a psuedofunctor) from $S^{op}$ to $Set$, and any set is canonically a discrete groupoid (a groupoid with no non-identity arrows).  In this setting, descent theory is equivalent to the sheaf condition, so descent theory is effective, so $F$ is a stack. 
 Therefore, for any scheme, we can associate a sheaf to which we can associate a stack.  So, when we ask, "why is $I_A$ not a scheme?", we're really asking, "why is $I_A$ not isomorphic to a stack associated to a sheaf associated to a scheme?" 
 But, we could actually skip the scheme part and ask an intermediate question: "Why is $I_A$ not isomorphic to a stack associated to a sheaf?"  
 Note that when we discuss isomorphisms of stacks, we mean 1-isomorphisms.  A morphism of stacks on $S$ is a morphism of categories fibered in groupoids over $S$, and a 1-isomorphism is an equivalence of categories.  
