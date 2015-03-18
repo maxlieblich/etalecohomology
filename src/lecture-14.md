@@ -7,7 +7,7 @@ What is $PGL_n$ ? The following are equivalent (which we state without proof for
 3.  $PGL_n$ is defined to be  $Aut(M_n)$.
 4.  We can define $PGL_n / Spec(Z)$ to be the sheaf represented by the element $Spec S$, where $S$ is the degree zero part of  $Z[x_0 \ldots, x_n , det^{-1}]$ . And $PGL_n$ over any scheme $S$ is obtained via base change. 
 
-When $n \geq 2$, the sheaves $GL_n$ and $PGL_n$ do not always take values in the category of abelian groups. So we need to be a little careful when describing cohomology. Remember though that for abelian sheaf cohomology in the etale or fppf site, $H^1$ for abelian sheaf cohomology can be given by Cech cohomology $\hat{H}^1$ for presheaves.  Let's motivate the definition for non-abelian $H^1$ by recalling what happens in the abelian case. First, some definitions.  In what follows, $H^1$ would denote Cech $H^1$. 
+When $n \geq 2$, the sheaves $GL_n$ and $PGL_n$ do not always take values in the category of abelian groups. So we need to be a little careful when describing cohomology. Remember though that for abelian sheaf cohomology for quasi-coherent modules in the etale or fppf site, $H^1$ for abelian sheaf cohomology can be given by Cech cohomology $\hat{H}^1$ for presheaves.  Let's motivate the definition for non-abelian $H^1$ by recalling what happens in the abelian case. First, some definitions.  In what follows, $H^1$ would denote Cech $H^1$. 
 
 **Torsors** : Let $G$ be a sheaf of groups on $\Et(X)$. Let $S$ be a sheaf of sets on which $G$ acts by the right. Then, $S$ is called a torsor for $G$ if 
 - there exists an etale covering $U \rightarrow X$ such that $S(U) \neq \emptyset$.
@@ -35,12 +35,12 @@ See Theorem 14.89 in[Algebraic Geometry - Schemes with Examples and exercises](h
 <div class="corollary">
 We have two description for the elements of $H^1(Speck, PGL_n)$
 1. Isomorphism classes of central simple algebras of degree $n$. 
-2. Isomorphism classes of varieties over $spec(k)$ that are isomorphic over $\bar{k}$ to $\P^{n-1}$.  These varieties are called **Severi-Brauer varieties**. 
+2. Isomorphism classes of varieties over $spec(k)$ that are isomorphic over $\bar{k}$ to $P^{n-1}$.  These varieties are called **Severi-Brauer varieties**. 
 </div>
 
 What is the map relating these two descriptions ? 
 
-$$ f : \{\text{C.S.A.'s over $k$ of degree $n$} \} \rightarrow \{\text{Severi-Brauer varieties that are forms of $\P^{n-1}$}\}  $$
+$$ f : \{\text{C.S.A.'s over $k$ of degree $n$} \} \rightarrow \{\text{Severi-Brauer varieties that are forms of $P^{n-1}$}\}  $$
 
 We shall simply construct this map but won't give a proof of its bijection. For a proof, one can look at Chapter 8 and Chapter 14 in [Algebraic Geometry - Schemes with Examples and exercises](https://www.math.ucdavis.edu/~blnli/buildings/bag.pdf)
 
@@ -61,7 +61,7 @@ Aside : What are the left ideals of $M_n(k) = End(V)$, where $V=k^n$. The left i
 The functor given by $f(M_n(k))$ is representable by $P^{n-1}$. To see this, we note that $Hom(X,\P^{n-1})$ is in bijection with invertible quotients of $O_X^{n+1}$. 
 
 <div class="corollary">
-Let $X$ be a Severi-Brauer variety over $Spec(k)$. Then $X \cong \P_k^{n-1}$ if and only if $X(k) \neq \emptyset$.
+Let $X$ be a Severi-Brauer variety over $Spec(k)$. Then $X \cong P_k^{n-1}$ if and only if $X(k) \neq \emptyset$.
 </div>
 
 **Proof** It suffices to show that $X(k) \neq \emptyset$ will imply that $X \cong P_k^{n-1}$. Let $A$ be the CSA over $Spec(k)$ that corresponds to the variety $X$ in the construction above. The construction given above tells us that if $X(k) \neq emptyset$, then there exists a left ideal $I \subset A$ of rank $n$.  We get a non-zero map $\gamma : A \rightarrow End_k(I)$ where the vector space dimension of $A$ and $End_k(I) \cong M_n(k)$ equal $n^2$. Also, $A$ is simple. Hence, $\gamma$ has to be an isomorphism.  So, $A\cong M_n(k)$. We already saw that in this case, $f(A)$ is in fact the functor represented by $\P^{n-1}$.

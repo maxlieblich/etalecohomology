@@ -39,7 +39,19 @@ So suppose that $A$ is a simple Artinian ring. First, given an $A$-module $M$, n
 
 This is a clever trick: a map $$f:A\to M^{\oplus n}$$ with minimal kernel must be injective. Indeed, if not, there is some $a$ such that $f(a)=0$. But $M$ is faithful, so there is an $m$ such that $am\neq 0$. We can thus create a new map $$f':A\to M^{\oplus n}\oplus M$$ by sending $a$ to $(f(a), am)$. This will have a smaller kernel!
 
-Now that we have an injection $A\inj M^{\oplus n}$ into a direct sum of simple modules, it is an entertaining exercise to show that $A$ itself must be isomorphic to $M^{\oplus m}$ for some $m$. Using the argument from above, this means that $A\cong M_n(D)$, as desired. QED
+Now that we have an injection $A\inj M^{\oplus n}$ into a direct sum of simple modules. More generally, we are going to show that any submodule $N\subseteq M^{\oplus n}$ is free.
+
+We will make use of the fact that if $P = \sum_{I} M_i$ is a sum, where $M_i \cong M$, then the sum is direct, i.e. $P = \oplus_{J} M_i$, where $J\subset I$. (one can prove this last fact by a maximality argument)
+
+Let $N \subseteq M^{\oplus n}$ be a sumbmodule. The quotient $M^{\oplus n}/N$ is clearly a sum of copies of $M$, hence it's free by the quoted fact.
+
+Now we shall prove that $N$ is a direct summand of $M^{\oplus n}$, hence a quotient, thus showing that it's free. This is swiftly achieved by considering a maximal element $J$ in the set
+$$
+\{ I : \bigoplus_I M \cap N = 0  \}
+$$
+since in this case one can easily see that $\bigoplus_J M \cap N = M^{\oplus n}$.
+
+Now we know that $A \cong M^{\oplus m}$ for some $m$. Using the argument from above, this means that $A\cong M_n(D)$, as desired. QED
 
 ### Central simple algebras
 
@@ -96,7 +108,7 @@ A field L is $C_1$ if any homogeneous polynomial in $n$ variables of degree $d <
 <div class="theorem">(Tsen's Theorem)
 A finite extension of $\overline k (t)$ is $C_1$. 
 </div>
-**Proof**. Let p(x_1,...,x_n) be a homogeneous polynomial of degree $d < n$ in $\overline k (t)$.  We want to find $a_1(t),...,a_n(t)$ in $\overline k (t)$, not all 0, such that $p(a_1(t),...,a_n(t)) = 0$.  
+**Proof**. Let $p(x_1,...,x_n)$ be a homogeneous polynomial of degree $d < n$ in $\overline k (t)$.  We want to find $a_1(t),...,a_n(t)$ in $\overline k (t)$, not all 0, such that $p(a_1(t),...,a_n(t)) = 0$.  
 Write $$a_i(t) = \sum_{j=0}^N b_{ij}t^j$$ and write $$p(t) = \sum_{l=0}^m f_l(t) q_l(x_1,...,x_n)$$ where $f_l(t) \in \overline k$, $q_l(x_1,...,x_n)$ is a degree $d$ monomial, and $m$ is the number of such monomials.  Then, 
 $$p(a_1(t),...,a_n(t) = \sum_{l=0}^m f_l(t) q_l(a_1(t),...,a_n(t)) = \sum_{r=0}^{Nd+M}g_r(\underline{b}_{ij})t^r$$
 where M is the max degree of the $f_l(t)$'s, for some polynomials $g_r$.  
@@ -109,22 +121,57 @@ Because $n-d > 0$, choosing $N$ sufficiently large guarantees a nontrivial solut
 <div class="proposition">
 Any central simple algebra $A$ over $k$ has the property that $A\tensor k^s\cong M_n(k^s)$ for some $n$, i.e. $A$ splits over a separable closure of $k$.  
 </div>
-**Proof**. Let \$I = Isom(A,M_n): CAlg_k \to Set$ be the functor taking a commutative $k$-algebra $R$ to the $R$-algebra isomorphism $A\tensor_k R \to $M_n(R)$.  This is a scheme because we can define $A$ and $M_n$ via generators and relations and then parametrize isomorphisms between them (linear maps with polynomial conditions).  This works in part because  $\phi: A\tensor R \to M_n(R)$ is an isomorphism if and only if, for all $\overline k$, $R\to k$, the map $\phi\tensor\overline k : A\tensor \overline k \to M_n(\overline k)$ is an isomorphism. 
+**Proof**. Let $I = Isom(A,M_n): CAlg_k \to Set$ be the functor taking a commutative $k$-algebra $R$ to the $R$-algebra isomorphism $A\tensor_k R \to $M_n(R)$.  This is a scheme because we can define $A$ and $M_n$ via generators and relations and then parametrize isomorphisms between them (linear maps with polynomial conditions).  This works in part because  $\phi: A\tensor R \to M_n(R)$ is an isomorphism if and only if, for all $\overline k$, $R\to k$, the map $\phi\tensor\overline k : A\tensor \overline k \to M_n(\overline k)$ is an isomorphism. 
 $I$ is nonempty because $A$ splits over $\overline k$ ($A\tensor_k \overline k \cong M_n(\overline k)$). 
 In fact, $I$ is a torsor under $Isom(M_n, M_n)$ in the fppf topology because it splits over $\overline k$ and any two elements of $I$ differ by an automorphism of $M_n$.  Using the Skolem-Noether Theorem (below) and descent in the fppf topology, we can then conclude $I$ is smooth, hence has a point over a separable extension. QED
 
 <div class="theorem">(Skolem-Noether) 
 The canonical sequence of Zariski sheaves $$ 1 \to \mathbf{G}_m \to GL_n \to Aut(M_n) \to 1 $$ is exact (with the last map conjugation by elements of $GL_n$).  
 </div>
-**Proof**.  First note that if $\alpha \in GL_n$ acts trivially, $\alpha t = t \alpha$ for all $t$, so $\alpha \in Z(M_n) \cap M_n^x $, hence $\alpha \in \mathbf{G}_m$.  
+**Proof**.  First note that if $\alpha \in GL_n$ acts trivially, $\alpha t = t \alpha$ for all $t$, so $ \alpha $ is in the intersection of $Z(M_n) $ and $ M_n^x $, hence $\alpha \in \mathbf{G}_m$.  
 To see exactness on the right, we use the following lemma.  QED. 
 
 **Lemma**. If $R$ is a local ring, then any automorphism $M_n(R) \to M_n(R)$ is conjugation by an invertible element $\alpha \in GL_n(R)$.  
 
 **Proof**. First, consider consider the classical case $R = k$, a field.  $M_n(k)$ has a unique simple module $V$.  If $\sigma \in Aut(M_n(k))$, consider the two actions of $M_n(k)$ on $V$ given by $(\alpha, v) \mapsto \alpha v$ and $(\alpha, v) \mapsto \sigma(\alpha) v$.  
 Because $V$ is simple, there is an $M_n(k)$ isomorphism of these actions, i.e. $\phi: V \to V$ such that $\phi(\alpha v) = \sigma(\alpha)\phi(v)$, but $\phi \in End(V) \cong M_n(k)$, hence $\sigma$ is conjugation by $\phi$.  
-For the general case, let $\sigma \in Aut(M_n(R))$.  There exists a unique $M_n(R)$ module $V$ that is free over $R$ of rank $n$.  Such a module exists (think columns) and is free because $M_n(R) \cong V^n$.  It is unique because if $V'$ is another such module, by tensoring with the residue field $k$ of $R$, we get an isomorphism $V\tensor k \to \V'\tensor k$.  Because $V$ is projective, this lifts to a map $V \to V'$, which is surjective by Nakayama's lemma.  But, $V$ and $V'$ are free of the same rank, hence it must be an isomorphism.  
-Then, the argument above implies $\sigma$ is conjugation.  QED. 
+For the general case, let $\sigma \in Aut(M_n(R))$.  There exists a unique $M_n(R)$ module $V$ that is free over $R$ of rank $n$.  Such a module exists (think columns) and is free because $M_n(R) \cong V^n$.  It is unique because if $V'$ is another such module, by tensoring with the residue field $k$ of $R$, we get an isomorphism $V\tensor k \to V'\tensor k$.  Because $V$ is projective, this lifts to a map $V \to V'$, which is surjective by Nakayama's lemma.  But, $V$ and $V'$ are free of the same rank, hence it must be an isomorphism.  
+Then, the argument above implies $\sigma$ is conjugation.  QED.
+
+### Some examples of central simple algebras
+
+A *quaternion algebra* $A$ over a field $K$ of characteristic $\neq 2$ is a $4$-dimensional algebra generated (as a $K$-algebra) by two elements $i,j$ with the relations
+$$
+i^2 = a, j^2, ij + ji = 0
+$$
+where $a,b \in K^{\times}$. If we set $k = ij$, then a basis for $A$ is given by $1, i, j, k$. The algebra $A$ is often denoted by $(a, b)$.
+
+Given a generic element $x = a + bi + cj + dk$, then we define its *conjugate* to be $\overline{x} = a - bi - cj - dk$, and thus we can define a morphism of multiplicative monoids
+$$N: (a,b)\setminus 0 \to K^{\times}, x \mapsto n\overline{x}$$
+called the *norm* map.
+
+<div class="lemma">
+Let $A = (a,b)$ be a quaternion algebra. Then
+(1) $A$ is central over $K$
+(2) Either $A$ is a division algebra or it splits, i.e. it's isomorphic to $M_2(K)$
+(3) If $A$ is a division algebra, then it splits over $K(\sqrt{a})$ and over $K(\sqrt{b})$.
+</div>
+
+Quaternion algebras play an important role in the description of the Brauer group of $K$.
+
+<div class="theorem"> (Merkuriev–Suslin)
+Assume $\text{char}K \neq 2$. Then $Br(K)[2]$ is generated by quaternion algebras.
+</div>
+
+<div class="example">
+Let $F = K(x,y,z,w)$. Then one can prove that $(x,y)\otimes (z,w)$ is a central division algebra.
+
+*Challenge questions*:
+(1) Are there elements $a,b,c,d \in K(x,y,z)^{\times} such that (a,b)\otimes (c,d)$ is a CDA? What if $K$ is algebraically closed?
+(2) Is every $4$-dimensional $2$-torsion CDA over $K$ a quaternion algebra?
+
+A possible way to answer question (2) is to try to find the generatos $i,j$. Let $D$ be such a CDA, and let $i \in D\setminus K$. Then the extension $K(i) : K$ has degree $2$. WLOG we can assume $i^2 = \alpha \in K$. Try then to prove that the $K$-automorphism $K(i)\to K(i), i\mapsto -i$ is induced by conjugation by an element $j\in D$ whose square $\beta$ lies in $K$, and check that $D = (\alpha, \beta)$.
+</div> 
 
 ### A digression on rational points
 

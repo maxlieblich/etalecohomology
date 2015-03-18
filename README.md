@@ -6,3 +6,5 @@ Here is our note site. We are following the framework established for our [onlin
 This is an experiment that might end horribly.
 
 News: @wcasper added helpful [instructions](instructions.md) for making commits!
+
+#[Link](http://maxlieblich.github.io/etalecohomology/)
