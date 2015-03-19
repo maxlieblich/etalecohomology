@@ -1,3 +1,4 @@
+## Gerbes, Bands, and Quasi-Coherent Sheaves
 <!--
 Custom macros can be found in raw file index.md in the src folder.
 Some examples are C: "{\\bf{C}}" and Hom: "{\\operatorname{Hom}}"
@@ -13,9 +14,6 @@ C @>>j> D \\
 \end{CD}
 $$
 -->
-
-
-## Gerbes, Bands, and Quasi-Coherent Sheaves
 
 Lecture notes for 25 February, 2015.  They could use some cleaning up and buffing up.
 
