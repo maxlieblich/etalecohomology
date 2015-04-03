@@ -1,38 +1,67 @@
-# Examples of Stacks
+Let's start with the short exact sequence 
+$$ 1 \rightarrow \G_m \rightarrow GL_n \rightarrow PGL_n \rightarrow 1. $$
 
-It is recommended that everyone read Barbara Fantechi's [Stacks for Everybody](http://www.mathematik.uni-bielefeld.de/~rehmann/ECM/cdrom/3ecm/pdfs/pant3/fantechi.pdf)
+What is $PGL_n$ ? The following are equivalent (which we state without proof for now). 
+1.  $PGL_n$ is defined to be the sheafification of the cokernel presheaf $GL_n / \G_m$. 
+2.  $PGL_n$ is defined to be $Aut(P^{n-1})$.
+3.  $PGL_n$ is defined to be  $Aut(M_n)$.
+4.  We can define $PGL_n / Spec(Z)$ to be the sheaf represented by the element $Spec S$, where $S$ is the degree zero part of  $Z[x_0 \ldots, x_n , det^{-1}]$ . And $PGL_n$ over any scheme $S$ is obtained via base change. 
 
-### Reminder: Definition of a Stack
+When $n \geq 2$, the sheaves $GL_n$ and $PGL_n$ do not always take values in the category of abelian groups. So we need to be a little careful when describing cohomology. Remember though that for abelian sheaf cohomology for quasi-coherent modules in the etale or fppf site, $H^1$ for abelian sheaf cohomology can be given by Cech cohomology $\hat{H}^1$ for presheaves.  Let's motivate the definition for non-abelian $H^1$ by recalling what happens in the abelian case. First, some definitions.  In what follows, $H^1$ would denote Cech $H^1$. 
 
-Recall the following definition: if $C$ is a site and $G$ is a category fibered in groupoids over $C$, then $G$ is a *stack* if for all $c \in C$, $g, g' \in G(c)$, $\text{Isom}(g,g') : C/c \rightarrow \underline{\text{Set}}$ is a sheaf and for any cover $d \rightarrow c$, descent is effective, i.e. $G(c) \rightarrow D_{d/c}^G$ is an equivalence.
+**Torsors** : Let $G$ be a sheaf of groups on $\Et(X)$. Let $S$ be a sheaf of sets on which $G$ acts by the right. Then, $S$ is called a torsor for $G$ if 
+- there exists an etale covering $U \rightarrow X$ such that $S(U) \neq \emptyset$.
+- for every etale $U \rightarrow X$ and $s \in \Gamma(U,S)$, the map $G|U \rightarrow S|U$ given by $g \rightarrow s \cdot g$ is an isomorphism of sheaves.
 
-### Example 1: Quasi-coherent Sheaves
+A torsor $S$ is called the trivial torsor if it is isomorphic as a sheaf to $S=G$ (with $G$ acting on $S=G$ by right multiplication). 
 
-Let $C$ be the category of schemes with fppf topology, $G$ the category of quasi-coherent sheaves (one can see this is a CFG by thinking of the pseudo-functor sending schemes $X$ to the category of quasi-coherent sheaves over $X$ and $f$ to $f^*$).
+##### An exercise : Cech $H^1$ in terms of iso-classes ? 
 
-<div class="theorem"> $G \rightarrow C$ is a stack. </div>
-**Proof**. Given any scheme $X$, and quasi-coherent sheaves $Q_1, Q_2$, then $\text{Isom}(Q_1, Q_2) : \text{Sch}_X \rightarrow \underline{\text{Set}}$ sending $Y \rightarrow X$ to $\text{Isom}(Q_1|_Y, Q_2|_Y)$ is an fppf sheaf on $X$, in fact a subsheaf of the Hom sheaf: $f : Q_1 \rightarrow Q_2$ is an isomorphism if and only if there exists a $Y \rightarrow X$ an fppf cover such that $f_Y$ is an isomorphism.
+Let $G$ be an abelian sheaf on the small etale site $\Et(X)$. Prove that elements of $\hat{H}^1(X, G)$ are in one-to-one bijection with the set of iso-classes of left $G$-torsors in the etale topology. 
 
-Next, descent is effective for quasi-coherent sheaves; this was shown last quarter: reduce to the affine case and use Grothendieck's trick.
+**Proof** See Proposition 11.1 in Milne's notes on [Etale cohomology](http://www.jmilne.org/math/CourseNotes/LEC210.pdf). 
 
-### Example 2: Sheaves
+**TWisted forms**
+Two schemes $X$ and $Y$ are forms of each  other if $X \times k^{sep} \cong Y \times k^{sep}$. Let's work over the small etale side of a field $Spec(k)$. We saw last quarter that sheaves on this site are representable, by evaluating the sheaf $\F$ on $\colim_{L \subset k^{sep}} \F(k^{sep}/L)$.  
 
-We don't need to restrict the above to quasi-coherent sheaves. If $C$ is the category of schemes, $G$ the category of all sheaves, then $G \rightarrow C$ also forms a stack.
+<div class="lemma">
+Let $k$ be a field.  There exists a bijection between elements of $H^1(spec(k),Aut(F))$ and isomorphism classes of (twisted) forms of $F$.
+</div> 
 
-### Example 3: Torsors
+See Theorem 14.89 in[Algebraic Geometry - Schemes with Examples and exercises](https://www.math.ucdavis.edu/~blnli/buildings/bag.pdf). As an immediate corollary, we get the following corollary. 
 
-If $C$ is any site, $\Gamma$ a sheaf of groups on $C$, then define for each $c \in C$ $B\Gamma(c)$ to be the groupoid of left $\Gamma|_c$-torsors in $Sh(C/c)$. This consists of $T$ with a map $\Gamma \times T \rightarrow T$ such that:
-* "Whenever $T$ has a point $t$, the map $\Gamma \rightarrow T$ by $\gamma \mapsto \gamma t$ is an isomorphism"
-* "$T$ has a point over a covering"
+### A geometric construction relating the two descriptions of $H^1(X,PGL_n)$ :
 
-A subexample of this is $C = \text{Sch}$ and $\Gamma = \mathbb{G}_m$, so $B\mathbb{G}_m$ is the groupoid of invertible sheaves on $C$.
+<div class="corollary">
+We have two description for the elements of $H^1(Speck, PGL_n)$
+1. Isomorphism classes of central simple algebras of degree $n$. 
+2. Isomorphism classes of varieties over $spec(k)$ that are isomorphic over $\bar{k}$ to $P^{n-1}$.  These varieties are called **Severi-Brauer varieties**. 
+</div>
 
-There is also the stack of "representations of $\Gamma$", which is the stack of sheaves on $B\Gamma$.
+What is the map relating these two descriptions ? 
 
-### Example 4: Quotient Stacks
+$$ f : \{\text{C.S.A.'s over $k$ of degree $n$} \} \rightarrow \{\text{Severi-Brauer varieties that are forms of $P^{n-1}$}\}  $$
 
-Let $X$ be a scheme acted on by a group scheme $G$. Then define the stack $[X/G]$ via sending $Y$ to the groupoid of $\{Y \leftarrow T \rightarrow X \}$ where $T\rightarrow Y$ is a $G$-torsor and $T \rightarrow X$ is $G$-equivariant, where isomorphisms of such objects are isomophisms of the torsors where all diagrams commute.
+We shall simply construct this map but won't give a proof of its bijection. For a proof, one can look at Chapter 8 and Chapter 14 in [Algebraic Geometry - Schemes with Examples and exercises](https://www.math.ucdavis.edu/~blnli/buildings/bag.pdf)
 
-The idea here is we are forming out of thin air an ideal quotient: $X \rightarrow [X/G]$ is a $G$-torsor and it is specifically constructed such that for any morphism $Y \rightarrow [X/G]$, a $G$-torsor $T$ over $Y$ must have a compatible $G$-map through $X$.
+Let $A$ be a CSA over $k$. Then we shall give a description of the functor that the variety $f(A)$ represents. 
 
-A concrete subexample of this is the action of $\mathbb{G}_m$ on $\mathbb{A}^{n+1}/\{0\}$ via $\gamma(a_1, \dots, a_{n+1}) = (\gamma^{p_1} a_1, \dots, \gamma^{p_{n+1}} a_{n+1})$ where the $p_i$'s are some power.
+$$
+f(A) : k-schemes \rightarrow Sets 
+$$
+$$
+f(A) (T) = \{I \subset A_T | \text{ is a left ideal such that } A_T/I \text{ is a locally free sheaf of rank } n^2-n \}.
+$$
+
+For example, if $k=\R$, then the non-trivial element in the Brauer group given by the quarternions gets sent to the 
+variety given by the conic $x^2 + y^2 + z^2 = 0$. 
+
+Aside : What are the left ideals of $M_n(k) = End(V)$, where $V=k^n$. The left ideals are in $1-1$ correspondence with the subspaces of $V$. Every left ideal $I \subset Hom(V,V)$ corresponds to a subspace $W$ of $V$ where $W$ is the set of points in $V$ that vanish on all elements of $I$, i.e. $I=Hom(V/W,V)$. What are the right ideals $J$ of $End(V)$ ? They are also given by subspaces $W$ with the correspondence given by $J = Hom(V,W)$.
+
+The functor given by $f(M_n(k))$ is representable by $P^{n-1}$. To see this, we note that $Hom(X,\P^{n-1})$ is in bijection with invertible quotients of $O_X^{n+1}$. 
+
+<div class="corollary">
+Let $X$ be a Severi-Brauer variety over $Spec(k)$. Then $X \cong P_k^{n-1}$ if and only if $X(k) \neq \emptyset$.
+</div>
+
+**Proof** It suffices to show that $X(k) \neq \emptyset$ will imply that $X \cong P_k^{n-1}$. Let $A$ be the CSA over $Spec(k)$ that corresponds to the variety $X$ in the construction above. The construction given above tells us that if $X(k) \neq emptyset$, then there exists a left ideal $I \subset A$ of rank $n$.  We get a non-zero map $\gamma : A \rightarrow End_k(I)$ where the vector space dimension of $A$ and $End_k(I) \cong M_n(k)$ equal $n^2$. Also, $A$ is simple. Hence, $\gamma$ has to be an isomorphism.  So, $A\cong M_n(k)$. We already saw that in this case, $f(A)$ is in fact the functor represented by $\P^{n-1}$.
