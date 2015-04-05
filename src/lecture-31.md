@@ -1,3 +1,7 @@
+Speaker : Dan 
+Date : April 3, 2015
+Typed up by : Ken / Bharath
+
 Semistability
 =============
 
