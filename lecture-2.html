@@ -1,0 +1,178 @@
+<h1 id="grothendieck-topologies-presheaves-and-sheaves">Grothendieck topologies, presheaves, and sheaves</h1>
+<p>Recall the definition of a Grothendieck topology.</p>
+<div class="definition math">
+<dl><dt class="math">Definition 1</dt>
+<dd class="math">
+<p>A <em>Grothendieck topology</em> is a category <span class="math">\(C\)</span> with a collection of coverings <span class="math">\(\{U_i\to U\}{i\in I}\)</span> for each <span class="math">\(U\in C\)</span> such that</p>
+<ol type="1">
+<li>Any isomorphism is a covering.</li>
+<li>If <span class="math">\(\{U_i\to U\}\)</span> is a covering, and for each <span class="math">\(i\)</span> we have a covering <span class="math">\(\{V_{ij}\to U_i\}\)</span>, the total collection <span class="math">\(\{V_{ij}\to U\}\)</span> is a covering.</li>
+<li>If <span class="math">\(\{U_i\to U\}\)</span> is a covering and <span class="math">\(V\to U\)</span> is arbitrary, then each <span class="math">\(U_i\times_U V\)</span> exists and <span class="math">\(\{U_i\times V\to V\}\)</span> is a covering.</li>
+</ol>
+</dd>
+</dl>
+</div>
+<p><strong>IMPORTANT</strong>: we have to let <span class="math">\(i=j\)</span> in the above!!!</p>
+<p>A category with a Grothendieck topology is often called a <em>site</em>.</p>
+<div class="example math">
+<dl><dt class="math">Example 2</dt>
+<dd class="math">
+The category of open subsets of a topological space is a Grothendieck topology in a natural way.
+</dd>
+</dl>
+</div>
+<div class="example math">
+<dl><dt class="math">Example 3</dt>
+<dd class="math">
+<p>Let <span class="math">\(C\)</span> be the category of sets, and suppose a covering <span class="math">\(\{U_i\to U\}\)</span> is a collection of maps whose union is surjective. Let’s check the three properties.</p>
+<ol type="1">
+<li>An isomorphism is surjective.</li>
+<li>If <span class="math">\(A=\cup B_i\)</span> and <span class="math">\(B_i = \cup D_{ij}\)</span>, then certainly <span class="math">\(A=\cup D_{ij}\)</span>. Now apply this to images.</li>
+<li>If <span class="math">\(A\to B\)</span> is a surjective map of sets and <span class="math">\(D\to B\)</span> is arbitrary, then <span class="math">\(A\times_B D\to D\)</span> is surjective.</li>
+</ol>
+</dd>
+</dl>
+</div>
+<div class="example math">
+<dl><dt class="math">Example 4</dt>
+<dd class="math">
+What about letting <span class="math">\(C\)</span> be the category of <em>schemes</em>, and taking coverings to be collections of maps <span class="math">\(\{U_i\to U\}\)</span> such that <span class="math">\(\sqcup U_i\to U\)</span> is scheme-theoretically surjective. Does this work? (If you feel weird, use varieties or some such thing.)
+</dd>
+</dl>
+</div>
+<div class="example math">
+<dl><dt class="math">Example 5</dt>
+<dd class="math">
+Let <span class="math">\(C\)</span> be the category of <span class="math">\(C^\infty\)</span>-manifolds, and say that a covering is a collection of submersions <span class="math">\(\{U_i\to U\}\)</span> such that <span class="math">\(\sqcup U_i\to U\)</span> is surjective. One funny quirk: a submersion has local sections everywhere. Does this mean that this topology can be compared to the classical one somehow? For example, do they have the same sheaves? (What is a sheaf?)
+</dd>
+</dl>
+</div>
+<div class="example math">
+<dl><dt class="math">Example 6</dt>
+<dd class="math">
+<p>We can modify the above example: fix a manifold <span class="math">\(X\)</span>, and define the category of interest to be maps of manifolds <span class="math">\(Y\to X\)</span> that are everywhere local isomorphisms. This is equivalent to the statement that the tangent map is an isomorphism everywhere.</p>
+<p>Why is this closed under fiber products? What else do we have to check?</p>
+Let’s call this the <em>small submersion topology</em>.
+</dd>
+</dl>
+</div>
+<div class="example math">
+<dl><dt class="math">Example 7</dt>
+<dd class="math">
+Given any Grothendieck topology on <span class="math">\(C\)</span> and an object <span class="math">\(X\in\C\)</span>, we get one on the slice category <span class="math">\(C_{/X}\)</span>, by working relative to <span class="math">\(X\)</span> everywhere. What are the coverings of <span class="math">\(X\)</span> in this topology?
+</dd>
+</dl>
+</div>
+<h3 id="the-canonical-topology">The canonical topology</h3>
+<p>Every category comes with a <em>canonical</em> topology.</p>
+<div class="definition math">
+<dl><dt class="math">Definition 8</dt>
+<dd class="math">
+A morphism <span class="math">\(f: X \to Y\)</span> in a category <span class="math">\(C\)</span> is an <em>epimorphism</em> if for any two morphism <span class="math">\(g_1, g_2: Y \to Z\)</span>, <span class="math">\(g_1 \circ f = g_2 \circ f\)</span> implies <span class="math">\(g_1=g_2\)</span>.
+</dd>
+</dl>
+</div>
+<p>An alternative way to say this is that a morphism <span class="math">\(f: X \to Y\)</span> is an epimorphism if the <span class="math">\(\Hom(-,Z)\)</span> functor sends <span class="math">\(f\)</span> to an injection: <span class="math">\[ \forall Z \in C, \Hom(Y, Z) \hookrightarrow \Hom(X,Z). \]</span></p>
+In the category of sets, epimorphism are surjective maps. In the category of rings however, the map <span class="math">\(\mathbf{Z} \to \mathbf{Q}\)</span> is an epimorphism but not a surjection.
+</div>
+<div class="definition math">
+<dl><dt class="math">Definition 9</dt>
+<dd class="math">
+In a category <span class="math">\(C\)</span> that admits fiber products, an epimorphism <span class="math">\(f: X \to Y\)</span> is <em>effective</em> if for all <span class="math">\(Z\)</span>, the diagram <span class="math">\[\Hom(Y,Z)\to\Hom(X,Z)\rightrightarrows\Hom(Y\times_X Y, Z).\]</span> is exact.
+</dd>
+</dl>
+</div>
+<p>Another way to view this property is to say that the following diagram is both Cartesian and Cocartesian, i.e. that the fiber product is the limit and that <span class="math">\(Y\)</span> is the colimit:</p>
+<p><span class="math">\[
+\begin{array}{ccc}
+  X \times_Y X &amp; \rightarrow  &amp; X \\
+  \downarrow &amp; &amp; \downarrow \\
+  X &amp; \rightarrow &amp; Y
+\end{array}
+\]</span></p>
+In an abelian category all epimorphisms are effective. For an example of an epimorphism that is not effective consider the identity map between the real line with the discrete topology and the real line with the standard topology. This map is continuous and since it is surjective it is an epimorphism. This is not an effective epimorphism since the diagram above fails to be Cocartesian. The map from the discrete line to itself that swaps two points does not factor through the standard line. Another example is the map <span class="math">\(\mathbf{Z} \to \mathbf{Q}\)</span> from before.
+</div>
+<div class="definition math">
+<dl><dt class="math">Definition 10</dt>
+<dd class="math">
+An effective epimorphism is <em>universal</em> if it is stable under base change, i.e. given a map <span class="math">\(W \to Y\)</span> the map <span class="math">\(X \times_Y W \to W\)</span> is also an effective epimorphism.
+</dd>
+</dl>
+</div>
+<div class="definition math">
+<dl><dt class="math">Definition 11</dt>
+<dd class="math">
+The <em>canonical topology</em> on <span class="math">\(C\)</span> is the topology with coverings given by collections of maps <span class="math">\(\{U_i\to U\}\)</span> such that <span class="math">\(\sqcup U_i\to U\)</span> is a universal effective epimorphism.
+</dd>
+</dl>
+</div>
+<h3 id="presheaves-and-sheaves">Presheaves and sheaves</h3>
+<p>Now we can mimic the old (categorical) definitions! Fix a category <span class="math">\(S\)</span> that is closed under products (for example, sets, abelian groups, rings, schemes, sheaves on a fixed topological space, etc.).</p>
+<div class="definition math">
+<dl><dt class="math">Definition 12</dt>
+<dd class="math">
+A <em>presheaf</em> on <span class="math">\(C\)</span> with values in <span class="math">\(S\)</span> is a functor <span class="math">\[F:C^\circ\to S.\]</span>
+</dd>
+</dl>
+</div>
+<div class="definition math">
+<dl><dt class="math">Definition 13</dt>
+<dd class="math">
+A presheaf <span class="math">\(F:C^\circ\to S\)</span> is a <em>sheaf</em> if for every covering <span class="math">\(\{U_i\to U\}\)</span>, the diagram <span class="math">\[F(U)\to\prod F(U_i)\rightrightarrows\prod F(U_i\times_U U_j)\]</span> is exact.
+</dd>
+</dl>
+</div>
+<div class="example math">
+<dl><dt class="math">Example 14</dt>
+<dd class="math">
+In the canonical topology on <span class="math">\(C\)</span>, the functor <span class="math">\(h_X:C^\circ\to\Set\)</span> is a sheaf. (Why?)
+</dd>
+</dl>
+</div>
+<div class="exercise math">
+<dl><dt class="math">Exercise 15</dt>
+<dd class="math">
+Is the canonical topology the “smallest” topology such that every representable functor is a sheaf? Is it the “largest”? Is it anythingest?
+</dd>
+</dl>
+</div>
+<h3 id="example-the-sheaves-on-the-submersion-topology-of-a-manifold">Example: the sheaves on the “submersion topology” of a manifold</h3>
+<p>Let <span class="math">\(C\)</span> be the small submersion topology of a manifold <span class="math">\(X\)</span>. Among the objects of <span class="math">\(C\)</span> are the open subsets <span class="math">\(U\subset X\)</span>; open coverings of open sets are coverings in the small submersion topology.</p>
+<div class="claim math">
+<dl><dt class="math">Claim 16</dt>
+<dd class="math">
+Restricting to the subcategory of open subsets of <span class="math">\(X\)</span> gives an equivalence between sheaves of sets on <span class="math">\(C\)</span> and sheaves on the topological space of <span class="math">\(X\)</span>.
+</dd>
+</dl>
+</div>
+<p><strong>Proof</strong>. Any covering <span class="math">\(\{U_i\to U\}\)</span> can be covered as <span class="math">\(\{V_{ij}\to U_i\}\)</span> such that each <span class="math">\(V_{ij}\to X\)</span> is an open embedding. QED</p>
+<div class="exercise math">
+<dl><dt class="math">Exercise 17</dt>
+<dd class="math">
+What are the universal effective epimorphisms in the category <span class="math">\(C\)</span>?
+</dd>
+</dl>
+</div>
+<h3 id="morphisms-of-topologies">Morphisms of topologies</h3>
+<p>Now that we have our categorical analogue of topological spaces, how do we simulate continuous maps?</p>
+<div class="definition math">
+<dl><dt class="math">Definition 18</dt>
+<dd class="math">
+<p>Given categories <span class="math">\(C\)</span> and <span class="math">\(C&#39;\)</span> with Grothendieck topologies, a <em>morphism of topologies</em> is a functor <span class="math">\(F:C\to C&#39;\)</span> such that</p>
+<ul>
+<li>for every covering <span class="math">\(\{U_i\to U\}\)</span> in <span class="math">\(C\)</span>, the image <span class="math">\(\{F(U_i)\to F(U)\}\)</span> is a covering</li>
+<li>for every covering <span class="math">\(\{U_i\to U\}\)</span> in <span class="math">\(C\)</span> and every morphism <span class="math">\(V\to U\)</span> in <span class="math">\(C\)</span>, the canonical map <span class="math">\[F(U_i\times_U V)\to F(U_i)\times_{F(U)} F(V).\]</span> (Special case of this condition: <span class="math">\(C\)</span> and <span class="math">\(C&#39;\)</span> have fiber products and <span class="math">\(F\)</span> preserves them. This is equilavent to <span class="math">\(F\)</span> preserving finite limits, also sometimes called “continuous” – now you know why!)</li>
+</ul>
+</dd>
+</dl>
+</div>
+<p>Everybody’s favorite example: <span class="math">\(C=\Open(X)\)</span>, <span class="math">\(C&#39;=\Open(Y)\)</span>, <span class="math">\(F\)</span> is the pullback map induced from a continuous map <span class="math">\(Y\to X\)</span>.</p>
+<div class="question math">
+<dl><dt class="math">Question 19</dt>
+<dd class="math">
+Does a continuous map of topological spaces induce a morphism of <em>big</em> topologies? Does a morphism of big topologies always come from a continuous map of topological spaces?
+</dd>
+</dl>
+</div>
+<h3 id="content-contributors">Content contributors</h3>
+<p><span class="citation" data-cites="maxlieblich">@maxlieblich</span>, <span class="citation" data-cites="lucasvanmeter">@lucasvanmeter</span></p>

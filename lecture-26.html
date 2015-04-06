@@ -1,0 +1,29 @@
+<p>First we will discuss a fun example. Consider <span class="math">\(L/k\)</span> a separable field extension of degree <span class="math">\(n\)</span>. Recall that <span class="math">\(L\otimes_kk^{\mbox{sep}}\cong(k^{\mbox{sep}})^n\)</span>. This means that <span class="math">\(L\)</span> is an ’{e}tale form of <span class="math">\(k^n\)</span>. Because <span class="math">\(S_n=\mbox{Aut}_kk^n\)</span>, this means that <span class="math">\(L\)</span> is classified by an element of <span class="math">\(H^1(\mbox{Spec},S_n)=\mbox{Isom}_k(L,k^n)\)</span>. Thus, the sheaf <span class="math">\[\mbox{Aut}_{L/k}:\mbox{Sch_k}^{\mbox{op}}\rightarrow\mbox{Grp}\]</span> given by <span class="math">\(x\mapsto\mbox{Aut}_X(X\otimes_kL)\)</span> is an ’{e}tale form of the sheaf <span class="math">\(\mbox{Aut}_{k^n/k}\cong\underline{S_n}\)</span>. So, <span class="math">\(\mbox{Aut}_{L/k}\)</span> is an inner form of <span class="math">\(S_n\)</span>, and its global sections are given by <span class="math">\(\mbox{Aut}_{L/k}(\mbox{Spec}(k))=\mbox{Aut}_k(L)\)</span>.</p>
+<p>Now lets resume talking about quasi-coherent sheaves on <span class="math">\(BG\)</span>. (I think this is better handled by the next person).</p>
+<h1 id="sheaves-on-stacks">Sheaves on Stacks</h1>
+<p>Let <span class="math">\(\pi:X\rightarrow S\)</span> be a stack on <span class="math">\(S\)</span>. Last time, we defined the site associated to <span class="math">\(X\)</span> to be the category <span class="math">\(X\)</span>, equiped with the topology whose given by</p>
+<p><span class="math">\[\{y_i\rightarrow x\}\in \mbox{Cov}(X)\Leftrightarrow\{\pi(y_i)\rightarrow\pi(x)\}\in\mbox{Cov}(S)\]</span></p>
+<p>A sheaf on the stack <span class="math">\(X\)</span> is a a sheaf on the site associated to <span class="math">\(X\)</span>. Here is a useful example of a sheaf of groups on <span class="math">\(X\)</span>:</p>
+<div class="example math">
+<dl><dt class="math">Example 1</dt>
+<dd class="math">
+<p>For <span class="math">\(x\in X\)</span>, define <span class="math">\(I(x)\)</span> to be the automorphism group of <span class="math">\(x\)</span>. That is, <span class="math">\(I(x)\)</span> is the group of arrows <span class="math">\(\psi:x\rightarrow x\)</span> in the category <span class="math">\(X\)</span> such that <span class="math">\(\pi(\psi)=\mbox{id}\)</span>.</p>
+<p>We will show that this is a sheaf. First we need to see that it is a presheaf. Suppose we have an arrow <span class="math">\(y\rightarrow x\)</span> in <span class="math">\(X\)</span>. Take a morphism <span class="math">\(x\in\mbox{Aut}(x)\)</span>. Because every arrow is cartesian, there exists a unique map <span class="math">\(\beta:y\rightarrow y\)</span> that fits into the diagram</p>
+<p><span class="math">\[\require{AMScd} \begin{CD} y @&gt;&gt;&gt; x\\ @VVV @VVV \\ y @&gt;&gt;&gt; x\end{CD}\]</span></p>
+<p>Because of the uniqueness of <span class="math">\(\beta\)</span>, this is functorial.</p>
+Next, we check that this is a sheaf. This is immediate by applying the stack condition to <span class="math">\(\mbox{Isom}(x,y)\)</span>.
+</dd>
+</dl>
+</div>
+<p>We call this sheaf the inertia sheaf (or inertia stack) of <span class="math">\(X\)</span>. Here is an important fact about it:</p>
+<div class="proposition math">
+<dl><dt class="math">Proposition 2</dt>
+<dd class="math">
+Suppose we have a stack <span class="math">\(X\)</span>, and write <span class="math">\(I\)</span> for its inertia sheaf. For any sheaf <span class="math">\(F\)</span> on <span class="math">\(X\)</span>, there is a canonical right action <span class="math">\(F\times I\rightarrow F\)</span>, called the inertial action.
+</dd>
+</dl>
+</div>
+<div class="proof">
+We have <span class="math">\(I(x)=\mbox{Aut}(x)\)</span>. So, we need a map <span class="math">\[F(x)\times\mbox{Aut}(x)\rightarrow F(x)\]</span>. <span class="math">\(F\)</span> is a functor, so if we have an automorphism <span class="math">\(\alpha:x\rightarrow x\)</span>, we get a map <span class="math">\(\alpha^*:F(x)\rightarrow F(x)\)</span>. Furthermore, if we have <span class="math">\[x\rightarrow x\rightarrow x\]</span> where the first map is <span class="math">\(\alpha\)</span> and the second <span class="math">\(\beta\)</span>, we see that <span class="math">\(\alpha^*\beta^*=(\beta\alpha)^*\)</span>. This is a left action of the opposite group of <span class="math">\(\mbox{Aut}(x)\)</span>, which is the same thing as a right action of <span class="math">\(\mbox{Aut}(x)\)</span>.
+</div>
+<p>Lets return to our isom sheaf example. Let <span class="math">\(X\)</span> be a scheme, and <span class="math">\(A\)</span> an Azumaya algebra on <span class="math">\(X\)</span>. Recall the definition of <span class="math">\(\mathcal{X}_A\)</span>. What is the inertia sheaf of <span class="math">\(\mathcal{X}_A\)</span>? Take <span class="math">\((v,\varphi)\)</span> in <span class="math">\(\mathcal{X}_A\)</span>. An automorphism of this element is a map <span class="math">\(\psi:v\rightarrow v\)</span>, such that the map <span class="math">\(\mbox{ad}(\psi):\mbox{End}(v)\rightarrow\mbox{End}(v)\)</span> is compatible with the maps <span class="math">\(\varphi\)</span> to <span class="math">\(A\)</span>. By Skolem noether, we see that <span class="math">\(\varphi\in\mathbb{G}_m(T)\)</span>. What this shows is that <span class="math">\[I=\mathbb{G}_{m,\mathcal{X}_A}\]</span>, where <span class="math">\[\mathbb{G}_{m,\mathcal{X}_A}((v,\varphi))=\mathcal{O}(T)^\times\]</span>.</p>

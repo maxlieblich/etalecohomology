@@ -1,0 +1,51 @@
+<p>Speaker : Dan Date : April 3, 2015 Typed up by : Ken / Bharath</p>
+<h1 id="semistability">Semistability</h1>
+<p>Let <span class="math">\(X\)</span> be a noetherian scheme and <span class="math">\(E \in \mathsf{\mathrm{Coh}} ( X )\)</span>.</p>
+<p>The <span><span><strong><span>dimension</span></strong></span></span> of <span class="math">\(E\)</span> is defined as <span class="math">\(\dim E= \dim \mathrm{supp} E\)</span>.</p>
+<p>The sheaf <span class="math">\(E\)</span> is <span><span><strong><span>pure</span></strong></span></span> if for all subsheaves <span class="math">\(F \hookrightarrow E\)</span> then <span class="math">\(\dim F= \dim E\)</span> or <span class="math">\(F=0\)</span>.</p>
+<p>Let <span class="math">\(F \subset E\)</span> be a subsheaf, the <span><span><strong><span>saturation</span></strong></span></span> <span class="math">\(F&#39;\)</span> of <span class="math">\(F\)</span> in <span class="math">\(E\)</span> is the minimal sheaf <span class="math">\(F \subseteq F&#39; \subseteq E\)</span> such that <span class="math">\(E/F&#39;\)</span> is pure of dimenison <span class="math">\(d\)</span> or <span class="math">\(0\)</span>.</p>
+<p>Alternatively, the saturation of <span class="math">\(F\)</span> is the kernel of the composition <span class="math">\[E \longrightarrow E/F \longrightarrow ( E/F ) /T_{d-1} ( E/F )\]</span> where <span class="math">\(T_{d-1}\)</span> is the maximal subsheaf of dimension <span class="math">\(\leqslant d-1\)</span>.</p>
+<p>Now assume <span class="math">\(X\)</span> is projective over a field <span class="math">\(k\)</span>, fix a very ample line bundle <span class="math">\(\mathcal{O} ( 1 ) \in \mathrm{Pic} X\)</span>. Let <span class="math">\(E \in \mathsf{\mathrm{Coh}} ( E )\)</span> with <span class="math">\(\dim E=d\)</span>. Recall that the <span><span><strong><span>Hilbert polynomial</span></strong></span></span>, <span class="math">\(P_{E} ( m )\)</span> of <span class="math">\(E\)</span> is given by</p>
+<p><span class="math">\[\begin{aligned}
+  m &amp; \mapsto &amp; \chi ( E \otimes \mathcal{O} ( m ) )\end{aligned}\]</span></p>
+<p>Fact: <span class="math">\(P_{E} ( m ) = \sum_{i=1}^{\dim E} \alpha_{i} ( E ) m^{i} /i!\)</span> for some <span class="math">\(\alpha_{i} ( E ) \in \mathbb{Q}\)</span>. Also <span class="math">\(\alpha_{d} ( E ) &gt;0\)</span> if <span class="math">\(E \neq 0\)</span>.</p>
+<p>The <span><span><strong><span>reduced Hilbert polynomial</span></strong></span></span> of <span class="math">\(E\)</span> is</p>
+<p><span class="math">\[\begin{aligned}
+  p_{E} ( m ) &amp; = &amp; \frac{P_{E} ( m )}{\alpha_{d} ( E )}\end{aligned}\]</span></p>
+<p>Fact: <span class="math">\(\alpha_{d} ( \mathcal{O}_{X} )\)</span> is the degree of the embedding <span class="math">\(X \rightarrow {P}^{n}\)</span>.</p>
+<p>If <span class="math">\(f,g \in \mathbb{Q} [ x ]\)</span> we say that <span class="math">\(f&lt;g\)</span> if <span class="math">\(f ( m ) &lt;g ( m )\)</span> for <span class="math">\(m \gg 0\)</span>. Similarly for <span class="math">\(f \leqslant g\)</span>.</p>
+<p>We say that <span class="math">\(E \in \mathsf{\mathrm{Coh}} ( E )\)</span> is <span><span><strong><span>semistable</span></strong></span></span> (resp. <span><span><strong><span>stable</span></strong></span></span>) if it is pure of dimension, say <span class="math">\(d\)</span>, and for all proper subsheaves <span class="math">\(F \hookrightarrow E\)</span> we have <span class="math">\(p_{F} \leqslant p_{E}\)</span> (resp. <span class="math">\(p_{F} &lt;p_{E}\)</span>).</p>
+<p>Let <span class="math">\(E \in \mathsf{\mathrm{Coh}} ( X )\)</span> and suppose <span class="math">\(E\)</span> has dimension <span class="math">\(d\)</span>. Then the following are equivalent</p>
+<ol type="1">
+<li><p><span class="math">\(E\)</span> is semistable (resp. stable)</p></li>
+<li><p>for all proper dimension <span class="math">\(d\)</span> quotients, <span class="math">\(E \longrightarrow G\)</span> of <span class="math">\(E\)</span>, we have <span class="math">\(p_{E} \leqslant p_{G}\)</span> (resp. <span class="math">\(p_{E} &lt;p_{G}\)</span>).</p></li>
+</ol>
+<p>Assume <span class="math">\(E\)</span> is semistable. We first show that (1) implies (2). Let <span class="math">\(F= \ker (  E \longrightarrow G )\)</span>, then <span class="math">\(\dim F=d= \dim G\)</span>. Since <span class="math">\(\chi\)</span> and <span class="math">\(\alpha_{d}\)</span> are both additive, we have <span class="math">\(P_{F} +P_{G} =P_{E}\)</span> and <span class="math">\(\alpha_{d} ( F ) + \alpha_{d} ( G ) = \alpha_{d} ( E )\)</span>. Hence</p>
+<p><span class="math">\[\begin{aligned}
+    \alpha_{d} ( F ) ( p_{F} -p_{E} ) &amp; = &amp; \alpha_{d} ( G ) ( p_{E} -p_{G} )
+  \end{aligned}\]</span></p>
+<p>so <span class="math">\(p_{F} \leqslant p_{E}\)</span> implies <span class="math">\(p_{E} \leqslant p_{G}\)</span>. Conversely, let <span class="math">\(F \hookrightarrow E\)</span> and <span class="math">\(F&#39;\)</span> be the saturation of <span class="math">\(F\)</span> in <span class="math">\(E\)</span>. Then the same reasoning as above implies <span class="math">\(p_{F&#39;} \leqslant p_{E}\)</span>. Finally <span class="math">\(p_{F}  \leqslant p_{F&#39;}\)</span> since <span class="math">\(P_{F} \leqslant P_{F&#39;}\)</span> (again by additivity of <span class="math">\(\chi\)</span>) and <span class="math">\(\alpha_{d} ( F ) = \alpha_{d} ( F&#39; )\)</span>. The latter follows from</p>
+<p><span class="math">\[\begin{aligned}
+    \alpha_{d} \left( \frac{E/F}{T_{d-1} ( E/F )} \right) &amp; = &amp; \alpha_{d} ( E
+    ) - \alpha_{d} ( F ) - \alpha_{d} ( T_{d-1} ( E/F ) )\\
+    &amp; = &amp; \alpha_{d} ( E ) - \alpha_{d} ( F )\\
+    \alpha_{d} ( E/F&#39; ) &amp; = &amp; \alpha_{d} ( E ) - \alpha_{d} ( F&#39; ) .
+  \end{aligned}\]</span></p>
+<p>The proof for (1) <span class="math">\(\Leftrightarrow\)</span> (2) for <span class="math">\(E\)</span> stable is similar.</p>
+<p>Let <span class="math">\(F,G\)</span> be semistable sheaves which are pure of dimension <span class="math">\(d\)</span>.</p>
+<ol type="1">
+<li><p>If <span class="math">\(p_{F} &gt;p_{G}\)</span> then <span class="math">\(\mathrm{Hom}_{X} ( F,G ) =0\)</span></p></li>
+<li><p>If <span class="math">\(p_{F} =p_{G}\)</span> and <span class="math">\(f:F \longrightarrow G\)</span> is nontrivial then</p>
+<ol type="1">
+<li><p><span class="math">\(F\)</span> stable implies <span class="math">\(f\)</span> injective</p></li>
+<li><p><span class="math">\(G\)</span> stable implies <span class="math">\(f\)</span> surjective</p></li>
+</ol></li>
+<li><p>If <span class="math">\(p_{F} =p_{G}\)</span> with <span class="math">\(\alpha_{d} ( F ) = \alpha_{d} ( G )\)</span> and <span class="math">\(f:F \longrightarrow G\)</span> is nontrivial then <span class="math">\(f\)</span> is an isomorphism</p></li>
+</ol>
+<p>Let <span class="math">\(f:F \longrightarrow G\)</span> be nontrivial. Let <span class="math">\(E= \mathsf{\mathrm{im}} f\)</span> and we factor <span class="math">\(f\)</span> as follows <span class="math">\(F \overset{\beta}{\longrightarrow} E  \overset{\alpha}{\longrightarrow} G\)</span>. Semistability of <span class="math">\(F\)</span> and <span class="math">\(G\)</span> give <span class="math">\(p_{F} \leqslant p_{E} \leqslant p_{G}\)</span>. This proves (1). If, in addition, <span class="math">\(F\)</span> is stable and <span class="math">\(p_{F} =p_{G}\)</span>, then <span class="math">\(p_{F} &lt;p_{E} \leqslant p_{G}\)</span> unless <span class="math">\(F \cong E\)</span>. Hence <span class="math">\(\beta\)</span> is an isomorphism, i.e. <span class="math">\(f\)</span> is injective. This proves (2a). The proof of (2b) is similar. Part (3) follows since <span class="math">\(P_{F}  =P_{G}\)</span> and by (2) <span class="math">\(f\)</span> is either injective or surjective, hence is an isomorphism.</p>
+<p>If <span class="math">\(E\)</span> is stable then <span class="math">\(\mathrm{End} E\)</span> is a division algebra.</p>
+<p><span><span><span class="math">\(\mbox{}\)</span></span></span></p>
+<ol type="1">
+<li><p>Assume <span class="math">\(X\)</span> is integral, then any line bundle is stable.</p></li>
+<li><p>If <span class="math">\(F\)</span> is decomposable, i.e. <span class="math">\(F \cong F_{1} \oplus F_{2}\)</span> where <span class="math">\(F_{i} \neq 0\)</span>, then <span class="math">\(F\)</span> is not stable.</p></li>
+</ol>

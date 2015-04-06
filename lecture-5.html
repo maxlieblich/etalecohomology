@@ -1,0 +1,16 @@
+<h1 id="cech-cohomology-of-presheaves">Cech cohomology of presheaves</h1>
+<p>Fix a site <span class="math">\(C\)</span>, and an object <span class="math">\(U \in C\)</span>. Then for any presheaf <span class="math">\(F \in \PreSh(C)\)</span> and covering <span class="math">\(\{U_i \rightarrow U\}\)</span>, we can define the Cech complex <span class="math">\(C(\{U_i \rightarrow U\}, F)\)</span></p>
+<p><span class="math">\[ F(U) \rightarrow \prod F(U_i) \rightarrow \prod \prod F(U_i \times_U U_j) \rightarrow \cdots,\]</span></p>
+<p>with differentials <span class="math">\(d(s)_{i_0, \dots, \i_{p+1}} = \sum_{j = 0}^{p+1} s_{i_0, \dots, \hat{i}_j, \dots, s_{p+1}} |_{U_{i_0} \times_U \cdots \times_U U_{i_{p+1}}}\)</span>, restricting via the projection map.</p>
+<p>Since this is a complex we can compute its cohomology <span class="math">\(H^i(\{U_i \rightarrow U \}, F) = h^i(C(\{U_i \rightarrow U\}, F))\)</span>.</p>
+<div class="lemma math">
+<dl><dt class="math">Lemma 1</dt>
+<dd class="math">
+<span class="math">\(H^0(\{U_i \rightarrow U\}, F) = \lim (\prod F(U_i) \rightrightarrows \prod \prod F(U_i \times_U U_j))\)</span> and furthermore, <span class="math">\(R^p H^0(\{U_i \rightarrow U\}, -) = H^p(\{U_i \rightarrow U\},-)\)</span>.
+</dd>
+</dl>
+</div>
+<p><strong>Proof.</strong> The first statement is a careful interpretation of the definition of H^0 as the 0th cohomology of the Cech complex: the kernal of the first map is exactly the equalizer of the given diagram.</p>
+<p>For the next, we can prove <span class="math">\(H^p(\{U_i \rightarrow U\},-)\)</span> is an effacable <span class="math">\(\delta\)</span>-functor (see Hartshorne III.1). This is done for us here: http://stacks.math.columbia.edu/tag/03AU QED.</p>
+<p>The formation of <span class="math">\(C(\{U_i \rightarrow U\}, F)\)</span> is functorial in both the covering and <span class="math">\(F\)</span>, so we can define a functor</p>
+<p><span class="math">\[\check{H}^i(U,F) = \colim_{\Cov_U} H^i(\{U_i \rightarrow U \}, F)\]</span></p>

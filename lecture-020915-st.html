@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="stylesheets/pandoc.css">
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="gerbes-and-cohomology-02-09-2015">{Gerbes and cohomology 02-09-2015}</h1>
+<h3 id="stacks-from-cohomology-classes">{Stacks from cohomology classes}</h3>
+<p>Let <span class="math">\(\mathcal{C}\)</span> be a site with a final object <span class="math">\(X\)</span>. In general, we think of <span class="math">\(\mathcal{C}\)</span> as the fppf, or 'etale site associated to a scheme. We will assume that <span class="math">\(\mathcal{C}\)</span> has whatever properties we need so that our statements make sense. </p>
+<p>We define the global sections functor <span class="math">\[
+\Gamma:\mathrm{Sheaves}/C\to \mathrm{Set}
+\]</span> to be the functor taking a sheaf <span class="math">\(M\)</span> (of sets) to the value of <span class="math">\(M\)</span> on <span class="math">\(X\)</span>, <span class="math">\(\Gamma(M)=M(X)\)</span>. Then for any <span class="math">\(S\)</span> in <span class="math">\(X\)</span> we have a unique map <span class="math">\(S\to X\)</span> in <span class="math">\(C\)</span> and induced restriction map <span class="math">\(\Gamma(M)\to M(S)\)</span>, <span class="math">\(m\mapsto m|S\)</span>. </p>
+<p>Let <span class="math">\(A\)</span> be a sheaf of abelian groups on <span class="math">\(C\)</span> and consider an injective resolution <span class="math">\(0\to A\to I^0\to I^1\to \cdots\)</span>. Then we get a complex <span class="math">\(\Gamma(I^\bullet)=0\to \Gamma(I^0)\to \Gamma(I^1)\to\cdots\)</span> and take the cohomology to get <span class="math">\(H^\bullet(C,A)\)</span>. Let <span class="math">\(d\)</span> denote the differential on our complex <span class="math">\(\Gamma(I^\bullet)\)</span>. Below we will also employ the notation <span class="math">\(I^\bullet(S)=0\to I^0(S)\to I^1(S)\to\cdots\)</span>, and <span class="math">\(d|S\)</span> for the differential on <span class="math">\(I^\bullet(S)\)</span>.</p>
+<div class="definition">
+Let <span class="math">\(a\in \Gamma(I^2)\)</span> be any cocylce, i.e. any element with <span class="math">\(d(a)=0\)</span>. We define the ``stack of trivializations of <span class="math">\(a\)</span>&quot; to be the CFG <span class="math">\(\mathscr{G}_a\)</span> with fibers <span class="math">\(\mathscr{G}_a(S)\)</span> given by the sets <span class="math">\(\{b\in I^1(S):d(b)=a|S\}\)</span>. Morphisms between objects <span class="math">\(b\)</span> and <span class="math">\(b&#39;\)</span> in <span class="math">\(\mathscr{G}_a(S)\)</span> and <span class="math">\(\mathscr{G}_a(S)\)</span> are given by a map <span class="math">\(S\to S&#39;\)</span> and <span class="math">\(\gamma\in I^0(S)\)</span> with <span class="math">\(g(\gamma)=b-b&#39;|S\)</span>.
+</div>
+<div class="claim">
+<span class="math">\(\mathscr{G}_a\)</span> is in fact a stack. This follows form the fact that all the <span class="math">\(I^k\)</span> are sheaves on <span class="math">\(\mathcal{C}\)</span>.
+</div>
+<h3 id="properties-of-mathscrg_a-and-gerbs">{Properties of <span class="math">\(\mathscr{G}_a\)</span> and gerbs}</h3>
+<p>Note that the automorphisms of a given <span class="math">\(b\)</span> in <span class="math">\(\mathscr{G}_a(S)\)</span> are exactly equal to the kernel of <span class="math">\(d^0|S\)</span>. However, by left exactness of the functor taking sections over <span class="math">\(S\)</span>, the sequence <span class="math">\(0\to A(S)\to I^0(S)\to I^1(S)\)</span> is exact for all <span class="math">\(S\)</span>. So we have an identification <span class="math">\(A(S)\overset{\cong}\to \ker(d_S^0)\)</span> for all <span class="math">\(S\)</span>. Furthermore, we will have diagrams <span class="math">\[
+\require{AMScd} \begin{CD}
+A(S) @&gt;&gt;&gt;&gt; \mathrm{Aut}(b) \\
+@V{\mathrm{restrict}}VV @VV{\mathrm{restrict}}V \\
+A(S&#39;) @&gt;&gt;&gt;&gt; \mathrm{Aut}(b|S&#39;) \\
+\end{CD}
+\]</span> for each <span class="math">\(S&#39;\to S\)</span>. So we get an isomorphism of sheaves <span class="math">\(A_S\to \underline{\mathrm{Aut}}(b)\)</span> for each <span class="math">\(b\)</span> in <span class="math">\(\mathscr{G}(S)\)</span>. </p>
+<p>Since our original sequence <span class="math">\(0\to A\to I^\bullet\)</span> was exact, the cocycle <span class="math">\(a\in I^2(X)\)</span> will be a boundary locally. That is to say, there is a covering <span class="math">\(U\to X\)</span> in <span class="math">\(\mathcal{C}\)</span> with <span class="math">\(a|U=d(b)\)</span> for some <span class="math">\(b\in I^1(U)\)</span>. Which is to say, <span class="math">\(\mathscr{G}_a(U)\)</span> is nonempty. This is also true if we replace <span class="math">\(X\)</span> with any other object <span class="math">\(S\)</span> in <span class="math">\(\mathcal{C}\)</span>. Indeed, the cover <span class="math">\(U\times_X S\to S\)</span> will have <span class="math">\(\mathscr{G}_a(U\times_X S)\neq \emptyset\)</span>. A similar argument shows that for any <span class="math">\(b,b&#39;\)</span> in <span class="math">\(\mathscr{G}(S)\)</span>, there is some cover <span class="math">\(V\to S\)</span> on which we have a map <span class="math">\(\gamma:b|V\to b&#39;|V\)</span> in <span class="math">\(\mathscr{G}(V)\)</span>. We record all this information below.</p>
+<div class="proposition">
+The stack <span class="math">\(\mathscr{G}_a\)</span> has the following properties: - (1) For any <span class="math">\(S\)</span> in <span class="math">\(\mathcal{C}\)</span> there is a cover <span class="math">\(U\to S\)</span> with <span class="math">\(\mathscr{G}_a(U)\)</span> nonempty. - (2) For <span class="math">\(S\)</span>, and any <span class="math">\(b,b&#39;\)</span> in <span class="math">\(\mathscr{G}_a(S)\)</span>, there is a cover <span class="math">\(V\to S\)</span> such that the restrictions <span class="math">\(b|S\)</span> and <span class="math">\(b&#39;|S\)</span> admit an isomorphism <span class="math">\(\gamma:b|S\to b&#39;|S\)</span>. - (3) For any <span class="math">\(b\)</span> in <span class="math">\(\mathscr{G}_a(S)\)</span> there is an isomorphism of sheaves <span class="math">\(A_S\to \underline{\mathrm{Aut}}(b)\)</span>.
+</div>
+<div class="definition">
+Any stack <span class="math">\(\mathscr{G}\)</span> with the above three properties is called an <span class="math">\(A\)</span>-gerbe.
+</div>
+<p>As an example we can consider the stack <span class="math">\(B\mathbb{G}_m\)</span>, which we interpret here as the stack of line bundles on a fixed base scheme <span class="math">\(X\)</span>. Objects in <span class="math">\(B\mathbb{G}_m\)</span> will be line bundles, and morphisms will be given by isomorphisms of line bundles. Here <span class="math">\(\mathcal{C}\)</span> will be the fppf site on <span class="math">\(X\)</span>.<br /></p>
+<p>Obviously <span class="math">\(B\mathbb{G}_m(X)\)</span> is nonempty, since <span class="math">\(\O_X\)</span> is a global line bundle. So condition (1) will be satisfied. For any <span class="math">\(S\to X\)</span>, and line bundles <span class="math">\(L\)</span> and <span class="math">\(L&#39;\)</span> on <span class="math">\(S\)</span>, we can choose a cover <span class="math">\(\{V_i\to S\}\)</span> such that <span class="math">\(L|V_i\)</span> and <span class="math">\(L&#39;|V_i\)</span> are free, and hence admit an isomorphism <span class="math">\(L|V_i\overset{\cong}\to L|V_i\)</span>. Whence we can take <span class="math">\(V=\coprod_i V_i\)</span> to get a cover <span class="math">\(V\to S\)</span> on which <span class="math">\(L|V\)</span> and <span class="math">\(L&#39;|V\)</span> are isomorphic. This gives (2). For (3) we simply note that, for any line bundle <span class="math">\(L\)</span> on <span class="math">\(S\)</span>, the canonical map <span class="math">\(\O_S\to \underline{\mathrm{End}}_{\O_S}(L)\)</span> given by left multiplication will be an isomoprhism. This isomorphism restricts to give a natural isomorphism <span class="math">\(\mathbb{G}_m(S)=\O_S^\ast(S)\to \mathrm{Aut}_{\O_S}(L)\)</span>, and subsequent sheaf isomorphism <span class="math">\((\mathbb{G}_m)_S\to \underline{\mathrm{Aut}}_{B\mathbb{G}_m}(L)\)</span>.</p>
+<h3 id="isoclasses-of-gerbs-and-h2mathcalca">{Isoclasses of gerbs and <span class="math">\(H^2(\mathcal{C},A)\)</span>}</h3>
+<div class="question">
+What happens if we replace <span class="math">\(a\in \Gamma(I^2)\)</span> with <span class="math">\(a+d(b)\)</span>, for some <span class="math">\(b\in \Gamma(I^1)\)</span>?
+</div>
+<p>The answer is that we get an isomorphism of stacks <span class="math">\(\mathscr{G}_a\to \mathscr{G}_{a+d(b)}\)</span>. On each fiber, this isomorphism <span class="math">\(\mathscr{G}_a(S)\to \mathscr{G}_a(S)\)</span> is given on objects as the map <span class="math">\(b&#39;\mapsto b&#39;+b|S\)</span>, and on morphisms simply by <span class="math">\(\gamma\mapsto \gamma\)</span>. (If <span class="math">\(\gamma=b&#39;-b&#39;&#39;|S\)</span> then <span class="math">\(\gamma=(b&#39;-b|S)-(b&#39;&#39;|S-b|S)\)</span>.) Whence we get a well defined map <span class="math">\[
+H^2(\mathcal{C},A)\to \{\text{Isocalasses of $A$-gerbs}\}
+\]</span></p>
+<div class="questions">
+<ul>
+<li>Are all gerbs of the form <span class="math">\(\mathscr{G}_a\)</span>?</li>
+<li>Is the above map an isomorphism?</li>
+</ul>
+</div>
+<p>\end{document}</p>
+</body>
+</html>

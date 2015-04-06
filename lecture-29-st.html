@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="stylesheets/pandoc.css">
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+<p>** Last Time ** We had an algebraic and cohomological version of the association of an Azumaya algebra with a <span class="math">\(\mathbb{G}_m\)</span>-gerb. Cohomology version: <span class="math">\[H^1(X,\mathbb{GL}_n)\rightarrow H^1(X,\mathbb{PGL}_n)\xrightarrow{\delta} H^2(X,\mathbb{G}_m)\]</span> Geometric version: <span class="math">\[\{\text{vector bundles}\}\rightarrow \{\text{$\mathbb{PGL}_n$-torsors}\}\rightarrow \{\text{$\mathbb{G}_m$-gerbs}\}\]</span></p>
+<p>In the cohomology version, info gets pushed around. In the geometric version, gluing happens.</p>
+<p>** General Question ** What is the deal with the moduli of Azumaya algebras? Equivalently, what is the deal with the moduli space of <span class="math">\(\mathbb{PGL}_n\)</span>-torsors?</p>
+<p>More specific: <span class="math">\(\alpha\in H^2(X,\mathbb{G}_m)\)</span>, what is the space of Az. algebras of degree <span class="math">\(n\)</span> such that <span class="math">\(\delta([A]) = \alpha\)</span>? We want to quantify the failure of <span class="math">\(\delta\)</span> to be injective. More more specific: take <span class="math">\(\alpha = 0\)</span> Azumaya algebras of degree <span class="math">\(n\)</span> with trivial Az. class: <span class="math">\(A = \mathcal{End}(V)\)</span>, with <span class="math">\(V\)</span> rank <span class="math">\(n\)</span> Then by Skolem-Noether, <span class="math">\(\mathcal{End}(V) \cong \mathcal{End}(W)\)</span> if and only if there exists an invertible line bundle <span class="math">\(L\)</span> such that <span class="math">\(V = L\otimes W\)</span>. Moral of the story: <span class="math">\(\delta^{-1}(0) = \text{Bun}_n(X)/\text{Pic}(X)\)</span></p>
+<p>Discussion of this led to the following ** Kenjecture ** If <span class="math">\(X\)</span> is a smooth, projective variety over <span class="math">\(k = \overline{k}\)</span>, then any locally free <span class="math">\(\mathcal O_X\)</span>-module <span class="math">\(V\)</span> splits as a direct sum of invertible sheaves if and only if <span class="math">\(X = \spec(k)\)</span> or <span class="math">\(X = \mathbb{P}^1_k\)</span>.</p>
+<p>Another tidbit: <span class="math">\(H^2(X,\mathbb{G}_m)\)</span> corrsponds to isomoprhism classes of <span class="math">\(\mathbb{G}_m\)</span>-gerbs.</p>
+<p>** Very Old Question ** When does the Brauer group surject onto the torsion component of <span class="math">\(H^2(X,\mathbb{G}_m)\)</span>? Geometric version of very old question: Given a <span class="math">\(\mathbb{G}_m\)</span>-gerb <span class="math">\(\mathcal X\rightarrow X\)</span>, how can we tell if there is an Azumaya algebra <span class="math">\(A\)</span> such that <span class="math">\(\mathcal{X}_A\)</span> is isomorphic to <span class="math">\(\mathcal X\)</span> as <span class="math">\(\mathbb{G}_m\)</span>-gerbs over <span class="math">\(X\)</span>?</p>
+<p>Sort of answer: There exists <span class="math">\(A\)</span> such that <span class="math">\(\mathcal{X}\cong\mathcal{X}_A\)</span> if and only if there exists a locally free sheaf <span class="math">\(V\)</span> on <span class="math">\(\mathcal X\)</span> such that the stabilizer <span class="math">\(\mathbb{G}_m\)</span>-action on <span class="math">\(V\)</span> is scalar multiplication. Then <span class="math">\(A = \pi_*\mathcal{End}(V)\)</span>.</p>
+<p>This sort-of answer is useful because it is portable – can base change it, descend, etc.</p>
+<p>Using this, we can charaterize when <span class="math">\(\mathcal X\in H^2(X,\mathbb{G}_m)\)</span> is trivial. In particular <span class="math">\(\mathcal X\)</span> is trivial if and only if there exists an invertible sheaf <span class="math">\(\mathcal L\)</span> on <span class="math">\(\mathcal X\)</span> such that the <span class="math">\(\mathbb{G}_m\)</span>-action is scalar multiplication.</p>
+<p>We also now have a silly proof that the Brauer group is torsion: <span class="math">\(A\)</span> corresponds to <span class="math">\(\mathcal{X}_A\)</span> and a locally free sheaf <span class="math">\(\mathcal{V}\)</span> of rank <span class="math">\(r = \deg(A)\)</span>. Then <span class="math">\(\Lambda^r\mathcal{V}\)</span> is invertible and the <span class="math">\(\mathbb{G}_m\)</span>-action is by <span class="math">\(r\)</span>th powers. Therefore <span class="math">\(r[\mathcal X_A] = 0\)</span>.</p>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<h1 id="sheafification-and-exact-sequences">Sheafification and exact sequences</h1>
+<p>Fix a Grothendieck topology on a category <span class="math">\(C\)</span>.</p>
+<h3 id="sheaves-are-presheaves-but-not-the-other-way-around">Sheaves are presheaves, but not the other way around</h3>
+<p>Let’s just think about sheaves and presheaves of sets for now.</p>
+<p>Any sheaf is a presheaf: we just forget the sheaf condition. This gives us a fully faithful functor <span class="math">\[\Phi:\Sh(C)\to\PreSh(C).\]</span></p>
+<p>Not every presheaf is a sheaf. What are some examples? Can you think of any “organic” examples?</p>
+<div class="theorem math">
+<dl><dt class="math">Theorem 1</dt>
+<dd class="math">
+There is a left adjoint to <span class="math">\(\Phi\)</span>, that is, a functor <span class="math">\[F\mapsto F^s:\PreSh(C)\to\Sh(C)\]</span> such that for all presheaves <span class="math">\(F\)</span> and sheaves <span class="math">\(G\)</span> we have a functorial isomorphism <span class="math">\[\Hom(F, \Phi(G))=\Hom(F^s,G).\]</span>
+</dd>
+</dl>
+</div>
+<p>This functor is called <em>sheafification</em>.</p>
+<p><strong>Idea of Proof</strong>. The proof is somewhat messy, so I have chosen not to present it in class. What is the idea? Given <span class="math">\(F\)</span> define a new presheaf <span class="math">\(F^+\)</span> like this:</p>
+<ul>
+<li>for an object <span class="math">\(U\in C\)</span>, let <span class="math">\(\Cov(U)\)</span> be the category of coverings <span class="math">\(\{U_i\to U\}_{i\in I}\)</span>. A map from <span class="math">\(\{U_i\to U\}_I\)</span> to <span class="math">\(\{U&#39;_j\to U\}_J\)</span> is a map <span class="math">\(\iota:I\to J\)</span> and maps <span class="math">\(U_i\to U&#39;_{\iota(i)}\)</span> over <span class="math">\(U\)</span>.</li>
+<li>for any object <span class="math">\(c=\{U_i\to U\}\in\Cov(U)\)</span>, we can form a diagram <span class="math">\[d(c):\prod F(U_i)\rightrightarrows\prod F(U_i\times_U U_j)\cdots,\]</span> and these diagrams are functorial in <span class="math">\(\Cov(U)\)</span>. Each diagram gives us a new set <span class="math">\(\lim d(c)\)</span>, that is functorial in <span class="math">\(c\)</span>.</li>
+<li>Define <span class="math">\(F^+(U)=\colim d(c)\)</span>.</li>
+<li>DO THIS AGAIN to get <span class="math">\(F^s(U)=F^{++}(U)\)</span>.</li>
+<li>Check (it hurts) that the result is in fact a sheaf.</li>
+</ul>
+<p>Now, since <span class="math">\(G^+\)</span> is <em>canonically</em> isomorphic to <span class="math">\(G\)</span> for any sheaf <span class="math">\(G\)</span>, it is straightforward to show that the resulting map <span class="math">\(F\to F^s\)</span> is universal for maps to sheaves. QED</p>
+<div class="exercise math">
+<dl><dt class="math">Exercise 2</dt>
+<dd class="math">
+(Possibly hard?) Find an example of a sheaf on the big Zariski site of <span class="math">\(X\)</span> that is not a sheaf in the etale topology and whose sheafification is trivial (i.e., the sheaf of singletons).
+</dd>
+</dl>
+</div>
+<h4 id="an-example-of-a-sheafnon-sheaf">An example of a sheaf/non-sheaf</h4>
+<p>Here’s somewhat quirky example of a sheaf in the big Zariski topology on <span class="math">\(X\)</span> that is not a sheaf in the etale topology. Feel free to make more! This one fits in with the theme we used to launch the course: <span class="math">\(\Z/2\Z\)</span>-torsors.</p>
+<p>Fix a scheme <span class="math">\(X\)</span>. Define a sheaf <span class="math">\(T\)</span> on <span class="math">\(X_{\ZAR}\)</span> as follows.</p>
+<ul>
+<li>First, let’s make a silly presheaf. Let <span class="math">\(\widebar{T}(Y)\)</span> be the set of isomorphism classes of <span class="math">\(\Z/2\Z\)</span>-torsors, that is, of finite etale morphisms <span class="math">\(Z\to Y\)</span> together with a <span class="math">\(\Z/2\Z\)</span>-action <span class="math">\(\Z/2\Z\times Z\to Z\)</span> over <span class="math">\(Y\)</span> that acts simply transitively on the fiber over any geometric point of <span class="math">\(Y\)</span>.</li>
+<li>We let <span class="math">\(T\)</span> be the sheafification in the Zariski topology of <span class="math">\(\widebar{T}\)</span>.</li>
+<li>Here’s a weird remark: the restriction of <span class="math">\(\widebar{T}\)</span> to any regular scheme <span class="math">\(Y\)</span> over <span class="math">\(X\)</span> is actually already a Zariski sheaf. Proof: two <span class="math">\(\Z/2\Z\)</span>-torsors <span class="math">\(Z\to Y\)</span> and <span class="math">\(Z\to Y\)</span> are isomorphic if and only if the are isomorphic over the generic point of <span class="math">\(Y\)</span>; even better, isomorphisms extend uniquely from generic fibers. This shows that if a torsor extends, it extends uniquely up to unique isomorphism. Thus, the isomorphism classes are actually a sheaf.</li>
+<li>Also, note that there is <em>always</em> some <span class="math">\(X\)</span>-scheme <span class="math">\(Y\to X\)</span> such that <span class="math">\(T(Y)\)</span> is not a singleton. (Why?!)</li>
+</ul>
+<p>What happens if we sheafify <span class="math">\(T\)</span> in the <em>etale</em> topology? Well, by definition, any torsor is locally <em>trivial</em> in the etale topology, so the sheafification must be the sheaf of singletons! Voila!</p>
+<h4 id="quasi-coherent-sheaves-all-good">Quasi-coherent sheaves: all good</h4>
+<p>Let <span class="math">\(C\)</span> be the fppf site of a scheme <span class="math">\(X\)</span>. Given a quasi-coherent sheaf <span class="math">\(M\)</span> of <span class="math">\(\ms{O}_X\)</span>-modules, we can define a functor <span class="math">\(\underline{M}:\Sch_X\to\Set\)</span> by sending <span class="math">\(g:T\to X\)</span> to <span class="math">\(\Gamma(T, g^\ast M).\)</span></p>
+<div class="theorem math">
+<dl><dt class="math">Theorem 3</dt>
+<dd class="math">
+For any quasi-coherent sheaf <span class="math">\(M\)</span> on <span class="math">\(X\)</span>, the presheaf <span class="math">\(\underline{M}\)</span> is a sheaf in the fppf topology.
+</dd>
+</dl>
+</div>
+<p><strong>Proof</strong>. Do you remember how this went with <span class="math">\(\ms{O}\)</span>? Can we use the same trick? QED</p>
+<h3 id="morphisms-of-topologies">Morphisms of topologies</h3>
+<p>Now that we have our categorical analogue of topological spaces, how do we simulate continuous maps? For psychological reasons, given a category <span class="math">\(C\)</span> with a Grothendieck topology, we will write <span class="math">\(\Site(C)\)</span> to denote the “site of <span class="math">\(C\)</span>”. You’ll see why we do this in a moment.</p>
+<div class="definition math">
+<dl><dt class="math">Definition 4</dt>
+<dd class="math">
+<p>Given categories <span class="math">\(C\)</span> and <span class="math">\(C&#39;\)</span> with Grothendieck topologies, a <em>morphism of sites</em> <span class="math">\[f:\Site(C&#39;)\to\Site(C)\]</span> is a functor <span class="math">\(F:C\to C&#39;\)</span> such that</p>
+<ul>
+<li>for every covering <span class="math">\(\{U_i\to U\}\)</span> in <span class="math">\(C\)</span>, the image <span class="math">\(\{F(U_i)\to F(U)\}\)</span> is a covering</li>
+<li>for every covering <span class="math">\(\{U_i\to U\}\)</span> in <span class="math">\(C\)</span> and every morphism <span class="math">\(V\to U\)</span> in <span class="math">\(C\)</span>, the canonical map <span class="math">\[F(U_i\times_U V)\to F(U_i)\times_{F(U)} F(V).\]</span> (Special case of this condition: <span class="math">\(C\)</span> and <span class="math">\(C&#39;\)</span> have fiber products and <span class="math">\(F\)</span> preserves them. This is equilavent to <span class="math">\(F\)</span> preserving finite limits, also sometimes called “continuous” – now you know why!)</li>
+</ul>
+</dd>
+</dl>
+</div>
+<p>Everybody’s favorite example: <span class="math">\(C=\Open(X)\)</span>, <span class="math">\(C&#39;=\Open(Y)\)</span>, <span class="math">\(F\)</span> is the pullback map induced from a continuous map <span class="math">\(Y\to X\)</span>. We will thus usually write <span class="math">\(f^{-1}\)</span> for the above <span class="math">\(F\)</span> to simulate this. Other examples: if <span class="math">\(X\to Y\)</span> is a morphism of schemes, we get morphisms of sites <span class="math">\(X_{\ET}\to Y_{\ET}\)</span>, <span class="math">\(X_{et}\to Y_{et}\)</span> and <span class="math">\(X_{fppf}\to Y_{fppf}\)</span>, where the subscripts indicate the relevant sites for the associated schemes. The associated <span class="math">\(f^{-1}\)</span> functor is given by pullback of schemes.</p>
+<div class="question math">
+<dl><dt class="math">Question 5</dt>
+<dd class="math">
+Does a continuous map of topological spaces induce a morphism of <em>big</em> topologies? Does a morphism of big topologies always come from a continuous map of topological spaces?
+</dd>
+</dl>
+</div>
+<h4 id="associated-functors-for-presheaves-and-sheaves">Associated functors for presheaves and sheaves</h4>
+<p>Suppose <span class="math">\(f:\Site(C&#39;)\to \Site(C)\)</span> is a morphism of sites. We can define a functor <span class="math">\[f_\ast:\PreSh(C&#39;)\to\PreSh(C)\]</span> by <span class="math">\[f_\ast(F)(c) = F(f^{-1}(c)).\]</span> This looks just like the pushforward you are used to!</p>
+<div class="proposition math">
+<dl><dt class="math">Proposition 6</dt>
+<dd class="math">
+The functor <span class="math">\(f_\ast\)</span> - has a left adjoint (that we will call <span class="math">\(f^{-1}\)</span>; see below for the justification), and - preserves the subcategories of sheaves.
+</dd>
+</dl>
+</div>
+<p><strong>Proof</strong>. For the first statement: given a presheaf <span class="math">\(F\)</span> on <span class="math">\(C\)</span>, define <span class="math">\[f^{-1}(F)(d)=\colim F(c),\]</span> the colimit taken over all pairs <span class="math">\((c, \phi)\)</span> with <span class="math">\(c\in C\)</span> and <span class="math">\(\phi:d\to f^{-1}(c)\)</span> an arrow in <span class="math">\(C&#39;\)</span>. This becomes a formal experience after this; it should look familiar – you read exactly this in Hartshorne! For the second statement, we use the fact that <span class="math">\(f^{-1}\)</span> carries coverings to coverings and fiber products to fiber products, by assumption. It thus transforms the sheaf condition into the sheaf condition. QED</p>
+<div class="corollary math">
+<dl><dt class="math">Corollary 7</dt>
+<dd class="math">
+The functor <span class="math">\(f_\ast:\Sh(C&#39;)\to\Sh(C)\)</span> admits a left adjoint <span class="math">\(f^{-1}\)</span>.
+</dd>
+</dl>
+</div>
+<p><strong>Proof</strong>. This works: <span class="math">\[f^{-1}(F) = f^{-1}(\Phi(F))^s.\]</span>QED</p>
+<p><em>Justification for the use of <span class="math">\(f^{-1}\)</span> all over when we are already using it for the “pullback map on opens”</em>: we claim that for any <span class="math">\(d\in C\)</span> we have <span class="math">\[f^{-1}h_d=h_{f^{-1}(d)}.\]</span> Here’s the proof. <span class="math">\[\Hom_{\PreSh(C&#39;)}(f^{-1}h_d, F)=\Hom_{\PreSh(C)}(h_d, f_\ast F)=f_\ast F(d)=F(f^{-1}(d))=\Hom_{\PreSh(C&#39;)}(f^{-1}d, F).\]</span> (Is this still ok for sheaves? What do you think?)</p>
+<p>Properties of <span class="math">\(f^{-1}:\Sh(C)\to\Sh(C&#39;)\)</span>:</p>
+<ul>
+<li><span class="math">\(f^{-1}\)</span> preserves all colimits</li>
+<li><span class="math">\(f^{-1}\)</span> preserves finite limits</li>
+</ul>
+<p>The first follows from the adjointness of <span class="math">\(f^{-1}\)</span> and <span class="math">\(f_\ast\)</span>. The second is equivalent to preserving fiber products: <span class="math">\[f^{-1}(F\times_G H)=f^{-1}F\times_{f^{-1}G}f^{-1}H.\]</span> This reduces to checking the presheaf version, which itself reduces to <span class="math">\((F\times_G H)(c)=F(c)\times_{G(c)}H(c)\)</span> by the filtering property of the corresponding colimit. The last is a consequence of the basic fact that <span class="math">\(\Hom(h_c, F)=F(c)\)</span> for all presheaves <span class="math">\(F\)</span> and objects <span class="math">\(c\)</span>.</p>
+<h4 id="an-example-of-pullback">An example of pullback</h4>
+<p>Let <span class="math">\(C\)</span> be the small etale site of a scheme <span class="math">\(X\)</span> and <span class="math">\(C&#39;\)</span> the small etale site of a separably closed point <span class="math">\(x\)</span> that admits a map <span class="math">\(\iota:x\to X\)</span>. There is a morphism of sites <span class="math">\(\iota:x_{et}\to X_{et}\)</span> as usual; moreover, the site <span class="math">\(x_{et}\)</span> is equivalent to sets, since there are no non-trivial separable extensions of a separably closed field. What is <span class="math">\(\iota^{-1}\ms{O}_X\)</span>?</p>
+<p>Well, we’re supposed to sheafify a certain functor, which we can explicitly calculate: we take the direct limit of <span class="math">\(\ms{O}_U(U)\)</span> over the system of lifts <span class="math">\(x\to U\to X\)</span> with <span class="math">\(U\to X\)</span> an etale morphism. Since any object in <span class="math">\(C&#39;\)</span> is a disjoint union of copies of <span class="math">\(x\)</span>, the sheaf condition just tells us that this computation for <span class="math">\(x\)</span> gives us the right thing.</p>
+<p><strong>Upshot</strong>: <span class="math">\(\iota^{-1}\ms{O}_X = \colim_{x\to U\to X}\ms{O}_{U}(U)\)</span>. In ring-theoretic terms, if we fix an affine neighborhood of the image of <span class="math">\(x\)</span> and do the natural localization, we have a local ring <span class="math">\(A\)</span> with a choice of embedding <span class="math">\(A/\mf{m}\to K\)</span> into a separably closed field, and the sheaf <span class="math">\(\iota^{-1}\ms{O}_X\)</span> is the sheaf associated to the ring given by taking the direct limit over all diagrams <span class="math">\(A\to B\to K\)</span> where <span class="math">\(A\to B\)</span> is an etale ring extension and <span class="math">\(B\to K\)</span> factors <span class="math">\(A/\mf{m}\to K\)</span>.</p>
+<p>In particular, the colimit is itself a <em>local ring</em> with separably closed residue field, called the <em>strict Henselization of <span class="math">\(A\)</span></em>. The strict Henselization of a local ring is the local ring at a geometric point in the etale topology.</p>
+<div class="question math">
+<dl><dt class="math">Question 8</dt>
+<dd class="math">
+What if we take a point <span class="math">\(x\in X\)</span> above, not a geometric point. Then the site <span class="math">\(x_{et}\)</span> is more interesting – it involves the Galois group of <span class="math">\(\kappa(x)\)</span>. What is the sheaf <span class="math">\(\iota^{-1}\ms{O}_X\)</span>?
+</dd>
+</dl>
+</div>
+<h3 id="exact-sequences">Exact sequences</h3>
+<p>Let’s now consider presheaves and sheaves on <span class="math">\(C\)</span> with values in abelian groups. We will call these <span class="math">\(\PreSh^{\ab}(C)\)</span> and <span class="math">\(\Sh^{\ab}(C)\)</span>.</p>
+<div class="lemma math">
+<dl><dt class="math">Lemma 9</dt>
+<dd class="math">
+A sequence <span class="math">\(0\to F\to G\to H\to 0\)</span> in <span class="math">\(\PreSh^{\ab}(C)\)</span> is exact if and only if the sequence is exact when evaluated on any object of <span class="math">\(C\)</span>. Moreover, <span class="math">\(\PreSh^{\ab}(C)\)</span> is an abelian category satisfying AB3, AB4, AB5, AB3<em>, AB4</em>, AB5*, and, if <span class="math">\(C\)</span> is small, possessing a set of generators. (More generally, presheaves taking values in an abelian category inherit the axioms of that category.)
+</dd>
+</dl>
+</div>
+<p><strong>Proof</strong>: The abelian category axioms follow by evaluating everything termwise. The last one is the most interesting. Given an object <span class="math">\(c\in C\)</span>, define a presheaf of abelian groups <span class="math">\(Z_c:C^\circ\to\Set\)</span> by <span class="math">\(Z_c(c&#39;)=\Z\)</span> if <span class="math">\(c&#39;\)</span> is isomorphic to <span class="math">\(C\)</span> and <span class="math">\(Z_c(c&#39;)=0\)</span> otherwise. The maps between values are given by the identity between copies of <span class="math">\(\Z\)</span> and the <span class="math">\(0\)</span> map otherwise. We claim that the <span class="math">\(Z_c\)</span> generate the category <span class="math">\(\PreSh^{\ab}(C)\)</span>, that is, for any <span class="math">\(F\in\PreSh^{\ab}(C)\)</span>, the natural map <span class="math">\[\oplus_{c}\Hom(Z_c, F)\times Z_c\to F\]</span> is surjective. To see this, it suffices to show that for any section <span class="math">\(s\in F(c)\)</span>, there is a map <span class="math">\(Z_c\to F\)</span> such that <span class="math">\(Z_c(c)(1) = s\)</span>. But we can make this happen by just making this happen. (Be careful with isomorphisms!) QED</p>
+<div class="corollary math">
+<dl><dt class="math">Corollary 10</dt>
+<dd class="math">
+If <span class="math">\(C\)</span> is small (do I really need this?) then <span class="math">\(\PreSh^{\ab}(C)\)</span> contains enough injectives. Moreover, if <span class="math">\(F\)</span> is an injective presheaf then for any <span class="math">\(c\in C\)</span>, the group <span class="math">\(F(c)\)</span> is injective (i.e., divisible).
+</dd>
+</dl>
+</div>
+<p><strong>Proof</strong>: Let <span class="math">\(c\in C\)</span> be an object. The singleton category <span class="math">\(S\)</span> admits a functor <span class="math">\(S\to C\)</span> that sends the single object <span class="math">\(s\)</span> to <span class="math">\(c\)</span>, and this gives a morphism of sites <span class="math">\(\sigma_c:\Site(C)\to\Site(S)\)</span> such that for all <span class="math">\(F\in\PreSh(C)\)</span> we have <span class="math">\((\sigma_c)_\ast F(s) = F(c)\)</span>. Moreover, we know that we can calculate the left adjoint <span class="math">\(\sigma_c^{-1}\)</span> on <span class="math">\(d\)</span> by the formula <span class="math">\[\sigma_c^{-1}(G)(d) = \colim_{d \to c} G(s).\]</span> Since this is a filtering colimit of abelian groups, we see that <span class="math">\(\sigma_c^{-1}\)</span> is exact. But any functor with an exact left adjoint must send injectives to injectives. QED</p>
+<p>It gets better!</p>
+<div class="prop">
+The category <span class="math">\(\Sh^{\ab}(C)\)</span> is an abelian category that admits sufficiently many injectives and that satisfies AB3* (arbitrary products exist), AB5 (coproducts exist and filtered colimits are exact).
+</div>
+<p><strong>Proof</strong>: (See Chapter II of Artin.) Given a map <span class="math">\(f:F\to G\)</span> of sheaves, the presheaf kernel <span class="math">\(K\to F\)</span> is a sheaf, and is the kernel (equalizer of the map and <span class="math">\(0\)</span>) in the category of sheaves. On the other hand, we claim that the sheafification of the presheaf cokernel of <span class="math">\(f\)</span> is a sheaf cokernel. Indeed, write <span class="math">\(F\to G\to KK\)</span> in <span class="math">\(\PreSh^{\ab}(C)\)</span>. What do we need to check to see that <span class="math">\(KK^s\)</span> is the sheaf cokernel? We need to know that for any sheaf <span class="math">\(Q\)</span>, the map <span class="math">\[0\to\Hom(KK^s, Q)\to\Hom(G, Q)\to\Hom(F, Q)\]</span> is exact. But, by adjunction, this sequence is isomorphic to <span class="math">\[0\to\Hom(KK, \Phi(Q))\to\Hom(G, \Phi(Q))\to\Hom(F,\Phi(Q)),\]</span> which is exact by the definition of <span class="math">\(K\)</span>. The last thing to check is that the sheaf cokernel of <span class="math">\(K\to F\)</span> equals the sheaf kernel of <span class="math">\(G\to KK\)</span> by the natural map. Letting <span class="math">\(I\)</span> be the <em>presheaf</em> cokernel of <span class="math">\(K\to F\)</span>, we know that <span class="math">\[0\to I\to G\to KK\]</span> is exact. On the other hand, the composition of the sheafification functor and the forgetful functor is left exact (from <span class="math">\(\PreSh^{\ab}(C)\)</span> to itself), so <span class="math">\(I^s\)</span> is the also the sheaf kernel of <span class="math">\(G\to KK^{s}\)</span>.</p>
+<p>What about the injectives? Well, sheafifying the <span class="math">\(Z_c\)</span> gives generators!</p>
+<p>The AB axioms are explained on p. 32 of Artin’s notes. It is pretty straightforward. QED</p>
+<div class="lemma math">
+<dl><dt class="math">Lemma 11</dt>
+<dd class="math">
+Sheafification <span class="math">\(F\mapsto F^s\)</span> defines an <em>exact</em> functor <span class="math">\[\PreSh^{\ab}(C)\to\Sh^{\ab}(C).\]</span>
+</dd>
+</dl>
+</div>
+<p><strong>Proof</strong>. Why is it left exact? One version: the <em>construction</em> in terms of limits shows that it is left exact because limits of abelian groups preserve injections. It remains to show that an epimorphism <span class="math">\(F\to G\)</span> maps to an epimorphism <span class="math">\(F^s\to G^s\)</span>. But the epimorphism condition is detected by exactness of mapping into something, so we can use the universal property. QED</p>
+<div class="corollary math">
+<dl><dt class="math">Corollary 12</dt>
+<dd class="math">
+Any injective sheaf is injective as a presheaf. In particular, its restriction to any object is an injective object.
+</dd>
+</dl>
+</div>
+<p><strong>Proof</strong>. Any functor with an exact left adjoint preserves injectives! QED</p>
+<h4 id="bonkers-question">Bonkers question</h4>
+<p>So the functor <span class="math">\[\Phi:\Sh^{\ab}(C)\to\PreSh^{\ab}(C)\]</span> is left exact, and <span class="math">\(\Sh^{\ab}(C)\)</span> has enough injectives. Can we make derived functors of <span class="math">\(\Phi\)</span>? What are they?</p>
+<h3 id="equivalences-of-sites">Equivalences of sites</h3>
+<p>A morphism <span class="math">\(f:\Site(C&#39;)\to\Site(C)\)</span> of topologies is a <em>topological equivalence</em> if the associated functor <span class="math">\(f_\ast:\Sh(C&#39;)\to\Sh(C)\)</span> is an equivalence of categories. This is very different from the corresponding statement for presheaf categories.</p>
+<h3 id="content-contributors">Content contributors</h3>
+<p><span class="citation" data-cites="maxlieblich">@maxlieblich</span></p>

@@ -1,0 +1,43 @@
+<h1 id="sheaves-on-stacks">Sheaves on stacks</h1>
+<p>Let <span class="math">\(\pi: X \to S\)</span> be a stack. We want to talk about sheaves on <span class="math">\(X\)</span>, and in order to do that, we will define a site associated to the stack <span class="math">\(X\)</span>. It makes sense to use the site structure on <span class="math">\(S\)</span>: we declare <span class="math">\(\{y_i \to x\}\)</span> to be a covering on <span class="math">\(X\)</span> if <span class="math">\(\{\pi(y_i)\to\pi(x)\}\)</span> is a covering in <span class="math">\(S\)</span>.</p>
+<div class="example math">
+<dl><dt class="math">Example 1</dt>
+<dd class="math">
+<p>One can build a sheaf of groups on every stack, by considering the functor <span class="math">\[
+x\maspto Aut(x)
+\]</span> where <span class="math">\(Aut(x)\)</span> is the group of automorphisms of <span class="math">\(x\)</span> in the fibered category, i.e. the isomorphisms <span class="math">\(\psi:x\to x\)</span> such that <span class="math">\(\pi(\psi) = Id\)</span>.</p>
+We claim that it is a sheaf. The functoriality follows from the CFG properties. If <span class="math">\(f:y\to x\)</span> is a map in <span class="math">\(X\)</span> and <span class="math">\(\alpha\in Aut(x)\)</span>, then teh fact that every arrow is Cartesian implies the existence of an isomorphism of <span class="math">\(y\)</span> making every appropriate square commute. Moreover, the stack conditions ensure that <span class="math">\(Iso(x,y)\)</span> is a sheaf, so <span class="math">\(Iso(x,x)\)</span> is a sheaf.
+</dd>
+</dl>
+</div>
+<div class="example math">
+<dl><dt class="math">Example 2</dt>
+<dd class="math">
+Let <span class="math">\(A\)</span> be an Azumaya algebra on a scheme <span class="math">\(X\)</span>. We defined <span class="math">\(\mathcal{X}_A\)</span> the stack of pairs <span class="math">\((U, \phi: \mathcal{E}nd U \simeq A)\)</span>. One can check that <span class="math">\[
+(U, \phi) \mapsto \Gamma(T, U)
+\]</span> is a sheaf on <span class="math">\(\mathcal{X}_A\)</span>, that we will call <span class="math">\(\mathcal{V}\)</span>.
+</dd>
+</dl>
+</div>
+<h3 id="the-inertia-action">The inertia action</h3>
+<div class="proposition math">
+<dl><dt class="math">Proposition 3</dt>
+<dd class="math">
+Given a stack <span class="math">\(X\)</span>, let <span class="math">\(I\)</span> be the sheaf of the automorphism groups. For any sheaf of sets <span class="math">\(F\)</span> on <span class="math">\(X\)</span>, there’s a canonical right action <span class="math">\(F\times I \to F\)</span>, called the .
+</dd>
+</dl>
+</div>
+<p><strong>Proof</strong>: We know that <span class="math">\(I(x) = Aut(x)\)</span>, so we will describe an action <span class="math">\(F(x)\times I(x) \to F(x)\)</span>. Given an automorphism <span class="math">\(\alpha:x\to x\)</span>, then <span class="math">\(F(\alpha): F(X) \to F(x)\)</span> is an automorphism of sets. We can then define <span class="math">\(\alpha\cdot y = F(\alpha)[y]\)</span> for all <span class="math">\(y\in F(x)\)</span>. This yields a right action.</p>
+<p>What is <span class="math">\(I\)</span> for our beloved stack <span class="math">\(\mathcal{X}_A\)</span>?</p>
+<p>The question is really about the automorphisms of a pair <span class="math">\((V,\phi)\)</span>. By our definition of <span class="math">\(\mathcal{X}_A\)</span>, it’s an isomorphism <span class="math">\(\psi: V\to V\)</span> such that <span class="math">\(\phi\circ \text{Ad}(\psi) = \phi\)</span>, where <span class="math">\(\text{Ad}(\psi): \mathcal{E}nd V \to \mathcal{E}nd V\)</span>. Since <span class="math">\(\phi\)</span> is an automorphism, then <span class="math">\(\text{Ad}(\psi) = \text{Id}\)</span>, hence by the Skolem-Noether theorem <span class="math">\(\psi\in\mathbb{G}_m\)</span>.</p>
+<p>Putting everything together, there’s an action <span class="math">\(\mathcal{V} \times \mathbb{G}_m \to \mathcal{V}\)</span>, that gives rises to a sheaf of representations of <span class="math">\(\mathbb{G}_m\)</span>. As it turns out, their structure is known:</p>
+<div class="proposition math">
+<dl><dt class="math">Proposition 4</dt>
+<dd class="math">
+Let <span class="math">\(X\)</span> ve a scheme and let <span class="math">\(\mathcal{F}\)</span> be a quasi-coherent sheaf on <span class="math">\(X\)</span> in the fppf topology. Given an action <span class="math">\(\mathbb{G}_m \times \mathcal{F} \to \mathcal{F}\)</span>, there is a decomposition <span class="math">\(\mathcal{F} = \bigoplus_i \mathcal{F}_i\)</span> into eigensheaves such that the restriction of the action to <span class="math">\(\mathcal{F}_i\)</span> is of the form <span class="math">\[
+\mathbb{G}_m \times \mathcal{F}_i \to \mathcal{F}_i, (\alpha, f)\mapsto \alpha^i f
+\]</span>
+</dd>
+</dl>
+</div>
+<p>Question: what are the eigensheaves for our action <span class="math">\(\mathcal{V} \times \mathbb{G}_m \to \mathcal{V}\)</span>?</p>

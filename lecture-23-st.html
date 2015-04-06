@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="stylesheets/pandoc.css">
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="trivializing-an-azumaya-algebra-via-stacks-02-02-2015">Trivializing an Azumaya algebra via stacks 02-02-2015</h1>
+
+<p>Given an Azumaya algebra <span class="math">\(A\)</span> on a scheme <span class="math">\(X\)</span> we consider the pseudo-functor <span class="math">\[
+\mathscr{I}=\mathscr{I}_A:X\text{-schemes}\to \mathrm{Groupoid}
+\]</span> which takes an <span class="math">\(X\)</span>-scheme <span class="math">\(T\)</span> to the groupoid with <span class="math">\[
+\mathrm{Objects}\mathscr{I}(T)=\left\{\begin{array}{c}\text{Pairs }(V,\phi)\text{ where }V\text{ is a vector bundle on }X\\
+\text{and }\phi\text{ is an $\mathcal{O]_X$-algebra isomorphism }\phi:A_T\to\underline{\End}_{\mathscr{O}_X}(V)\end{array}\right\}.
+\]</span> Here by ``vector bundle&quot; we mean specifically a quasi-coherent sheaf <span class="math">\(V\)</span> on <span class="math">\(X\)</span> which is locally free of finite rank. The morphisms between objects <span class="math">\(\phi:A_T\to \underline{\End}_{\mathscr{O}_T}(V)\)</span> and <span class="math">\(\phi&#39;:A_T\to\underline{\End}_{\mathscr{O}_T}(V&#39;)\)</span> in <span class="math">\(\mathscr{I}(T)\)</span> are given by vector bundle maps <span class="math">\(\alpha:V\to V&#39;\)</span> fitting into the appropriate diagram, i.e. with <span class="math">\(ad_{\alpha}\phi=\phi&#39;\)</span>. </p>
+<p>Given a map <span class="math">\(f:T&#39;\to T\)</span> over <span class="math">\(X\)</span>, we can pull back a vector bundle <span class="math">\(V\)</span> on <span class="math">\(T\)</span> to get a vector bundle <span class="math">\(f^\ast V\)</span> on <span class="math">\(T&#39;\)</span>. We also have a natural isomorphism <span class="math">\(f^\ast \End_{\mathscr{O}_T}(V,M)\cong \End_{\mathscr{O}_{T&#39;}}(f^\ast V, f^\ast M)\)</span> whenever <span class="math">\(V\)</span> is a vector bundle. (It is not difficult to check this in the affine case since <span class="math">\(V\)</span> will be finitely generated projective, and hence a summand of a finite free module.) So we can pull back an algebra isomorphism <span class="math">\(\phi:A_T\to \End_{\mathscr{O}_T}(V)\)</span> to get an isomorphism <span class="math">\(A_{T&#39;}\to \End_{\mathscr{O}_{T&#39;}}(f^\ast V)\)</span>, which we denote <span class="math">\(f^\ast \phi\)</span> by abuse of notation. So, modulo a few details which are not entirely insignificant, we get pullback maps <span class="math">\(f^\ast:\mathscr{I}(T)\to\mathscr{I}(T&#39;)\)</span>.</p>
+<div class="remark">
+It may be easier here to identify <span class="math">\(\mathscr{I}\)</span> explicitly as a category fibered in groupoid, rather than a pseudo-functor.
+</div>
+<p>The CFG <span class="math">\(\mathscr{I}\)</span> is also a <em>stack</em>.</p>
+<div class="remark">
+According to what I think I understood, an algebraic stack on the fppf site is also a stack on the big etale site, and vice versa (whatever these words may mean). So we use the fppf site here, but one may just as well use the etale site.
+</div>
+<p>In our example the pairs <span class="math">\((V,\phi)\)</span> satisfy descent in that (1) for any pair <span class="math">\(b=(V,\phi)\)</span>, <span class="math">\(b&#39;=(V&#39;,\phi&#39;)\)</span> in <span class="math">\(\mathscr{I}(T)\)</span> the functor <span class="math">\[
+\text{Isom}_T(b,b&#39;):\mathrm{Sch}/T\to \Set,\ \ 
+(U\to T)\mapsto \text{Isom}_{\mathscr{I}(U)}(b|U,b&#39;|U)
+\]</span> is a sheaf on the fppf site <span class="math">\(T_{fppf}\)</span>, and (2) We can construct a pair <span class="math">\((V,\phi)\)</span> fppf locally via fppf descent for vector bundles. </p>
+<p>Another way to make this statement is as follows: suppose we have a fppf cover <span class="math">\(U\to T\)</span>. Then we can consider the diagram <span class="math">\[
+\mathscr{I}(T)\mathcal{O]verset{(-)|U}\to\mathscr{I}(U)\mathcal{O]verset{p_2^\ast}{\underset{p_1^\ast}\rightrightarrows}\mathscr{I}(U\times_T U).
+\]</span> We would like to say that any object <span class="math">\((W,\psi)\)</span> on <span class="math">\(U\)</span> mapping to ``the same&quot; objects <span class="math">\((p^\ast_1 W, p^\ast_1\psi)\)</span> and <span class="math">\((p^\ast_2 W,p_2^\ast \psi)\)</span> under the (pullbacks of) the two projections comes from an object in <span class="math">\(\mathscr{I}(T)\)</span>. However, this stament is too coarse, as we explicitly need the information of the isomorphism <span class="math">\(\beta:(p^\ast_1 W, p^\ast_1\psi)\to (p^\ast_2 W,p_2^\ast \psi)\)</span>. To apply descent we also need to know that this isomorphism satisfies some compatibility criterion on tripple overlaps. So we extend our above diagram slightly to get <span class="math">\[
+\mathscr{I}(T)\mathcal{O]verset{(-)|U}\to\mathscr{I}(U)\mathcal{O]verset{p_2^\ast}{\underset{p_1^\ast}\rightrightarrows}\mathscr{I}(U\times_T U)\mathcal{O]verset{\to}{\underset{\to}\to}\mathscr{I}(U\times_T U\times_T U),
+\]</span> where the three arrows are the pullbacks along the three possible projections <span class="math">\(p_{ij}^\ast: U\times_T U\times_T U\to U\times_T U\)</span>. With this diagram in hand we demand that any object <span class="math">\(b\)</span> in <span class="math">\(\mathscr{I}(U)\)</span> along with an isomorphism <span class="math">\(\beta:p_1^\ast b\to p_2^\ast b\)</span> which additionally satisfies <span class="math">\[
+(p_{23}^\ast\beta)(p_{12}^\ast\beta)=p_{13}^\ast\beta
+\]</span> has a <span class="math">\(a\in \mathscr{I}(T)\)</span> with <span class="math">\(\gamma:a|U\to b\)</span> such that <span class="math">\(\beta\)</span> becomes the canonical isomorphism <span class="math">\(p_1^\ast(a|U)\to (a|U\times_T U)\to p_2^\ast(a|U)\)</span>. This object <span class="math">\(a\)</span>, along with the identification <span class="math">\(\gamma:a|U\to b\)</span>, need to be unique up to unique isomorphism. (I’m not 100% sure this is the correct statement, to be frank. But I think it is correct.)</p>
+<h3 id="an-aside">An aside</h3>
+<p>As another example of a stack we can consider the pseudo-functor <span class="math">\[
+QCoh:\Sch/T\to \mathrm{Groupoid}
+\]</span> Taking a <span class="math">\(T\)</span>-scheme <span class="math">\(U\)</span> to the groupoid of quasi-coherent sheaves on <span class="math">\(U\)</span>, with morphisms given by isomorphisms. Descent theory for quasi-coherent sheaves can be understood as the statement that <span class="math">\(QCoh\)</span> is a stack on <span class="math">\(T_{fppf}\)</span>.</p>
+<h3 id="a-third-phrasing-of-stacks-via-the-category-of-descent-data">A third phrasing of stacks via the category of descent data</h3>
+<p>Given a CFG <span class="math">\(G:\mathcal{C}^{op}\to \mathrm{Groupoid}\)</span>, on some arbitrary site <span class="math">\(C\)</span>, and a covering <span class="math">\(U\to T\)</span>, we can construct a new category <span class="math">\(D^G_{U/T}\)</span> called the category of descent data for <span class="math">\(U\to T\)</span>. The objects of <span class="math">\(D^G_{U/T}\)</span> are given by descent data, <span class="math">\[
+\mathrm{Objects}D^G_{U/T}=\left\{\begin{array}{c}\text{Data $B$ consisting of an object $b$ in $G(U)$}\\
+\text{and a map $\beta:p_1^\ast b\to p_2^\ast b$ satisfying}\\
+\text{the cocycle condition $(p_{23}^\ast\beta)(p_{12}^\ast\beta)=p_{13}^\ast\beta$}\end{array}\right\}.
+\]</span> Morphisms <span class="math">\(B\to B&#39;\)</span> are given by <span class="math">\(\gamma:b\to b&#39;\)</span> producing a commutative diagram <span class="math">\[
+\require{AMScd} \begin{CD} p_1^\ast b @&gt;\beta&gt;&gt; p_2^\ast b \ @V{p_1^\ast\gamma}VV @VV{p_2^\ast \gamma}V \ p_1^\ast b&#39; @&gt;&gt;{\beta&#39;}&gt; p_2^\ast b&#39;. \ \end{CD}
+\]</span> Note that <span class="math">\(D^G_{U/T}\)</span> is a groupoid, as all of the maps are isomorphisms. (They are induced by maps in <span class="math">\(G(U)\)</span>. </p>
+<p>Let’s let <span class="math">\(f\)</span> denote our covering <span class="math">\(U\to T\)</span>. Recall that in the statement that <span class="math">\(G\)</span> is the statement that for sequences <span class="math">\(X\mathcal{O]verset{g}\to Y\mathcal{O]verset{h}\to Z\)</span> in <span class="math">\(\mathcal{C}\)</span> there are natural, compatible, isomorphisms <span class="math">\((hg)^\ast\mathcal{O]verset{\cong}\to g^\ast h^\ast\)</span>. Whence there is a canonical map of groupoids <span class="math">\[
+\delta_{U/T}:G(T)\to D^G_{U/T}
+\]</span> taking an object <span class="math">\(\bar{b}\)</span> in <span class="math">\(G(T)\)</span> to <span class="math">\((b,\beta)\)</span>, where <span class="math">\(b=\bar{b}|U=f^\ast \bar{b}\)</span> and <span class="math">\[
+\beta:p_1^\ast b=p_1^\ast f^\ast \bar{b}\to p_2^\ast f^\ast\bar{b}=p_2^\ast b
+\]</span> is the isomorphism <span class="math">\[
+p_1^\ast f^\ast \bar{b}\to (fp_1)^\ast \bar{b}=(fp_2)^\ast \bar{b}\to p_2^\ast f^\ast\bar{b}
+\]</span> implied by the pseudo-functor structure on <span class="math">\(G\)</span>.</p>
+<div class="remark">
+Let <span class="math">\(G:\mathcal{C}^{op}\to \mathrm{Groupoid}\)</span> be a pseudo-functor, as above. We say descent is <em>effective</em> for <span class="math">\(G\)</span> if for any cover <span class="math">\(U\to T\)</span> the groupoid map <span class="math">\(\delta_{U/T}\)</span> is an equivalence of categories. We say <span class="math">\(G\)</span> is a stack on <span class="math">\(\mathcal{C}\)</span> if -descent is effective for <span class="math">\(G\)</span> and -for any <span class="math">\(a,a&#39;\in G(T)\)</span>, the presheaf <span class="math">\(\text{Isom}_T(a,a&#39;):\mathcal{C}^{op}/T\to \Set\)</span> is in fact a sheaf!
+</div>
+</body>
+</html>

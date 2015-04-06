@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="stylesheets/pandoc.css">
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="standard-examples">Standard examples</h1>
+<h3 id="g-sets"><span class="math">\(G\)</span>-sets</h3>
+<p>Let <span class="math">\(G\)</span> be a group, and let <span class="math">\(C\)</span> be the category of sets with a left <span class="math">\(G\)</span>-action. <strong>Variant</strong>: let <span class="math">\(G\)</span> be a <em>profinite</em> group, and let <span class="math">\(C\)</span> be the category of finite sets with a <em>continuous</em> (left) action. Define a covering to be a collection of <span class="math">\(G\)</span>-equivariant maps <span class="math">\(\{U_i\to U\}\)</span> such that <span class="math">\(\sqcup U_i\to U\)</span> is surjective.</p>
+<div class="exercise">
+Show that we have just described the canonical topology on <span class="math">\(C\)</span>.
+</div>
+<p>Given a sheaf <span class="math">\(F:C^\circ\to\Set\)</span>, we can make <span class="math">\(F(G)\)</span> into a <span class="math">\(G\)</span>-set: (first, <span class="math">\(G\)</span> acts on the left on <span class="math">\(G\)</span> by translation) <span class="math">\[g:F(G)\to F(G)\]</span> is defined to be the map induced by the map of left <span class="math">\(G\)</span>-sets <span class="math">\[G\to G: a\mapsto a g.\]</span> (Thanks to Hao and Bharathwaj for pointing out that the contravariance of <span class="math">\(G\)</span> makes this the natural left action, not <span class="math">\(a\mapsto a g^{-1}\)</span>!)</p>
+<div class="claim">
+Every sheaf <span class="math">\(F\)</span> on <span class="math">\(C\)</span> is representable by <span class="math">\(F(G)\)</span> with the above action.
+</div>
+<p><strong>Proof</strong>. Given a <span class="math">\(G\)</span>-set <span class="math">\(U\)</span>, we need to find a functorial isomorphism <span class="math">\[F(U)\to\Hom_C(U, F(G)).\]</span> We can write <span class="math">\(U\)</span> is a disjoint union of orbits <span class="math">\(U=\sqcup U_i\)</span>, and <strong>the sheaf property tells</strong> us that this decomposition induces a canonical isomorphism <span class="math">\(F(U)=\prod F(U_i)\)</span>. Thus, it suffices to show this for <span class="math">\(U\)</span> that consist of a single <span class="math">\(G\)</span>-orbit.</p>
+<p>But then there is a covering of the form <span class="math">\(G\to U\)</span> (given by choosing an element <span class="math">\(u\in U\)</span> and letting <span class="math">\(G\)</span> act). The sheaf property says that <span class="math">\(F(U)\)</span> is idenfied with the the equalizer of <span class="math">\[F(G)\rightrightarrows F(G\times_U G).\]</span> Having chosen <span class="math">\(u\)</span>, let’s write <span class="math">\(U = G/H\)</span> for <span class="math">\(H\)</span> a subgroup of <span class="math">\(G\)</span>. Two elements of <span class="math">\(G\)</span> map to the same element of <span class="math">\(G/H\)</span> if and only if they are in the same coset. Thus, an element of <span class="math">\(G\times_U G\)</span> has the form <span class="math">\((g, gh)\)</span> for some <span class="math">\(h\in H\)</span>. This gives an isomorphism of <span class="math">\(G\)</span>-sets <span class="math">\[G\times_U G\to G\times H,\]</span> where the <span class="math">\(H\)</span> factor in the latter has a trivial <span class="math">\(G\)</span>-action. In other words, <span class="math">\[G\times_U G\cong \sqcup_{h\in H} G\]</span> as <span class="math">\(G\)</span>-sets. This admits a right <span class="math">\(H\)</span>-action that simply permutes the factors.</p>
+<p>By the sheaf property, we conclude that <span class="math">\[F(G\times_U G)\cong \prod_{h\in H} F(G).\]</span> What are the maps <span class="math">\(F(G)\to \prod_HF(G)\)</span>? The first one is the diagonal map, while the second one is the product of the maps <span class="math">\(F(G)\to F(G)\)</span> given by the right action of <span class="math">\(H\)</span>. The equalizer of the maps is precisely the <span class="math">\(H\)</span>-invariant part of <span class="math">\(F(G)\)</span>.(Question from Hao: Why is the first map diagonal and second map as claimed? )</p>
+<p>Answer(Hao): Let <span class="math">\(\varphi: G \times H \to G \times_U \G : (g,h) \mapsto (g,gh)\)</span>. It is a isomorphism of <span class="math">\(G\)</span>-sets. Let <span class="math">\(\pi_1, \pi_2\)</span> be the two projections from <span class="math">\(G \times_U G\)</span>. Then <span class="math">\(\pi_1 \circ \varphi(g,h) = g\)</span> and <span class="math">\(\pi_2 \circ \varphi(g,h) = gh\)</span>. Under the identification <span class="math">\(\Phi: F(G \times H ) \cong \prod_H F(G)\)</span>, each factor on the right hand side is the image of <span class="math">\(F(G \times \{h\})\)</span> for some <span class="math">\(h\)</span>. But <span class="math">\(G \times {h}\)</span> is isomorphic to <span class="math">\(G\)</span> canonically and we used this canonical isomorphism to define <span class="math">\(\Phi\)</span>, so the first map <span class="math">\(F(G) \to F(G\times_U G)\)</span> is the diagonal. The second map on the h-piece of <span class="math">\(\prod_H F(G)\)</span> induced from <span class="math">\(g (\mapsto (g,h)) \mapsto gh\)</span>. Hence it corresponds to the action of <span class="math">\(h^{-1}\)</span> on <span class="math">\(F(G)\)</span>. So the second map is <span class="math">\(F(G)\)</span> hitted with all elements of <span class="math">\(H\)</span> on the right.</p>
+<p>What is <span class="math">\(\Hom_C(G/H, F(G))\)</span>? Well, <span class="math">\(\Hom_C(G, S)\)</span> for any <span class="math">\(G\)</span>-set <span class="math">\(S\)</span> is the same as <span class="math">\(S\)</span>, so <span class="math">\(\Hom_C(G/H, F(G))\subset F(G)\)</span>. It is the subset consisting of elements of <span class="math">\(F(G)\)</span> that are fixed by <span class="math">\(H\)</span>, that is, <span class="math">\(\alpha\in F(G)\)</span> such that for all <span class="math">\(h\in H\)</span>, the map <span class="math">\(g\mapsto gh^{-1}\)</span> sends <span class="math">\(\alpha\)</span> to <span class="math">\(\alpha\)</span>. Call this <span class="math">\(F(G)^{H}\)</span>.</p>
+<p>This identifies <span class="math">\(F(U)\)</span> with <span class="math">\(\Hom_C(U, F(G))\)</span>, as desired. QED</p>
+<p><strong>Upshot</strong>: a sheaf on <span class="math">\(G\)</span>-set is a <span class="math">\(G\)</span>-set, and a sheaf of abelian group is a <span class="math">\(G\)</span>-module. (Be careful about profinite groups and continuity/discreteness conditions!)</p>
+<h3 id="topological-spaces-big-and-small">Topological spaces, big and small</h3>
+<p>Given a topological space <span class="math">\(X\)</span>, we have the category of open subsets, <span class="math">\(\Open(X)\)</span>. This has a Grothendieck topology that you know and love (because you described it, or maybe we did this in class). This is called the <em>small site</em> of <span class="math">\(X\)</span>.</p>
+<p>We can also consider the slice category <span class="math">\(\Top_{/X}\)</span> of all topological spaces over <span class="math">\(X\)</span>, like <span class="math">\(Y\to X\)</span>. A covering is a collection of <span class="math">\(X\)</span>-maps <span class="math">\(\{U_i\to U\}\)</span> that form a covering of <span class="math">\(U\)</span> in the usual way. This is called the <em>big site</em> of <span class="math">\(X\)</span>.</p>
+<p>There are two natural functors <span class="math">\[\Top_{/X}\to\Sh(\Open(X))\]</span> and <span class="math">\[\Top_{/X}\to\Sh(\Top_{/X}).\]</span></p>
+<div class="question">
+Are either of these functors fully faithful? Are they both fully faithful?
+</div>
+<h3 id="the-etale-site-of-a-field">The etale site of a field</h3>
+<p>Let <span class="math">\(K\)</span> be a field. Let <span class="math">\(\Et(K)\)</span> be the category of etale <span class="math">\(K\)</span>-schemes; by facts we will review soon, <span class="math">\(\Et(K)\)</span> is the category of <span class="math">\(K\)</span>-schemes of the form <span class="math">\(\sqcup\Spec L_i\)</span> with each <span class="math">\(L_i\)</span> a finite separable extenson of <span class="math">\(K\)</span>.</p>
+<p>A covering <span class="math">\(\{U_i\to U\}\)</span> in <span class="math">\(C\)</span> is a collection of maps such that <span class="math">\(\sqcup U_i\to U\)</span> is set-theoretically surjective.</p>
+<div class="exercise">
+Show that this is a site. Please.
+</div>
+<p>Fix a separable closure <span class="math">\(K\subset K^s\)</span>. Let <span class="math">\(G\)</span> be the Galois group of <span class="math">\(K\)</span>. Define a functor <span class="math">\[\varepsilon:\Et(K)\to G-\Set\]</span> that sends <span class="math">\(L_i\)</span> to the set of embeddings of <span class="math">\(K\)</span>-algebras <span class="math">\(L_i\hookrightarrow K^s\)</span>.</p>
+<div class="theorem">
+<span class="math">\(\varepsilon\)</span> is an equivalence of categories that preserves the topologies.
+</div>
+<p><strong>Proof</strong>. Given an extension of separable extensions of <span class="math">\(K\)</span>, say <span class="math">\(L\subset M\)</span>, you already know from your algebra childhoods that any embedding <span class="math">\(L\hookrightarrow K^s\)</span> extends to an embedding <span class="math">\(M\hookrightarrow K^s\)</span>. The rest is up to you. QED</p>
+<div class="corollary">
+There is a natural equivalence of categories between sheaves of abelian groups on <span class="math">\(\Et(K)\)</span> and discrete continuous <span class="math">\(G_K\)</span>-modules.
+</div>
+<p>This is why Galois cohomology is a special case of etale cohomology. Don’t worry, we’ll dig into this later.</p>
+<h3 id="the-etale-site-of-a-scheme">The etale site of a scheme</h3>
+<h4 id="quick-reminder-about-etale-maps">Quick reminder about etale maps</h4>
+<div class="lemma">
+<p>Let <span class="math">\(f:U\to X\)</span> be a morphism of schemes that is locally of finite presentation. The following are equivalent:</p>
+<ol type="1">
+<li>the sheaf <span class="math">\(\Omega_{U/X}^1\)</span> vanishes, and <span class="math">\(f\)</span> is flat;</li>
+<li><span class="math">\(f\)</span> is smooth of relative dimension <span class="math">\(0\)</span></li>
+<li>for every <span class="math">\(u\in U\)</span> with image <span class="math">\(x\in X\)</span>, there is an affine neighborhood <span class="math">\(\Spec A\)</span> of <span class="math">\(x\)</span> in <span class="math">\(X\)</span> and an affine neighborhood <span class="math">\(\Spec B\)</span> of <span class="math">\(u\)</span> in <span class="math">\(U\)</span> such that <span class="math">\(f(U)\subset V\)</span> and via <span class="math">\(f\)</span> we have an isomorphism <span class="math">\[B\cong A[x_1,\ldots,x_n]/(f_1,\ldots,f_n),\]</span> where the Jacobian matrix <span class="math">\(|\partial f_i/\partial x_j|\)</span> is invertible in <span class="math">\(B\)</span>.</li>
+<li>given a square-zero extension <span class="math">\(A\to A_0\)</span> of rings, the map <span class="math">\[h_U(A)\to h_U(A_0)\times_{h_X(A_0)}h_X(A)\]</span> is bijective. In other words, in the commutative diagram <span class="math">\[\require{AMScd} \begin{CD} \Spec A_0 @&gt;&gt;&gt; U\\ @VVV @VVV \\ \Spec A @&gt;&gt;&gt; X\end{CD}\]</span> there is exactly one diagonal arrow from the lower left to the upper right. (This is the <em>infinitesimal lifting property</em>.)</li>
+</ol>
+</div>
+<p><strong>Idea of Proof</strong>: To compare (1) and (2), we need only remark that the rank of <span class="math">\(\Omega^1_{U/X}\)</span> is an upper bound on the relative dimension, achieving it precisely when <span class="math">\(f\)</span> is smooth. To see that (1) and (3) are the same: suppose (1) is true and choose some local finite presentation <span class="math">\[B=A[x_1,\ldots,x_n]/(f_1,\ldots,f_m).\]</span> Since we assume that <span class="math">\(\Omega_{B/A}^1=0\)</span>, we see from the usual formulae that (without loss of generality) <span class="math">\(f_1,\ldots,f_n\)</span> have the property that the Jacobian matrix <span class="math">\(|\partial f_i/\partial x_j|\)</span> is invertible (after possibly localizing slightly). In particular, There is a natural surjective map <span class="math">\[g:A[x_1,\ldots,x_n]/(f_1,\ldots,f_n)\to B.\]</span> By the magic of flatness, are reduced to showing that <span class="math">\(g\)</span> is an isomorphism after base change to the residue field of <span class="math">\(x\in\Spec A\)</span>, so we may assume that <span class="math">\(A\)</span> is a field. The condition on <span class="math">\(\Omega^1\)</span> implies that <span class="math">\(B\)</span> is a product of finitely many separable field extensions, and similarly for <span class="math">\(A[x_1,\ldots,x_n]/(f_1,\ldots,f_n)\)</span>. The only surjections here are given by projecting to factors, in which case they are also localization maps (at single elements). But adding one variable <span class="math">\(z\)</span> and a relation of the form <span class="math">\(zf=1\)</span> with <span class="math">\(f\)</span> invertible at <span class="math">\(u\)</span> does not change the fact that we have a presentation with Jacobian invertible at <span class="math">\(u\)</span>.</p>
+<p>To see that (4) is equivalent to the others: first, reduce to the case in which everything in sight is affine. The universal property of <span class="math">\(\Omega^1_{X/U}\)</span> shows that any diagonal lift is unique, so it remains to show that it exists, and we can check this locally (by uniqueness). Using an expression of the form <span class="math">\(B=A[x_1,\ldots,x_n]/(f_1,\ldots,f_n)\)</span>, we can study lifts by lifting the <span class="math">\(x_i\)</span>. So we need to understand how to ensure that we can choose lifts satisfying the equations <span class="math">\(f_1,\ldots,f_n\)</span>. Well, two lifts <span class="math">\[\mathbf{x}:=(\widetilde{x}_1,\ldots,\widetilde{x}_n)\]</span> and <span class="math">\[\mathbf{x}&#39;:=(\widetilde{x}&#39;_1,\ldots,\widetilde{x}&#39;_n)\]</span> in <span class="math">\(A^n\)</span> differ by an element of <span class="math">\(I^n\)</span>, say <span class="math">\[\mathbf{x}&#39;=\mathbf{x} + \mathbf{i}.\]</span> Using calculus, we see that the vectors <span class="math">\[\underline f(\mathbf{x}&#39;) = \underline f(\mathbf{x}) + J\mathbf{i}.\]</span> Since <span class="math">\(J\)</span> is invertible, we can arrange for a lift satisfying <span class="math">\(\underline f(\mathbf{x})=0\)</span>, as desired.</p>
+<p>To go in the other direction, start with <span class="math">\(B=A[x_1,\ldots,x_n]/(f_1,\ldots,f_m)\)</span>. Lifts are determined by lifting the images of the <span class="math">\(x_i\)</span> as before. If the Jacobian is not invertible near <span class="math">\(u\)</span>, we can generate equations for a square <span class="math">\(0\)</span> extension that does not admit a lifting: just see what the Jacobian can do and force yourself to exist outside of its image! Once the unique lifting property holds, we end up having <span class="math">\(B=A[x_1,\ldots,x_n]/(f_1,\ldots,f_n)\)</span> near <span class="math">\(u\)</span>, as before, and this algebra happens to be flat, which finishes the equivalence. QED</p>
+<div class="lemma">
+If <span class="math">\(f:U\to X\)</span> and <span class="math">\(g:V\to X\)</span> are etale, then any <span class="math">\(X\)</span>-map <span class="math">\(h:U\to V\)</span> is also etale.
+</div>
+<p><strong>Proof</strong>. Use the infinitesimal lifting property! QED</p>
+<h4 id="definition-of-the-site">Definition of the site</h4>
+<p>The objects of <span class="math">\(\Et(X)\)</span> are etale morphisms <span class="math">\(U\to X\)</span>, and the arrows are <span class="math">\(X\)</span>-arrows. A covering is a collection of maps <span class="math">\(\{U_i\to U\}\)</span> that are jointly surjective.</p>
+<h4 id="the-big-etale-site">The big etale site</h4>
+<p>Just like with topological spaces, we can define the <em>big</em> etale site. The category is all <span class="math">\(X\)</span>-schemes, and the coverings are maps <span class="math">\(\{U_i\to U\}\)</span> that are each etale, and that are jointly surjective.</p>
+<h3 id="a-few-examples-of-etale-sheaves">A few examples of etale sheaves</h3>
+<p>Fix a base scheme <span class="math">\(X\)</span>. Let’s define some functors on the big etale site of <span class="math">\(X\)</span>.</p>
+<ul>
+<li><span class="math">\(\G_m:U\mapsto \mathscr{O}_U(U)^\times\)</span></li>
+<li><span class="math">\(\G_a:U\mapsto \mathscr{O}_U(U)\)</span></li>
+<li><span class="math">\(\mu_n:U\mapsto \G_m(u)[n]\)</span></li>
+<li><span class="math">\(\alpha_p:U\mapsto\{a\in\mathscr{O}_U(U) | a^p = 0\}\)</span> (when <span class="math">\(p\cdot 1=0\in\mathscr{O}_X(X)\)</span>)</li>
+<li>Let’s make more!</li>
+</ul>
+<p>Why are any of these things <em>sheaves</em> in the etale topology?</p>
+<div class="proposition">
+Given a scheme <span class="math">\(X\)</span>, the functor <span class="math">\[\ms O:\ET(X)^\circ\to\Set\]</span> that sends <span class="math">\(Y\to X\)</span> to <span class="math">\(\ms{O}_Y(Y)\)</span> is a sheaf in the etale topology.
+</div>
+<p><strong>Proof</strong>. First, let’s treat the case of a finite covering <span class="math">\(\{\Spec B_i\to\Spec A\}\)</span> of affines. The ring extension <span class="math">\(A\to\prod B_i\)</span> is thus faithfully flat. The sheaf condition is equivalent to the statement that the diagram <span class="math">\[A\to B\rightrightarrows B\tensor_A B\]</span> is exact (i.e., <span class="math">\(A\)</span> is the equalizer of the two maps from <span class="math">\(B\)</span> to <span class="math">\(B\tensor_A B\)</span> given by sending <span class="math">\(b\)</span> to <span class="math">\(b\tensor 1\)</span> and <span class="math">\(1\tensor b\)</span>.)</p>
+<p>Here’s a great trick. <strong>Remember this trick for the rest of your lives</strong>. To check that the sequence is exact, it is enough (in fact, it is equivalent) to check that the base change of the sequence to <span class="math">\(B\)</span> is exact, <em>because <span class="math">\(A\to B\)</span> is faithfully flat</em>. What is this good for? Well, if we replace the starting map <span class="math">\(A\to B\)</span> with <span class="math">\(B\to B\tensor_A B\)</span>, then we end up with a faithfully flat ring map <span class="math">\(A&#39;\to B&#39;\)</span> that admits a retraction <span class="math">\(B&#39;\to A&#39;\)</span>. In other words, we may assume that there is a map <span class="math">\(B\to A\)</span> retracting <span class="math">\(A\to B\)</span>, which means that there is a decomposition <span class="math">\(B=A\oplus M\)</span> with <span class="math">\(M\)</span> a faithfully flat <span class="math">\(A\)</span>-module.</p>
+<p>The sequence of interest now becomes <span class="math">\[A\to A\oplus M\rightrightarrows (A\oplus M)\tensor_A(A\oplus M),\]</span> which we can write as <span class="math">\[A\to A\oplus M\rightrightarrows A\oplus M\oplus M\oplus M\tensor_A M,\]</span> and now the last two arrows send <span class="math">\((a, m)\)</span> to <span class="math">\((a, m, 0)\)</span> and <span class="math">\((a, 0, m)\)</span>. The only way these can be the same is if <span class="math">\(m=0\)</span>, as desired.QED</p>
+<div class="corollary">
+All of the functors in the above list are sheaves.
+</div>
+<p><strong>Proof</strong>. Do it! QED</p>
+<p>Here’s one: remember our quadratic equation <span class="math">\(x^2-x-t\in k[x,t]\)</span> with <span class="math">\(\ch(k)=2\)</span>?</p>
+<div class="exercise">
+Show that the above equation defines a finite etale morphism <span class="math">\(C\to\A^1\)</span>. Show that this is a “locally constant sheaf of finite sets in the etale topology of <span class="math">\(A^1\)</span>.
+</div>
+<h3 id="one-more-site-to-think-about">One more site to think about</h3>
+<p>Here is the almost-mother of all sites (the real mother is something we might or might not discuss – it’s actually quite subtle).</p>
+<div class="definition">
+<p>Given a scheme <span class="math">\(X\)</span>, the <em>fppf site of <span class="math">\(X\)</span></em> is the Grothendieck topology on <span class="math">\(\Sch_X\)</span> whose coverings are collections of morphisms <span class="math">\(\{U_i\to U\}\)</span> such that</p>
+<ol type="1">
+<li>each <span class="math">\(U_i\to U\)</span> is flat and locally of finite presentation</li>
+<li>the map <span class="math">\(\sqcup U_i\to U\)</span> is surjective on points (i.e., is faithfully flat)</li>
+</ol>
+</div>
+<p>Here are a few exercises to help you feel these things out a bit.</p>
+<div class="exercise">
+<p>Try these:</p>
+<ol type="1">
+<li>Show that any sheaf in the fppf topology is a sheaf in the etale topology, and any sheaf in the etale topology is a sheaf in the Zariski topology.</li>
+<li>Make an example of a sheaf in the big etale topology of <span class="math">\(\Spec K\)</span> that is not a sheaf in the fppf topology.</li>
+<li>Given a morphism of schemes <span class="math">\(f:Y\to X\)</span> and a quasi-coherent sheaf <span class="math">\(F\)</span> on <span class="math">\(Y\)</span>, for each <span class="math">\(i\)</span> we can define a functor on <span class="math">\(\Sch_X\)</span> that sends <span class="math">\(T\)</span> to <span class="math">\(\R^i (f_T)_\ast F_T\)</span>, the <strong>Zariski</strong> higher direct image of the pullback of <span class="math">\(F\)</span> to <span class="math">\(Y_T\)</span>. Is this a sheaf on the big etale site of <span class="math">\(X\)</span>? On the fppf site?</li>
+<li>Is there a “small fppf site of <span class="math">\(X\)</span>”?</li>
+</ol>
+</div>
+<h3 id="content-contributors">Content contributors</h3>
+<p><span class="citation" data-cites="maxlieblich">@maxlieblich</span>, <span class="citation" data-cites="haochenuw">@haochenuw</span></p>
+</body>
+</html>

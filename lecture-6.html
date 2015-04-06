@@ -1,0 +1,29 @@
+<h1 id="cohomology-of-sheaves-cech-to-sheaf-spectral-sequence">Cohomology of sheaves, Cech-to-sheaf spectral sequence</h1>
+<p>Fix a site <span class="math">\(C\)</span> and an object <span class="math">\(U \in C\)</span>. For any covering <span class="math">\(\{U_i \rightarrow U\}\)</span>, consider the composition of the forgetful functor <span class="math">\(\Phi : \Sh(C) \rightarrow \PreSh(C)\)</span> and the functor <span class="math">\(H^0(\{U_i \rightarrow U \}, -) : \PreSh(C) \rightarrow \Ab\)</span>.</p>
+<p>For any sheaf F, the composition gives (by the lemma in the previus section) <span class="math">\(\lim (\prod F(U_i) \rightrightarrows \prod \prod F(U_i \times_U U_j))\)</span>, but by the definition of a sheaf this is <span class="math">\(F(U)\)</span>, so the composition is just <span class="math">\(\Gamma(U, -)\)</span>.</p>
+<p>Then since any injective sheaf is an injective presheaf, the Grothendieck spectral sequence of these functors computes sheaf cohomology</p>
+<div class="theorem math">
+<dl><dt class="math">Theorem 1</dt>
+<dd class="math">
+There is a spectral sequence <span class="math">\[ E_2^{pq} = H^p(\{U_i \rightarrow U\}, R^q \Phi(F)) \Rightarrow H^{p+q}(U,F)\]</span>
+</dd>
+</dl>
+</div>
+<p><strong>Proof.</strong> This is just the Grothendieck spectral sequence applied as described above and using the derived functor interpretation of Cech cohomology as in the previous section. QED</p>
+<p>We can do the same thing with <span class="math">\(\check{H}\)</span>, too.</p>
+<div class="theorem math">
+<dl><dt class="math">Theorem 2</dt>
+<dd class="math">
+There is a spectral sequence <span class="math">\[ E_2^{pq} = \check{H}^p(U, R^q \Phi(F)) \Rightarrow H^{p+q}(U,F)\]</span>
+</dd>
+</dl>
+</div>
+<p>Of course, these are only useful if we have some idea what <span class="math">\(R^q \Phi(F)\)</span> is:</p>
+<div class="lemma math">
+<dl><dt class="math">Lemma 3</dt>
+<dd class="math">
+For any sheaf <span class="math">\(F\)</span>, <span class="math">\(R^q \Phi(F)(V)\)</span> = H^q(V,F)$.
+</dd>
+</dl>
+</div>
+<p><strong>Proof.</strong> Note that <span class="math">\(H^q(-,F)\)</span> is indeed a presheaf, call this <span class="math">\(\mathscr{H}^q(F)\)</span>. Then <span class="math">\(\mathscr{H}^q\)</span> is a <span class="math">\(\delta\)</span>-functor as it has the appropriate long exact sequence from the same on <span class="math">\(H\)</span>, and it is effacable as it is zero for <span class="math">\(q &gt; 0\)</span> on any injective sheaf. Since <span class="math">\(\mathscr{H}^0 = \Phi\)</span>, we are done. QED</p>

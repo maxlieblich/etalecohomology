@@ -1,0 +1,49 @@
+<h1 id="quotient-stacks">Quotient stacks</h1>
+<p>Let <span class="math">\(C\)</span> be site (with a final object). Let <span class="math">\(X\)</span> be a sheaf on <span class="math">\(C\)</span> on which <span class="math">\(G\)</span> (a sheaf of groups on <span class="math">\(C\)</span>) acts.</p>
+<h3 id="xg">X/G</h3>
+<p>We have a category fibered in groupoids <span class="math">\(p: X/G \rightarrow C\)</span> (which we denote by <span class="math">\([X/G]\)</span>) as follows. The objects of X/G are <span class="math">\((T,F)\)</span> where <span class="math">\(T\)</span> is an object in <span class="math">\(C\)</span> and <span class="math">\(F\)</span> fits in the following commutative diagram</p>
+<p><span class="math">\[
+\require{AMScd} \begin{CD}
+F @&gt;{G-equivariant}&gt;&gt; X \\
+ @V{G-torsor}VV \\
+ T \\
+\end{CD}
+\]</span></p>
+<p>Morphisms between two objects <span class="math">\((T,F) \rightarrow (T&#39;,F&#39;)\)</span> should fit in the following commutative diagram</p>
+<p><span class="math">\[
+\require{AMScd} \begin{CD}
+X @&gt;{Identity}&gt;&gt; X \\
+@A{G-equivariant}AA  @A{G-equivariant}AA\\
+F @&gt;{G-equivariant}&gt;&gt;  F&#39; \\
+ @V{G-torsor}VV  @V{G-torsor}VV\\
+ T @&gt;&gt;&gt; T&#39; \\
+\end{CD}
+\]</span></p>
+<p>The functor <span class="math">\(p\)</span> should take <span class="math">\((F,T)\)</span> to <span class="math">\(T\)</span>. The meta claim is that this is the right way to model quotients. As a subexample, let <span class="math">\(S\)</span> be a scheme and let <span class="math">\(C=Sch_S\)</span>, the category of schemes over <span class="math">\(S\)</span>. Let <span class="math">\(X=S\)</span> have the trivial action of <span class="math">\(G\)</span>. Then, <span class="math">\([S/G] = BG\)</span>..</p>
+<p>Claim : <span class="math">\([X/G]\)</span> is a stack. I don’t understand the proof of the claim. But apparently this follows because amongst the numerous things that we have to check, we check that descent is effective.</p>
+<ol type="1">
+<li>Descent being effective is true for sheaves.</li>
+<li>Descent being effective is true for arrows observing that <span class="math">\(Hom(\star,\star)\)</span> is a sheaf.</li>
+<li>Descent is effective for <span class="math">\(Func(I,Sh)\)</span> where <span class="math">\(I\)</span> is any category.</li>
+</ol>
+<h3 id="examples-of-non-effective-descent">Examples of non-effective descent</h3>
+<ol type="1">
+<li>See Section 6 in the book <a href="http://www.math.uzh.ch/index.php?file&amp;key1=5171">Algebraic Stacks by Kai Behrend, Brian Conrad, Dan Edidin, William Fulton, Barbara Fantechi, Lothar Göttsche and Andrew Kresch</a>.</li>
+<li>Section 6.7 in Bosch-Lutkebohmert-Raynaud.</li>
+</ol>
+<h4 id="weighted-projective-space">Weighted projective space</h4>
+<p>Let <span class="math">\(X=A^{n+1} / \{0\}\)</span> and <span class="math">\(G=\G_m\)</span>. $We fix integers <span class="math">\(g_0,\ldots,g_n \in \Z\)</span>. Let’s take the base scheme to be <span class="math">\(spec(k)\)</span>, where <span class="math">\(k\)</span> is algebraically closed. We note that <span class="math">\(\Hom(\G_m,\G_m)=\Z\)</span>. We can describe an action of <span class="math">\(\G_m\)</span> on <span class="math">\(A^{n+1} / \{0\}\)</span> as follows. <span class="math">\[
+t cdot(a_0,\ldots,a_n) = (t^{g_0}a_0, \ldots t^{g_n} a_n).
+\]</span> for every <span class="math">\(t \in \G_m\)</span>. If all the <span class="math">\(g_i\)</span>’s are <span class="math">\(\pm 1\)</span>, we are in the classical situation and we get <span class="math">\(A^{n+1} /\{ 0\} / \G_m = P^{n}\)</span>.</p>
+<p>We calculate the Automorphisms of objects of <span class="math">\([A^{n+1} / \{0\}/\G_m](k)\)</span>. WLOG, we can assume the object <span class="math">\(T=\G_m\)</span> as a left <span class="math">\(\G_m\)</span>-torsor (using Hilbert’s theorem 90).</p>
+<p><span class="math">\[
+\require{AMScd} \begin{CD}
+1 @&gt;&gt;&gt; x \\
+\\
+G_m @&gt;{G-equivariant}&gt;&gt;  X  \\
+ @V{G-torsor}VV \\
+ Spec(k) \\
+\end{CD}
+\]</span></p>
+<p>For <span class="math">\(x,y \in X(k)\)</span>, <span class="math">\(Hom(x,y) =\{\alpha \in \G_m \ | \ \alpha \cdot x = y\}\)</span> and we get that <span class="math">\[ Aut([0 : \ldots : 1 : \ldots: 0]) = \mu_{g_i}\]</span> as sheaves whcih is non-trivial if <span class="math">\(g_i\)</span> is not equal to <span class="math">\(\pm 1\)</span>.</p>
+<p>Another meta point : As a space, the weighted projective space could have quotient singularities. As a stack, weighted projective stack is smooth.</p>

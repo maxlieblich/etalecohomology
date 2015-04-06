@@ -1,0 +1,58 @@
+<!--
+Custom macros can be found in raw file index.md in the src folder.
+Some examples are C: "{\\bf{C}}" and Hom: "{\\operatorname{Hom}}"
+-->
+<!--
+Simple commutative diagrams can be made using the AMScd package, but require the command "\require{AMScd}".
+For example:
+$$
+\require{AMScd} \begin{CD}
+A @>f>> B \\
+@VgVV @VVhV \\
+C @>>j> D \\
+\end{CD}
+$$
+-->
+<h2 id="gerbes-bands-and-quasi-coherent-sheaves">Gerbes, Bands, and Quasi-Coherent Sheaves</h2>
+<p>Lecture notes for 25 February, 2015. They could use some cleaning up and buffing up.</p>
+<h3 id="what-is-a-gerbe-and-where-is-g">What is a gerbe and where is <span class="math">\(G\)</span>?</h3>
+<p>Let <span class="math">\(S\)</span> be a site and <span class="math">\(X \rightarrow S\)</span> a stack. X is a gerbe if - for all <span class="math">\(s \in S\)</span>, there exists a covering <span class="math">\(u \rightarrow s\)</span> such that <span class="math">\(X(u) \neq \emptyset\)</span> - for all <span class="math">\(s \in S\)</span> and <span class="math">\(x, y \in X(s)\)</span>, there exists a covering <span class="math">\(u \rightarrow s\)</span> such that <span class="math">\(x|_{u} \cong y|_{u}\)</span></p>
+<p>Consequence: $F(s) = $ isomorphism classes in <span class="math">\(X(s)\)</span>, $F^s = $ sheaf of singletons</p>
+<p>Example: <span class="math">\(BG\)</span> stack of <span class="math">\(G\)</span>-torsors</p>
+<p>Question: Can we recover <span class="math">\(G\)</span> from BG?</p>
+<p>Answer: Yes, but only if we think of <span class="math">\(G\)</span> as a <em>band</em> (lien).</p>
+<h3 id="what-is-a-band">What is a band?</h3>
+<p>How would we try and recover <span class="math">\(G\)</span>?</p>
+<p><span class="math">\(BG(S)\)</span> contains the trivial torsor <span class="math">\(G \times S \rightarrow S\)</span> for which <span class="math">\(\operatorname{Aut} \cong G^{op}\)</span>.</p>
+<p>Naïve idea: Recover <span class="math">\(G\)</span> in general by searching for objects <span class="math">\(x_i \in X(s_i)\)</span> and glue.</p>
+<p>Issue: Gluing can have an inner automorphism obstruction.</p>
+<p>Upshot: We can associate to any gerbe <span class="math">\(X\)</span> a band that is locally made of groups, but inner automorphismims have to be decreed to equal the identity.</p>
+<p>The stack of bands on <span class="math">\(S\)</span>: - start with stack of groups on <span class="math">\(S\)</span>: <span class="math">\(\operatorname{Grp}_S\)</span> - make new fiber category <span class="math">\(PB(S)\)</span> - objects: groups - <span class="math">\(\operatorname{Hom}(G,H) = \operatorname{Inn}(H)\backslash\operatorname{Isom}(G,H)/\operatorname{Inn}(G)\)</span> - bands: stackification of <span class="math">\(PB\)</span>.</p>
+<p>There is a map of stacks: <span class="math">\(\operatorname{Grp}_S \rightarrow \operatorname{Band}_S\)</span>. This map is not essentially surjective.</p>
+<p>Better: The composition <span class="math">\(\operatorname{Ab}_S \subseteq \operatorname{Grp}_S \rightarrow \operatorname{Band}_S\)</span> is fully faithful.</p>
+<p>Any gerbe <span class="math">\(X\)</span> has a canonically associated band: <span class="math">\(\exists ! B \in \operatorname{Band}(S)\)</span> and isomorphism <span class="math">\(B_{X} \overset{\sim}{\rightarrow}\operatorname{band}(I)\)</span>. Here, <span class="math">\(I\)</span> denotes the inertia stack and <span class="math">\(B_X = \pi^{-1}B\)</span>, where <span class="math">\(\pi: X \rightarrow S\)</span>.</p>
+<p>Given <span class="math">\(G \in \operatorname{Grp}\)</span>, any inner form of <span class="math">\(G\)</span> is canonically isomorphic to <span class="math">\(G\)</span> in <span class="math">\(\operatorname{Band}_S\)</span>.</p>
+<p>Inner form examples: Let <span class="math">\(A\)</span> be an Azumaya algebra and let <span class="math">\(A^\times\)</span> denote the functor of units: <span class="math">\(A^{\times}(T) = \Gamma(T, A_T)^{\times}\)</span>. - <span class="math">\(A^\times\)</span> is an inner form of <span class="math">\(\operatorname{GL}_n\)</span> - <span class="math">\(A_1^\times = \ker(\operatorname{Nrd}:A^\times \rightarrow \bf{G}_m)\)</span> is an inner form of <span class="math">\(\operatorname{SL}_n\)</span></p>
+<p>Subexample: Let <span class="math">\(X\)</span> be a proper, smooth, geometrically connected variety over <span class="math">\(k\)</span>. Let <span class="math">\(V\)</span> on <span class="math">\(X\)</span> be a geometrically simple vector bundle, e.g. a geometrically stable vector bundle: <span class="math">\(\operatorname{Hom}_{{\scr{O}}_X}(V, V) = k\)</span>, <span class="math">\(A = \operatorname{End}(V,V)\)</span>, <span class="math">\(A^\times(X) = k^\times\)</span>.</p>
+<h3 id="quasi-coherent-sheaves">Quasi-coherent sheaves</h3>
+<p>Quasi-coherent sheaves on the fppf site of a scheme <span class="math">\(X\)</span>: <span class="math">\((T \overset{f}{\rightarrow} X) \mapsto \Gamma(T, f^*F)\)</span>, <span class="math">\({\scr{F}} \in \operatorname{QCoh}(X_{zar})\)</span>.</p>
+<p>Warning: <span class="math">\(\operatorname{QCoh} \rightarrow {\scr{O}}_X-\operatorname{Mod}\)</span> is not exact in the big sites!</p>
+<p>Let <span class="math">\(X\)</span> be a stack on <span class="math">\(S_{fppf}\)</span>. A sheaf <span class="math">\(F\)</span> on <span class="math">\(X\)</span> is quasi-coherent if for all <span class="math">\(T \overset{f}{\rightarrow} X\)</span> (equivalently, for all <span class="math">\(f \in X(T)\)</span>), <span class="math">\(f^{-1}F \in {\scr{O}}_{T_{fppf}}-\operatorname{Mod}\)</span> is quasi-coherent. Here <span class="math">\[
+\begin{array}{rccc}
+f^{-1}F : &amp;  \operatorname{Sch}_T &amp; \rightarrow &amp; \underline{\operatorname{Set}} \\
+&amp; U \underset{g}{\rightarrow} T &amp; \mapsto &amp; F(fg) \\
+\end{array}
+\]</span></p>
+<p>Confusing point: If <span class="math">\(U \overset{f}{\rightarrow} T\)</span> and <span class="math">\(F \in \operatorname{QCoh}(T_{fppf})\)</span>, then <span class="math">\[
+f^{-1}F = f^{*}F
+\]</span> Here, <span class="math">\(f^{-1}F\)</span> denotes the restriction in <span class="math">\(T_{fppf}\)</span> while <span class="math">\(f^*F\)</span> denotes the Zariski pullback.</p>
+<p>Look for “Cartesian sheaves” in Laumon &amp; Morret-Bailly (<em>Champs Algébriques</em> (?)), Stacks Project, or elsewhere.</p>
+<p>Example: <span class="math">\(G\)</span> a finite group over <span class="math">\(\bf{C}\)</span>. What is <span class="math">\(\operatorname{QCoh}(BG)\)</span>?</p>
+<p>First thought: <span class="math">\[
+\begin{array}{ccc}
+\operatorname{Spec}{\bf{C}} &amp; \rightarrow &amp;  BG \\
+\\
+V &amp; --- &amp; F \\
+\mathrm{vector \; space}
+\end{array}
+\]</span></p>

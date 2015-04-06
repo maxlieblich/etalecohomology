@@ -1,0 +1,45 @@
+<p>Let’s start with the short exact sequence <span class="math">\[ 1 \rightarrow \G_m \rightarrow GL_n \rightarrow PGL_n \rightarrow 1. \]</span></p>
+<p>What is <span class="math">\(PGL_n\)</span> ? The following are equivalent (which we state without proof for now). 1. <span class="math">\(PGL_n\)</span> is defined to be the sheafification of the cokernel presheaf <span class="math">\(GL_n / \G_m\)</span>. 2. <span class="math">\(PGL_n\)</span> is defined to be <span class="math">\(Aut(P^{n-1})\)</span>. 3. <span class="math">\(PGL_n\)</span> is defined to be <span class="math">\(Aut(M_n)\)</span>. 4. We can define <span class="math">\(PGL_n / Spec(Z)\)</span> to be the sheaf represented by the element <span class="math">\(Spec S\)</span>, where <span class="math">\(S\)</span> is the degree zero part of <span class="math">\(Z[x_0 \ldots, x_n , det^{-1}]\)</span> . And <span class="math">\(PGL_n\)</span> over any scheme <span class="math">\(S\)</span> is obtained via base change.</p>
+<p>When <span class="math">\(n \geq 2\)</span>, the sheaves <span class="math">\(GL_n\)</span> and <span class="math">\(PGL_n\)</span> do not always take values in the category of abelian groups. So we need to be a little careful when describing cohomology. Remember though that for abelian sheaf cohomology in the etale or fppf site, <span class="math">\(H^1\)</span> for abelian sheaf cohomology can be given by Cech cohomology <span class="math">\(\hat{H}^1\)</span> for presheaves. Let’s motivate the definition for non-abelian <span class="math">\(H^1\)</span> by recalling what happens in the abelian case. First, some definitions. In what follows, <span class="math">\(H^1\)</span> would denote Cech <span class="math">\(H^1\)</span>.</p>
+<p><strong>Torsors</strong> : Let <span class="math">\(G\)</span> be a sheaf of groups on <span class="math">\(\Et(X)\)</span>. Let <span class="math">\(S\)</span> be a sheaf of sets on which <span class="math">\(G\)</span> acts by the right. Then, <span class="math">\(S\)</span> is called a torsor for <span class="math">\(G\)</span> if - there exists an etale covering <span class="math">\(U \rightarrow X\)</span> such that <span class="math">\(S(U) \neq \emptyset\)</span>. - for every etale <span class="math">\(U \rightarrow X\)</span> and <span class="math">\(s \in \Gamma(U,S)\)</span>, the map <span class="math">\(G|U \rightarrow S|U\)</span> given by <span class="math">\(g \rightarrow s \cdot g\)</span> is an isomorphism of sheaves.</p>
+<p>A torsor <span class="math">\(S\)</span> is called the trivial torsor if it is isomorphic as a sheaf to <span class="math">\(S=G\)</span> (with <span class="math">\(G\)</span> acting on <span class="math">\(S=G\)</span> by right multiplication).</p>
+<h5 id="an-exercise-cech-h1-in-terms-of-iso-classes">An exercise : Cech <span class="math">\(H^1\)</span> in terms of iso-classes ?</h5>
+<p>Let <span class="math">\(G\)</span> be an abelian sheaf on the small etale site <span class="math">\(\Et(X)\)</span>. Prove that elements of <span class="math">\(\hat{H}^1(X, G)\)</span> are in one-to-one bijection with the set of iso-classes of left <span class="math">\(G\)</span>-torsors in the etale topology.</p>
+<p><strong>Proof</strong> See Proposition 11.1 in Milne’s notes on <a href="http://www.jmilne.org/math/CourseNotes/LEC210.pdf">Etale cohomology</a>.</p>
+<p><strong>TWisted forms</strong> Two schemes <span class="math">\(X\)</span> and <span class="math">\(Y\)</span> are forms of each other if <span class="math">\(X \times k^{sep} \cong Y \times k^{sep}\)</span>. Let’s work over the small etale side of a field <span class="math">\(Spec(k)\)</span>. We saw last quarter that sheaves on this site are representable, by evaluating the sheaf <span class="math">\(\F\)</span> on <span class="math">\(\colim_{L \subset k^{sep}} \F(k^{sep}/L)\)</span>.</p>
+<div class="lemma math">
+<dl><dt class="math">Lemma 1</dt>
+<dd class="math">
+Let <span class="math">\(k\)</span> be a field. There exists a bijection between elements of <span class="math">\(H^1(spec(k),Aut(F))\)</span> and isomorphism classes of (twisted) forms of <span class="math">\(F\)</span>.
+</dd>
+</dl>
+</div>
+<p>See Theorem 14.89 in<a href="https://www.math.ucdavis.edu/~blnli/buildings/bag.pdf">Algebraic Geometry - Schemes with Examples and exercises</a>. As an immediate corollary, we get the following corollary.</p>
+<h3 id="a-geometric-construction-relating-the-two-descriptions-of-h1xpgl_n">A geometric construction relating the two descriptions of <span class="math">\(H^1(X,PGL_n)\)</span> :</h3>
+<div class="corollary math">
+<dl><dt class="math">Corollary 2</dt>
+<dd class="math">
+We have two description for the elements of <span class="math">\(H^1(Speck, PGL_n)\)</span> 1. Isomorphism classes of central simple algebras of degree <span class="math">\(n\)</span>. 2. Isomorphism classes of varieties over <span class="math">\(spec(k)\)</span> that are isomorphic over <span class="math">\(\bar{k}\)</span> to <span class="math">\(\P^{n-1}\)</span>. These varieties are called <strong>Severi-Brauer varieties</strong>.
+</dd>
+</dl>
+</div>
+<p>What is the map relating these two descriptions ?</p>
+<p><span class="math">\[ f : \{\text{C.S.A.&#39;s over $k$ of degree $n$} \} \rightarrow \{\text{Severi-Brauer varieties that are forms of $\P^{n-1}$}\}  \]</span></p>
+<p>We shall simply construct this map but won’t give a proof of its bijection. For a proof, one can look at Chapter 8 and Chapter 14 in <a href="https://www.math.ucdavis.edu/~blnli/buildings/bag.pdf">Algebraic Geometry - Schemes with Examples and exercises</a></p>
+<p>Let <span class="math">\(A\)</span> be a CSA over <span class="math">\(k\)</span>. Then we shall give a description of the functor that the variety <span class="math">\(f(A)\)</span> represents.</p>
+<p><span class="math">\[
+f(A) : k-schemes \rightarrow Sets 
+\]</span> <span class="math">\[
+f(A) (T) = \{I \subset A_T | \text{ is a left ideal such that } A_T/I \text{ is a locally free sheaf of rank } n^2-n \}.
+\]</span></p>
+<p>For example, if <span class="math">\(k=\R\)</span>, then the non-trivial element in the Brauer group given by the quarternions gets sent to the variety given by the conic <span class="math">\(x^2 + y^2 + z^2 = 0\)</span>.</p>
+<p>Aside : What are the left ideals of <span class="math">\(M_n(k) = End(V)\)</span>, where <span class="math">\(V=k^n\)</span>. The left ideals are in <span class="math">\(1-1\)</span> correspondence with the subspaces of <span class="math">\(V\)</span>. Every left ideal <span class="math">\(I \subset Hom(V,V)\)</span> corresponds to a subspace <span class="math">\(W\)</span> of <span class="math">\(V\)</span> where <span class="math">\(W\)</span> is the set of points in <span class="math">\(V\)</span> that vanish on all elements of <span class="math">\(I\)</span>, i.e. <span class="math">\(I=Hom(V/W,V)\)</span>. What are the right ideals <span class="math">\(J\)</span> of <span class="math">\(End(V)\)</span> ? They are also given by subspaces <span class="math">\(W\)</span> with the correspondence given by <span class="math">\(J = Hom(V,W)\)</span>.</p>
+<p>The functor given by <span class="math">\(f(M_n(k))\)</span> is representable by <span class="math">\(P^{n-1}\)</span>. To see this, we note that <span class="math">\(Hom(X,\P^{n-1})\)</span> is in bijection with invertible quotients of <span class="math">\(O_X^{n+1}\)</span>.</p>
+<div class="corollary math">
+<dl><dt class="math">Corollary 3</dt>
+<dd class="math">
+Let <span class="math">\(X\)</span> be a Severi-Brauer variety over <span class="math">\(Spec(k)\)</span>. Then <span class="math">\(X \cong \P_k^{n-1}\)</span> if and only if <span class="math">\(X(k) \neq \emptyset\)</span>.
+</dd>
+</dl>
+</div>
+<p><strong>Proof</strong> It suffices to show that <span class="math">\(X(k) \neq \emptyset\)</span> will imply that <span class="math">\(X \cong P_k^{n-1}\)</span>. Let <span class="math">\(A\)</span> be the CSA over <span class="math">\(Spec(k)\)</span> that corresponds to the variety <span class="math">\(X\)</span> in the construction above. The construction given above tells us that if <span class="math">\(X(k) \neq emptyset\)</span>, then there exists a left ideal <span class="math">\(I \subset A\)</span> of rank <span class="math">\(n\)</span>. We get a non-zero map <span class="math">\(\gamma : A \rightarrow End_k(I)\)</span> where the vector space dimension of <span class="math">\(A\)</span> and <span class="math">\(End_k(I) \cong M_n(k)\)</span> equal <span class="math">\(n^2\)</span>. Also, <span class="math">\(A\)</span> is simple. Hence, <span class="math">\(\gamma\)</span> has to be an isomorphism. So, <span class="math">\(A\cong M_n(k)\)</span>. We already saw that in this case, <span class="math">\(f(A)\)</span> is in fact the functor represented by <span class="math">\(\P^{n-1}\)</span>.</p>

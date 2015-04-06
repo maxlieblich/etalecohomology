@@ -1,0 +1,1 @@
+function DownloadEpub(){window.open("");}

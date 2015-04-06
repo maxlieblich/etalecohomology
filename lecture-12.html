@@ -1,0 +1,57 @@
+<h1 id="brauer-groups-introduction">Brauer groups: introduction</h1>
+<p>The real numbers <span class="math">\(\mathbf{R}\)</span> and the complex numbers <span class="math">\(\mathbf{C}\)</span> are normed fields that can be interpreted as points on a line and a plane respectively. In 1843, Hamilton was looking for a way to do the same for 3-space. In retrospect this is impossible. We want an <span class="math">\(\mathbf{R}\)</span>-linear structure so that for all nonzero <span class="math">\(\alpha \in \mathbf{R}\)</span> the multiplication map <span class="math">\(T_\alpha: \mathbf{R}^3 \to \mathbf{R}^3\)</span> is bijective. Any endomorphism of <span class="math">\(\mathbf{R}^3\)</span> has an eigenvector so the multiplication map fails to be injective.</p>
+<p>As Hamilton discovered, the quaternions are a normed division algebra structure for <span class="math">\(\mathbf{R}^4\)</span> with center <span class="math">\(\mathbf{R}\)</span>. The quaternions, <span class="math">\(\mathbf{H}\)</span> have generators <span class="math">\(i\)</span> and <span class="math">\(j\)</span> with <span class="math">\(i^2 = j^2 = -1\)</span> and <span class="math">\(ij = -ji\)</span> or equivalently by <span class="math">\(i,j\)</span> and <span class="math">\(k\)</span> with <span class="math">\(i^2 = j^2 = k^2 = ijk = -1\)</span>. The quaternions enjoy the following properties:</p>
+<ol type="1">
+<li><span class="math">\(\mathbf{H}\)</span> is a central <span class="math">\(\mathbf{R}\)</span>-algebra.</li>
+<li>There is a conjugation map given by <span class="math">\(\alpha = a+bi+cj+dk \mapsto a -bi-cj-dk\)</span> and an associated norm <span class="math">\(N(\alpha) = \alpha \bar{\alpha}\)</span> with <span class="math">\(N(\alpha \beta)=N(\alpha)N(\beta)\)</span>.</li>
+<li><span class="math">\(\mathbf{H}\)</span> is a division algebra because <span class="math">\(N(\alpha)=0\)</span> if and only if <span class="math">\(\alpha=0\)</span> so <span class="math">\(\alpha \frac{\bar{\alpha}}{N(\alpha)} = 1\)</span>.</li>
+</ol>
+<p>In 1878, Frobenius proved that any finite dimensional division algebra over <span class="math">\(\mathbf{R}\)</span> is isomorphic to <span class="math">\(\mathbf{R}, \mathbf{C}\)</span> or <span class="math">\(\mathbf{H}\)</span>. In particular every finite dimensional central division algebras (CDA) over <span class="math">\(\mathbf{R}\)</span> is isomorphic to <span class="math">\(\mathbf{R}\)</span> or <span class="math">\(\mathbf{H}\)</span>.</p>
+<div class="question math">
+<dl><dt class="math">Question 1</dt>
+<dd class="math">
+What about other base fields <span class="math">\(k\)</span>? Can we classify all CAD over <span class="math">\(k\)</span>?
+</dd>
+</dl>
+</div>
+<p>The commutative answer to this question is Galois theory where we use the profinite group <span class="math">\(Gal(k^{sep}/k)\)</span>. The noncommutaive answer given by Brauer was that we can make a torsion abelian group <span class="math">\(Br(k)\)</span> whose elements correspond to isomorphism classes of CDA’s over <span class="math">\(k\)</span>.</p>
+<h3 id="group-structure">Group structure</h3>
+<p>What is the group structure of the Brauer group? Given two CDA’s, <span class="math">\(D_1\)</span> and <span class="math">\(D_2\)</span> over <span class="math">\(k\)</span>, we have <span class="math">\(D_1 \otimes D_2 \simeq M_n(D_3)\)</span> where <span class="math">\(D_3\)</span> is the endormophism ring of the unique simple right module over <span class="math">\(D_1 \otimes D_2\)</span>. Schur’s lemma insures that <span class="math">\(D_3\)</span> is a division algebra. The identity element is <span class="math">\([k]\)</span>. Let <span class="math">\(D^\circ\)</span> be the opposite algebra of <span class="math">\(D\)</span>. The map <span class="math">\(D \otimes D^\circ \to End_k(D) \simeq M_N(k)\)</span> given by <span class="math">\(d \otimes e \mapsto (x \mapsto dxe)\)</span> must be injective since <span class="math">\(D \otimes D^\circ\)</span> is a central simple algebra and since both spaces are the same dimension it must be an isomorphism. This tells us that the inverse <span class="math">\(-[D]\)</span> of an element in the Brauer group is the opposite algebra <span class="math">\([D^\circ]\)</span>. For example, <span class="math">\(\mathbf{H}^\circ = \mathbf{H}\)</span> since <span class="math">\(\mathbf{H}\)</span> is the only nontrivial element of <span class="math">\(Br(\mathbf{R})\)</span>. In this case the isomorphism is by conjugation.</p>
+<div class="question math">
+<dl><dt class="math">Question 2</dt>
+<dd class="math">
+Is there a natural topology on <span class="math">\(Br(k)\)</span>?
+</dd>
+</dl>
+</div>
+<div class="question math">
+<dl><dt class="math">Question 3</dt>
+<dd class="math">
+What is the order of <span class="math">\([D]\)</span> in <span class="math">\(Br(k)\)</span>?
+</dd>
+</dl>
+</div>
+<p>Quobservation: The map <span class="math">\(k \mapsto Br(k)\)</span> is a functor <span class="math">\(\underline{Fld} \to \underline{Grp}\)</span>. Given a field extension <span class="math">\(K \hookrightarrow L\)</span> the induced map <span class="math">\(Br(K) \to Br(L)\)</span> given by <span class="math">\([D] \mapsto D \otimes_K L\)</span> sends a CDA over <span class="math">\(K\)</span> to a CDA over <span class="math">\(L\)</span>. How do we study/find/construct <span class="math">\(K\)</span> such that <span class="math">\(D \otimes L \simeq M_n(L)\)</span>?</p>
+<div class="question math">
+<dl><dt class="math">Question 4</dt>
+<dd class="math">
+What is <span class="math">\(gcd\{ deg(L/K) | D \otimes L \simeq M_n(L)\}\)</span>?
+</dd>
+</dl>
+</div>
+<div class="question math">
+<dl><dt class="math">Question 5</dt>
+<dd class="math">
+We have seen that <span class="math">\(Br(\mathbf{R}) \simeq Gal(\mathbf{R})\)</span>. Is this always true? (No.) Is there always a map from the Brauer group to the Galois group?
+</dd>
+</dl>
+</div>
+<div class="question math">
+<dl><dt class="math">Question 6</dt>
+<dd class="math">
+What other groups can we associate with a field? A few examples are <span class="math">\(H^i(Spec k, \mathbf{G}_m)\)</span>, <span class="math">\(H^i(Spec k, \mathbf{Z}(m))\)</span> and <span class="math">\(H^i(Spec k, \mathbf{Z}/n(m))\)</span>.
+</dd>
+</dl>
+</div>
+<p>Key Goal: Relate the Brauer group to etale cohomology groups.</p>
+<p>Cool results: let <span class="math">\(\alpha = [D] \in Br(k)\)</span>. Define the period, <span class="math">\(per(\alpha)\)</span>, to be the order of <span class="math">\(\alpha\)</span> in <span class="math">\(Br(k)\)</span>. Define the index, <span class="math">\(ind(\alpha)\)</span>, to be <span class="math">\(gcd\{ deg(L/K) | D \otimes L \simeq M_n(L)\}\)</span>. Then the period divides the index and they have the same prime factors.</p>

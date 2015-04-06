@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="stylesheets/pandoc.css">
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="the-brauer-group-is-torsion">The Brauer group is torsion</h1>
+<p>We can consider the two exact sequences</p>
+<p><span class="math">\[ \require{AMScd} \begin{CD} 
+1 @&gt;&gt;&gt; \mu_n @&gt;&gt;&gt; SL_n @&gt;&gt;&gt; PGL_n @&gt;&gt;&gt;1\\
+@.      @VVV       @VVV     @|      @.\\
+1 @&gt;&gt;&gt; \mathbb{G}_m @&gt;&gt;&gt; GL_n @&gt;&gt;&gt; PGL_n @&gt;&gt;&gt;1
+\end{CD} \]</span></p>
+<p>by taking cohomology we have the following commutative diagram</p>
+<p><span class="math">\[ \require{AMScd} \begin{CD} 
+H^1(X, PGL_n) @&gt;&gt;&gt; H^2(X,\mu_n)\\
+@|                   @V\iota_nVV\\
+H^1(X, PGL_n) @&gt;&gt;&gt; H^2(X,\mathbb{G}_m)
+\end{CD} \]</span></p>
+<p>Now observe that <span class="math">\(H^i(X,\mu_n)\)</span> is <span class="math">\(n\)</span>-torsion for every <span class="math">\(i\)</span>, as multiplication by <span class="math">\(n\)</span> maps everything to the identity in <span class="math">\(\mu_n\)</span>. This means that the class of every Azumaya algebra of degree <span class="math">\(n\)</span> gets mapped to an <span class="math">\(n\)</span>-torsion element in <span class="math">\(H^2(X,\mu_n)\)</span>, and hence to an <span class="math">\(n\)</span>-torsion element in $ H^2(X,_m)$.</p>
+<p>Actually, one san see that <span class="math">\[ H^2(X,\mathbb{G}_m)_{tors} = \cup_n \text{Im}\iota_n \]</span></p>
+<h2 id="a-different-trivialization-experience">A different trivialization experience</h2>
+<p>So far we have considered a trivialization of the form: <span class="math">\[
+H^1(X, PGL_n) \to H^2(X,\mathbb{G}_m)
+\]</span> mapping the class of <span class="math">\(A\)</span> to the stack of pairs <span class="math">\((V, \phi)\)</span>.</p>
+<p>Alternatively we can consider the map <span class="math">\[
+H^1(X, PGL_n) \to H^2(X,\mu_n)
+\]</span> that sends <span class="math">\(A\)</span> to the triple <span class="math">\((V,\lambda, \phi)\)</span>, where <span class="math">\(V\)</span> is locally free of rank <span class="math">\(n\)</span>, <span class="math">\(\lambda: \bigwedge^n V \stackrel{\sim}{\to}\mathcal{O}\)</span>, <span class="math">\(\phi: End(V) \to A\)</span>. A map between two triples of the form <span class="math">\((V,\lambda, \phi)\)</span> can be defined in a very similar fashion as in the previous case. This actually gives a CFG that we will denote by <span class="math">\(\mathcal{X}^\tau_A\)</span>.</p>
+<p>It’s interesting to look at automorphisms of an object: an automorphism of <span class="math">\((V, \lambda, \phi)\)</span> is an isomorphism <span class="math">\(f:V\to V\)</span> such that <span class="math">\(ad(f) = id\)</span> and <span class="math">\(\bigwedge^n f = Id\)</span>, that is <span class="math">\(f\in \mu_n\)</span>. Therefore there’s a canonical identification <span class="math">\(\text{Aut}(V, \lambda, \phi) \simeq \mu_n\)</span>. This implies that <span class="math">\(\mathcal{X}^\tau_A \to X\)</span> is a <span class="math">\(\mu_n-gerbe\)</span>.</p>
+<p>Observe that there’s a canonical morphism of stacks over <span class="math">\(X\)</span> <span class="math">\[
+c: \mathcal{X}^\tau_A \to \mathcal{X}^_A
+\]</span> that induces the canonical inclusion <span class="math">\(\mu_n \to \mathbb{G}_m\)</span>.</p>
+<p>We also have the decomposition <span class="math">\[
+\text{QCoh}(\mathcal{X}^\tau_A) \simeq \bigoplus_{\chi} \text{QCoh}^{\chi}(\mathcal{X}^\tau_A)
+\]</span> where the sum is over <span class="math">\(\chi\in \mathbb{Z}/(n)\)</span> and <span class="math">\(\text{QCoh}^{\chi}(\mathcal{X}^\tau_A)\)</span> are sheaves where the <span class="math">\(\mu_n\)</span>-action is given after multiplication by <span class="math">\(\chi\)</span>.</p>
+<p>Also there are equivalence of categories <span class="math">\[
+c_*: \text{QCoh}^{i}(\mathcal{X}^\tau_A) \to \text{QCoh}^{i}(\mathcal{X}_A), c^*: \text{QCoh}^{i}(\mathcal{X}_A)\to\text{QCoh}^{i}(\mathcal{X}^\tau_A)
+\]</span></p>
+<p>What are the advantages of working with <span class="math">\(\mu_n\)</span>?</p>
+<p>Assume the order of <span class="math">\(\mathcal{X}^\tau_A\)</span> in <span class="math">\(H^2(X, \mu_n)\)</span> is <span class="math">\(n\)</span>. It’s an interesting exercise to prove that if <span class="math">\(V\)</span> is a locally free <span class="math">\(\mathcal{X}^\tau_A\)</span>-twisted sheaf then <span class="math">\(n\)</span> divides the rank of <span class="math">\(\mathcal{X}^\tau_A\)</span>.</p>
+We also have the following
+<div class="theorem">
+If <span class="math">\(X\)</span> is regular of dimension <span class="math">\(\leq 2\)</span>, then <span class="math">\(Br(X) \stackrel{\sim}{\to} H^2(X,\mathbb{G}_m)\)</span> and the restriction map <span class="math">\(Br(X)\to Br(k(X))\)</span> is injective.
+</div>
+</body>
+</html>

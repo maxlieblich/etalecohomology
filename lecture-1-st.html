@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="stylesheets/pandoc.css">
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="introduction-why-do-this">Introduction: why do this?</h1>
+<p>Let’s start with a simple example.</p>
+<h2 id="an-example">An example</h2>
+<p>Let’s start with an example. Consider the polynomial <span class="math">\[F(x, t) = x^2 + b(t)x + c(t)\in k[x,t]\]</span> for some field <span class="math">\(k\)</span>. This defines a curve <span class="math">\(C\subset\A^2\)</span>, and projecting to the <span class="math">\(t\)</span>-coordinate gives a morphism <span class="math">\[f:C\to\A^1.\]</span></p>
+<div class="question">
+Where does <span class="math">\(f\)</span> ramify? I.e., where does <span class="math">\(f\)</span> have a double root?
+</div>
+<p>If <span class="math">\(\ch(k)\neq 2\)</span>, then we can just use the quadratic formula. The roots of <span class="math">\(F(x, \alpha)\)</span> are given by <span class="math">\[\frac{-b(t)\pm\sqrt{b(t)^2-4c(t)}}{2},\]</span> so there is a double root exactly when <span class="math">\(b(t)^2 = 4c(t)\)</span>. When <span class="math">\(k\)</span> is algebraically closed and <span class="math">\(b^2\)</span> and <span class="math">\(c\)</span> are linearly independent (e.g., have different degrees!), this is guaranteed.</p>
+<p>Since every degree <span class="math">\(2\)</span> extension of <span class="math">\(k(t)\)</span> is quadratic, this has a very concrete consequence.</p>
+<div class="theorem">
+Any finite map <span class="math">\(C\to\A^1\)</span> of degree <span class="math">\(2\)</span> must ramify if <span class="math">\(\operatorname{char}(k)\neq 2\)</span>.
+</div>
+<p>But what happens when <span class="math">\(\operatorname{char}(k)=2\)</span>? The fun starts! Consider the special case <span class="math">\(b(t)=-1\)</span>. If <span class="math">\(a\)</span> is a root of <span class="math">\(F(x,\alpha)\)</span>, then so is <span class="math">\(a+1\)</span>. In other words, <strong>when <span class="math">\(\operatorname{char}(k)=2\)</span>, the polynomial <span class="math">\(F(x,t) = x^2 - x + c(t)\)</span> never has a double root</strong>.</p>
+<p>What does this mean? What is a double root?</p>
+<h3 id="measuring-double-roots">Measuring double roots</h3>
+<p>A polynomial <span class="math">\(f(x)\)</span> has a multiple root precisely when <span class="math">\(f(x)\)</span> and its derivative <span class="math">\(f&#39;(x)\)</span> have an irreducible factor in common. How can we interpret this geometrically?</p>
+<h4 id="the-tangent-map">The tangent map</h4>
+<p>If you think of a complex polyonomial as a function <span class="math">\(f:\C\to\C\)</span>, the derivative <span class="math">\(f&#39;\)</span> at a point computes the tangent map. If the derivative is relatively prime to <span class="math">\(f\)</span>, then <em>for any element <span class="math">\(c\in\mathbf{C}\)</span> such that <span class="math">\(f(c)=0\)</span>, the tangent map <span class="math">\[T_c\C\to T_{f(c)}\C\]</span> is an isomorphism</em>. More generally, a family of polynomials <span class="math">\(F(x,t)\)</span> as above gives a map of Riemann surfaces <span class="math">\(\phi:X\to\C\)</span> (really, <span class="math">\(X\)</span> might just be a complex analytic curve), and the <span class="math">\(F(x, \alpha)\)</span> is unramified at a point if and only if the tangent map at each preimage of <span class="math">\(\alpha\)</span> is bijective.</p>
+<div class="exercise">
+Is it possible for a polynomial <span class="math">\(f:\C\to\C\)</span> to give an isomorphism of tangent spaces at <em>every</em> point?
+</div>
+<h4 id="local-isomorphism">Local isomorphism</h4>
+<p>As you learned in complex analysis, the tangent map of <span class="math">\(\phi\)</span> is an isomorphism if and only if the map <span class="math">\(\phi\)</span> is itself a <em>local isomorphism</em>. (A quirky proof: <span class="math">\(\phi\)</span> induces an isomorphism of complete local rings, hence of rings of germs of holomorphic functions, which lets us invert <span class="math">\(\phi\)</span> locally. Or use calculus.) What about algebraically? The function <span class="math">\(F\)</span> defines a map of rings <span class="math">\(k[t]\to k[x, t]/(F)\)</span>. We claim that if <span class="math">\(F(x, 0)\)</span> is relatively prime to <span class="math">\(F_x(x, 0)\)</span> then this map gives an isomorphism of <em>complete local rings</em>.</p>
+<div class="lemma">
+Let <span class="math">\(g:A\to B\)</span> be a finite map of regular complete local Noetherian rings that induces an isomorphism of residue fields, and suppose that the induced map <span class="math">\[m_A/m_A^2\to m_B/m_B^2\]</span> is an isomorphism. Then <span class="math">\(g\)</span> is an isomorphism.
+</div>
+<p><strong>Proof</strong>. Since <span class="math">\(A\)</span> and <span class="math">\(B\)</span> are regular, we know that <span class="math">\(m^n/m^{n+1}\)</span> is <span class="math">\(\operatorname{Sym}^n{m/m^2}\)</span> (where <span class="math">\(m\)</span> denotes either maximal ideal). We conclude that the maps on the graded pieces <span class="math">\(m_A^n/m_A^{n+1}\to m_B^n/m_B^{n+1}\)</span> are isomorphisms for all <span class="math">\(n\)</span>. Thus, the map <span class="math">\(\operatorname{gr}(A)\to\operatorname{gr}(B)\)</span> is an isomorphism. By Krull’s theorem, <span class="math">\(g\)</span> must be injective.</p>
+<p>To see that <span class="math">\(g\)</span> is surjective: any element of <span class="math">\(B\)</span> agrees with the image of an element of <span class="math">\(A\)</span> modulo <span class="math">\(m\)</span>. But any element of <span class="math">\(m\)</span> is in the image of <span class="math">\(A\)</span> modulo <span class="math">\(m^2\)</span>. Etc. We use the fact that Cauchy sequences in <span class="math">\(A\)</span> converge, i.e., that <span class="math">\(A\)</span> is complete! QED</p>
+<h4 id="uniformization">Uniformization</h4>
+<p>If you think of <span class="math">\(F\)</span> as giving a ring map <span class="math">\[k[t]\to k[t, x]/(F)\]</span> as above, the condition that <span class="math">\(F(x, 0)\)</span> and <span class="math">\(F_x(x, 0)\)</span> are relative prime is the same as saying that <span class="math">\(t\)</span> generates a radical ideal <span class="math">\(k[t, x]/(F)\)</span>. In other words, the uniformizer <span class="math">\(t\)</span> at <span class="math">\(0\)</span> maps to a uniformizer at each root of <span class="math">\(F(x, 0)\)</span>. Now this looks like <em>number theory</em>.</p>
+<h3 id="local-isomorphism-in-algebraic-geometry">Local isomorphism in algebraic geometry</h3>
+<p>We will take the conditions above and use them to define a good notion of <em>local isomorphism</em> in algebraic geometry that mimics the one we see in complex geometry. Let’s start with varieties over an algebraically closed field to keep the analogy close.</p>
+<div class="definition">
+Let <span class="math">\(k\)</span> be an algebraically closed field. A morphism of <span class="math">\(k\)</span>-varieties <span class="math">\(f:X\to Y\)</span> is <em>etale</em> if for every point <span class="math">\(x\in X\)</span> with image <span class="math">\(y=f(x)\in Y\)</span>, the induced map of complete local rings <span class="math">\[\widehat{\ms{O}}_{Y,y}\to\widehat{\ms{O}}_{X,x}\]</span> is an isomorphism.
+</div>
+<p>When <span class="math">\(X\)</span> is smooth at <span class="math">\(x\)</span> and <span class="math">\(Y\)</span> is smooth at <span class="math">\(y\)</span>, this is equivalent to <span class="math">\(f\)</span> inducing an isomorphism of tangent spaces. (What about in the absence of smoothness conditions?)</p>
+<p>We will spend some time (later in the course) really trying to understand and generalize this definition. For example, what about a separable field extension <span class="math">\(K\subset L\)</span>? Should that count as a local isomorphism?</p>
+<h3 id="why-etale-cohomology">Why “etale cohomology”?</h3>
+<p>Let’s return to the example. Our first “result” was that if <span class="math">\(\ch(k)\neq 2\)</span>, any finite two-to-one map <span class="math">\(C\to\A^1\)</span> cannot be an isomorphism everywhere. Doesn’t this remind you of the fundamental group? It is a teeny tiny piece of the statement that <span class="math">\(\mathbf{A}^1\)</span> is simply connected!</p>
+<p>But something went horribly wrong (or horribly right) in characteristic <span class="math">\(2\)</span>. We found many examples that <em>were</em> everywhere unramified. For example, the curve <span class="math">\(C\)</span> given by <span class="math">\(x^2 - x - t=0\)</span> in <span class="math">\(\mathbf{A}^2\)</span> admits (by projection to the <span class="math">\(t\)</span> coordinate) a finite etale map <span class="math">\(C\to\mathbf{A}^1\)</span> of degree <span class="math">\(2\)</span>. What’s more, we can always permute the roots (preimages of a point) by adding <span class="math">\(1\)</span>!</p>
+<p>That is to say, there’s a group action <span class="math">\[\Z/2\Z \times C\to C\]</span> that acts simply transitively on the fibers of <span class="math">\(C\to\A^1\)</span>. Have you every seen this before? Do you remember what classifies these things?</p>
+<h4 id="classical-topology">Classical topology</h4>
+<p>A map like we just described corresponds to a class in <span class="math">\[\Hom(\pi_1(B), \Z/2\Z) = H^1(B, \Z/2\Z).\]</span> Some cohomology groups capture abelian pieces of the fundamental group.</p>
+<p>We seem to have shown that <span class="math">\(\pi_1(\A^1_{\overline{\F_2}})\)</span> is non-zero. ?!??!?!??!?!!!!</p>
+<h4 id="zariski-topology">Zariski topology</h4>
+<p>So it’s natural to ask: how about attacking <span class="math">\(\A^1\)</span> in the Zariski topology?</p>
+<div class="lemma">
+The Zariski topology on <span class="math">\(\A^1_k\)</span> is simply connected.
+</div>
+<p><strong>Proof</strong>. Every open set is dense. QED</p>
+<p>More generally, suppose <span class="math">\(X\)</span> is an integral scheme. What is the cohomology of a constant sheaf on <span class="math">\(X\)</span> in the Zariski topology?</p>
+<h3 id="moving-forward">Moving forward</h3>
+<p>The Zariski topology is not the right replacement for the classical topology.</p>
+<h4 id="how-do-we-replace-the-zariski-topology">How do we replace the Zariski topology?</h4>
+<p>We seek some kind of “topology” on <span class="math">\(\A^1\)</span> such that we can really say that the zero locus of <span class="math">\(x^1-x-t\)</span> does indeed correspond to a class in <span class="math">\(H^1(\A^1, \Z/2\Z)\)</span>. It turns out that we need to use a <em>categorical substitute</em> for topology, known as a Grothendieck topology. We’ll spend the first few sessions studying these in general.</p>
+<h4 id="how-do-we-compute-cohomology-in-these-a-grothendieck-topology">How do we compute cohomology in these a Grothendieck topology?</h4>
+<p>Can we do a single example? It took Grothendieck and Artin a while to get this to work.</p>
+<h4 id="do-algebraic-computations-give-the-right-answer">Do algebraic computations give the right answer?</h4>
+<p>For example, is the cohomology of a curve with finite coefficients correct? Shouldn’t we be nervous having just seen what happened to <span class="math">\(\mathbf{A}^1\)</span>?</p>
+<h4 id="can-we-recover-classical-results-in-differentialcomplex-geometry">Can we recover classical results in differential/complex geometry?</h4>
+<p>Is the cohomology of a smooth family a local system? What does this question even mean?</p>
+<h4 id="what-happened-to-number-theory">What happened to number theory?</h4>
+<p>We’ll see that once we rephrase certain things about classical results correctly (e.g., local systems), we can suddenly understand what is going on with basic ideas in number theory. For example, the Galois action on the cohomology of a variety is another way of thinking about the higher direct image in the etale topology. Etale cohomology becomes Galois cohomology. The Leray spectral sequence becomes the Hochschild-Serre spectral sequence. Etc.</p>
+<h2 id="tasting-the-new-in-the-old">Tasting the new in the old</h2>
+<p>Let’s briefly review the categorical underpinnings of the theory of sheaves that you all know and love. Fix a topogical space <span class="math">\(T\)</span>. The open subsets of <span class="math">\(T\)</span> form a category <span class="math">\(\operatorname{Open}(T)\)</span>; the maps from <span class="math">\(U\)</span> to <span class="math">\(V\)</span> are the inclusions <span class="math">\(U\to V\)</span> over the natural maps <span class="math">\(U\to T\)</span> and <span class="math">\(V\to T\)</span>.</p>
+<p>Here’s a silly category-theoretic way to express presheaves.</p>
+<div class="definition">
+A <em>presheaf</em> (of sets; really, with values in any reasonable category) on <span class="math">\(T\)</span> is a functor <span class="math">\[\operatorname{Open}(T)^\circ\to\operatorname{Set}.\]</span>
+</div>
+<p>A sheaf is defined using <strong>open coverings</strong>.</p>
+<div class="definition">
+A presheaf <span class="math">\(F\)</span> is a <em>sheaf</em> if for every open covering <span class="math">\(\{U_i\subset U\}\)</span> of an open subset <span class="math">\(U\subset T\)</span>, the diagram of sets <span class="math">\[F(U) \to \prod_i F(U_i) \rightrightarrows \prod_{i, j} F(U_i\cap U_j)\cdots\]</span> is <em>exact</em>, i.e., the first arrow is the equalizer of the second two (stacked) arrows.
+</div>
+<p>There are two full subcategories of the category of functors, <span class="math">\(PreSh(T)\)</span>, the presheaves, and <span class="math">\(Sh(T)\)</span>, the sheaves. Any sheaf is a presheaf, and any presheaf can be sheafified. In category language: there is an adjoint pair of functors <span class="math">\(-:Sh(T)\to PreSh(T)\)</span> and <span class="math">\(+:PreSh(T)\to Sh(T)\)</span>. (The first is usually not written because sheaves form a full subcategory of presheaves, so the first is just the canonical embedding.)</p>
+<h3 id="grothendiecks-version">Grothendieck’s version</h3>
+<p>Grothendieck realized that the two conditions above – that there is a category fo open sets, and a distinguished collection of sets of morphisms called “open coverings” – is enough to capture most of the fundamentals of geometry (also known as “sheaves and their cohomology”). More precisely, we have the following.</p>
+<div class="definition">
+<p>A <em>Grothendieck topology</em> is a category <span class="math">\(C\)</span> with a collection of coverings <span class="math">\(\{U_i\to U\}{i\in I}\)</span> for each <span class="math">\(U\in C\)</span> such that</p>
+<ol type="1">
+<li>Any isomorphism is a covering.</li>
+<li>If <span class="math">\(\{U_i\to U\}\)</span> is a covering, and for each <span class="math">\(i\)</span> we have a covering <span class="math">\(\{V_{ij}\to U_i\}\)</span>, the total collection <span class="math">\(\{V_{ij}\to U\}\)</span> is a covering.</li>
+<li>If <span class="math">\(\{U_i\to U\}\)</span> is a covering and <span class="math">\(V\to U\)</span> is arbitrary, then each <span class="math">\(U_i\times_U V\)</span> exists and <span class="math">\(\{U_i\times V\to V\}\)</span> is a covering.</li>
+</ol>
+</div>
+<p>We are going to spend the rest of the quarter examining the amazingly profound consequences of this simple definition.</p>
+<div class="exercise">
+Verify that a topological space really does give a Grothendieck topology.
+</div>
+<div class="exercise">
+Let <span class="math">\(C\)</span> be the category of sets, and define coverings to be collections of maps <span class="math">\(\{U_i\to U\}\)</span> such that the union of the images of the <span class="math">\(U_i\)</span> is all of <span class="math">\(U\)</span>. Show that for any sheaf <span class="math">\(F\)</span> on <span class="math">\(C\)</span>, the object <span class="math">\(F(e)\)</span> represents <span class="math">\(F\)</span>, where <span class="math">\(e\)</span> is a fixed chosen singleton set.
+</div>
+<h4 id="reading">Reading</h4>
+<p>Section 1 of Artin’s notes.</p>
+</body>
+</html>

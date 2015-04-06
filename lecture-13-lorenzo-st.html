@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="stylesheets/pandoc.css">
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="central-simple-algebras">Central simple algebras</h1>
+<p>In this lecture, we will see a few beautiful things about the building blocks of the Brauer group, the algebras themselves. A bunch of the proofs here are inspired by (or cribbed from) the beautiful book by Farb and Dennis on non-commutative algebra.</p>
+<h3 id="divison-algebras-central-simple-algebras-and-donald-rumsfeld">Divison algebras, central simple algebras, and Donald Rumsfeld</h3>
+<p>In studying division algebras, we are naturally led to apply one of Rumsfeld’s famous rules: “If you can’t solve a problem, make it bigger.” (He was <em>very</em> good at this.)</p>
+<p>One of the deepest insights of 20th Century mathematics is the observation that rather than investigate the inner workings of a single object, it often pays to investigate associated categories. We usually think this means that we should look at the category of objects of a similar flavor, but “classical” algebra gives us a prime example this idea, due to Morita theory. I will not go into detail about Morita theory, except for its incarnation in our specific case.</p>
+<h3 id="simple-categories-and-matrix-rings">Simple categories and matrix rings</h3>
+<p>Call an abelian category <span class="math">\(C\)</span> <em>simple</em> if is semisimple and there is a simple object <span class="math">\(c\)</span> in <span class="math">\(C\)</span> such that every object of <span class="math">\(C\)</span> can be written as a direct sum of copies of <span class="math">\(c\)</span> (up to isomorphism).</p>
+<div class="theorem">
+(Morita-ish) Fix an Artinian ring <span class="math">\(A\)</span>. The category of <span class="math">\(A\)</span>-modules is simple if and only if <span class="math">\(A\cong M_n(D)\)</span>, the ring of matrices over a division ring <span class="math">\(D\)</span>.
+</div>
+<p><strong>Proof</strong>. If the category is simple, then we can write <span class="math">\(A\)</span> itself as <span class="math">\(c^{\oplus n}\)</span> for some natural number <span class="math">\(n\)</span>. But then <span class="math">\(A\)</span> (acting on the right) is the ring of endomorphisms of <span class="math">\(A\)</span> as a left <span class="math">\(A\)</span>-module, while we can also compute this endomorphism ring as <span class="math">\(M_n(\End(c))\)</span>. By Schur’s lemma, <span class="math">\(\End(c)\)</span> is a division ring. QED</p>
+<p>Why do we care?</p>
+<div class="lemma">
+For any ring <span class="math">\(R\)</span>, there is a natural equivalence of categories between <span class="math">\(\Mod_R\)</span> and <span class="math">\(\Mod_{M_n(R)}\)</span> for any <span class="math">\(n&gt;0\)</span>.
+</div>
+<p><strong>Proof</strong>. Exercise! (Too hard?) QED</p>
+<h3 id="the-artin-wedderburn-theorem">The Artin-Wedderburn Theorem</h3>
+<p>There is an amazing result governing the Artinian rings with simple module categories: they can be characterized algebraically!</p>
+<p>Recall that a ring is <em>simple</em> if it has no non-trivial two-sided ideals.</p>
+<div class="theorem">
+(Artin-Wedderburn, special case) An Artinian ring <span class="math">\(A\)</span> is simple if and only if the module category <span class="math">\(\Mod_A\)</span> is simple.
+</div>
+<p><strong>Proof</strong>. If the module category is simple, we have just seen that <span class="math">\(A\cong M_n(D)\)</span>, and it is an exercise that this ring is simple. (Just do linear algebra over a division ring! More precisely, why not classify all ideals – left, right, two-sided – in these rings while you’re at it?)</p>
+<p>So suppose that <span class="math">\(A\)</span> is a simple Artinian ring. First, given an <span class="math">\(A\)</span>-module <span class="math">\(M\)</span>, note that the annihilator of any element is a two-sided ideal of <span class="math">\(A\)</span> that does not contain <span class="math">\(1\)</span>, hence is trivial. A minimal left ideal of <span class="math">\(A\)</span> (which exists because <span class="math">\(A\)</span> is Artinian!) is a simple module, so, in particular, <span class="math">\(A\)</span> has a faithful simple module that we will also call <span class="math">\(M\)</span>. We will show that in fact <span class="math">\(A\)</span> can be written as <span class="math">\(M^{\oplus m}\)</span> for some <span class="math">\(m\)</span>.</p>
+<p>This is a clever trick: a map <span class="math">\[f:A\to M^{\oplus n}\]</span> with minimal kernel must be injective. Indeed, if not, there is some <span class="math">\(a\)</span> such that <span class="math">\(f(a)=0\)</span>. But <span class="math">\(M\)</span> is faithful, so there is an <span class="math">\(m\)</span> such that <span class="math">\(am\neq 0\)</span>. We can thus create a new map <span class="math">\[f&#39;:A\to M^{\oplus n}\oplus M\]</span> by sending <span class="math">\(a\)</span> to <span class="math">\((f(a), am)\)</span>. This will have a smaller kernel!</p>
+<p>Now that we have an injection <span class="math">\(A\inj M^{\oplus n}\)</span> into a direct sum of simple modules. More generally, we are going to show that any submodule <span class="math">\(N\subseteq M^{\oplus n}\)</span> is free.</p>
+<p>We will make use of the fact that if <span class="math">\(P = \sum_{I} M_i\)</span> is a sum, where <span class="math">\(M_i \cong M\)</span>, then the sum is direct, i.e. <span class="math">\(P = \oplus_{J} M_i\)</span>, where <span class="math">\(J\subset I\)</span>. (one can prove this last fact by a maximality argument)</p>
+<p>Let <span class="math">\(N \subseteq M^{\oplus n}\)</span> be a sumbmodule. The quotient <span class="math">\(M^{\oplus n}/N\)</span> is clearly a sum of copies of <span class="math">\(M\)</span>, hence it’s free by the quoted fact.</p>
+<p>Now we shall prove that <span class="math">\(N\)</span> is a direct summand of <span class="math">\(M^{\oplus n}\)</span>, hence a quotient, thus showing that it’s free. This is swiftly achieved by considering a maximal element <span class="math">\(J\)</span> in the set <span class="math">\[
+\{ I : \bigoplus_I M \cap N = 0  \}
+\]</span> since in this case one can easily see that <span class="math">\(\bigoplus_J M \cap N = M^{\oplus n}\)</span>.</p>
+<p>Now we know that <span class="math">\(A \cong M^{\oplus m}\)</span> for some <span class="math">\(m\)</span>. Using the argument from above, this means that <span class="math">\(A\cong M_n(D)\)</span>, as desired. QED</p>
+<h3 id="central-simple-algebras-1">Central simple algebras</h3>
+<p>Fix a field <span class="math">\(k\)</span>.</p>
+<div class="definition">
+A <span class="math">\(k\)</span>-algebra <span class="math">\(A\)</span> is called a <em>central simple algebra</em> if <span class="math">\(A\)</span> is finite-dimensional over <span class="math">\(k\)</span>, has center <span class="math">\(k\cdot 1\)</span>, and is simple.
+</div>
+<p>By the above, any central simple algebra <span class="math">\(A\)</span> is isomorphic to one of the form <span class="math">\(M_n(D)\)</span> for a central division algebra over <span class="math">\(k\)</span>.</p>
+<p>Putting everything together, the objects making up the Brauer group – the central division algebras <span class="math">\(D\)</span> – have the same module categories as the central simple algebras.</p>
+<p><strong>Why do we care??</strong></p>
+<p>Because of the following awesome result.</p>
+<div class="proposition">
+If <span class="math">\(A\)</span> be a central simple algebra over <span class="math">\(k\)</span> and <span class="math">\(L\)</span> is a field extension of <span class="math">\(k\)</span>, then <span class="math">\(A\tensor_k L\)</span> is a central simple algebra over <span class="math">\(L\)</span>.
+</div>
+<p><strong>Proof</strong>. Centrality: the condition that <span class="math">\(A\)</span> is central can be written like this. There is a natural map <span class="math">\(\alpha:A\to \Hom(A, A)\)</span> that sends <span class="math">\(a\)</span> to the map sending <span class="math">\(b\)</span> to <span class="math">\(ab-ba\)</span>. The center is precisely the kernel of this map. By flatness of everything over a field, if <span class="math">\(k\to A\)</span> identifies <span class="math">\(k\)</span> with <span class="math">\(\ker(\alpha)\)</span>, the same is true of <span class="math">\(L\to A\tensor_k L\)</span>.</p>
+<p>Simplicity: the key here is the following amusing claim.</p>
+<p><strong>Claim</strong>. Any non-zero two-sided ideal <span class="math">\(J\)</span> of <span class="math">\(A\tensor_k L\)</span> has non-zero intersection with <span class="math">\(L\)</span>.</p>
+<p><strong>Proof</strong>. (Farb and Dennis, Lemma 3.7) Choose <span class="math">\(x\)</span> in <span class="math">\(J\)</span> that has an expression <span class="math">\(x=\sum a_i\tensor\lambda_i\)</span> with minimal length. This implies that the <span class="math">\(\{a_i\}\)</span> and <span class="math">\(\{\lambda_i\}\)</span> are linearly independent over <span class="math">\(k\)</span>. Since <span class="math">\(a_1\neq 0\)</span> and <span class="math">\(A\)</span> is simple, we have that <span class="math">\(Aa_1A=A\)</span>, so there are <span class="math">\(x_j, y_j\)</span> such that <span class="math">\(\sum x_j a_1 y_j=1\)</span>. This means that <span class="math">\[x&#39;:=\sum_j x_j\tensor 1\left(\sum_i a_i\tensor\lambda_i\right)y_j\tensor 1=\sum_i a_i&#39;\tensor\lambda_i\]</span> is also in <span class="math">\(J\)</span>, and <span class="math">\(a_1&#39;=1\)</span> (so, in particular, <span class="math">\(x&#39;\neq 0\)</span>). For any <span class="math">\(a\in A\)</span>, we have <span class="math">\[(a\tensor 1)x&#39;-x&#39;(a\tensor 1)=\sum_{i\geq 2}(aa&#39;_i-a&#39;_ia)\tensor\lambda_i\]</span> (as <span class="math">\(a&#39;_1=1\)</span>, so it is central). But <span class="math">\(x\)</span> had minimal length, when we conclude that <span class="math">\(aa&#39;_i=a&#39;_ia\)</span> for all <span class="math">\(a\)</span>. Since <span class="math">\(A\)</span> is central, we have that each <span class="math">\(a_i&#39;\)</span> is in <span class="math">\(k\)</span>, whence <span class="math">\(\sum a&#39;_i\lambda_i=0\)</span>. But the <span class="math">\(\lambda_i\)</span> are assumed to be linearly independent! QED the claim.</p>
+<p>Conclusion: any non-zero two-sided ideal <span class="math">\(J\)</span> contains <span class="math">\((J\cap L)\cdot A\tensor L\)</span>, which is <span class="math">\(A\tensor_k L\)</span>. But then any non-zero two-sided ideal is the whole ring, as desired. QED</p>
+<div class="corollary">
+Any central simple algebra <span class="math">\(A\)</span> over <span class="math">\(k\)</span> has the property that <span class="math">\(A\tensor\overline k\cong M_n(\overline k)\)</span> for some <span class="math">\(n\)</span>. In fact, this is true over the <em>separable closure</em> of <span class="math">\(k\)</span>.
+</div>
+<p><strong>Proof</strong>. The last statement: the scheme of isomorphisms between <span class="math">\(A\)</span> and <span class="math">\(M_n\)</span> is smooth and non-empty, hence has a point over a separable extension. QED</p>
+<h3 id="some-examples-of-central-simple-algebras">Some examples of central simple algebras</h3>
+<p>A <em>quaternion algebra</em> <span class="math">\(A\)</span> over a field <span class="math">\(K\)</span> of characteristic <span class="math">\(\neq 2\)</span> is a <span class="math">\(4\)</span>-dimensional algebra generated (as a <span class="math">\(K\)</span>-algebra) by two elements <span class="math">\(i,j\)</span> with the relations <span class="math">\[
+i^2 = a, j^2, ij + ji = 0
+\]</span> where <span class="math">\(a,b \in K^{\times}\)</span>. If we set <span class="math">\(k = ij\)</span>, then a basis for <span class="math">\(A\)</span> is given by <span class="math">\(1, i, j, k\)</span>. The algebra <span class="math">\(A\)</span> is often denoted by <span class="math">\((a, b)\)</span>.</p>
+<p>Given a generic element <span class="math">\(x = a + bi + cj + dk\)</span>, then we define its <em>conjugate</em> to be <span class="math">\(\overline{x} = a - bi - cj - dk\)</span>, and thus we can define a morphism of multiplicative monoids <span class="math">\[N: (a,b)\setminus 0 \to K^{\times}, x \mapsto n\overline{x}\]</span> called the <em>norm</em> map.</p>
+<div class="lemma">
+Let <span class="math">\(A = (a,b)\)</span> be a quaternion algebra. Then (1) <span class="math">\(A\)</span> is central over <span class="math">\(K\)</span> (2) Either <span class="math">\(A\)</span> is a division algebra or it splits, i.e. it’s isomorphic to <span class="math">\(M_2(K)\)</span> (3) If <span class="math">\(A\)</span> is a division algebra, then it splits over <span class="math">\(K(\sqrt{a})\)</span> and over <span class="math">\(K(\sqrt{b})\)</span>.
+</div>
+<p>Quaternion algebras play an important role in the description of the Brauer group of <span class="math">\(K\)</span>.</p>
+<div class="theorem">
+(Merkuriev–Suslin) Assume <span class="math">\(\text{char}K \neq 2\)</span>. Then <span class="math">\(Br(K)[2]\)</span> is generated by quaternion algebras.
+</div>
+<div class="example">
+<p>Let <span class="math">\(F = K(x,y,z,w)\)</span>. Then one can prove that <span class="math">\((x,y)\otimes (z,w)\)</span> is a central division algebra.</p>
+<p><em>Challenge questions</em>: (1) Are there elements <span class="math">\(a,b,c,d \in K(x,y,z)^{\times} such that (a,b)\otimes (c,d)\)</span> is a CDA? What if <span class="math">\(K\)</span> is algebraically closed? (2) Is every <span class="math">\(4\)</span>-dimensional <span class="math">\(2\)</span>-torsion CDA over <span class="math">\(K\)</span> a quaternion algebra?</p>
+A possible way to answer question (2) is to try to find the generatos <span class="math">\(i,j\)</span>. Let <span class="math">\(D\)</span> be such a CDA, and let <span class="math">\(i \in D\setminus K\)</span>. Then the extension <span class="math">\(K(i) : K\)</span> has degree <span class="math">\(2\)</span>. WLOG we can assume <span class="math">\(i^2 = \alpha \in K\)</span>. Try then to prove that the <span class="math">\(K\)</span>-automorphism <span class="math">\(K(i)\to K(i), i\mapsto -i\)</span> is induced by conjugation by an element <span class="math">\(j\in D\)</span> whose square <span class="math">\(\beta\)</span> lies in <span class="math">\(K\)</span>, and check that <span class="math">\(D = (\alpha, \beta)\)</span>.
+</div>
+<h3 id="a-digression-on-rational-points">A digression on rational points</h3>
+<p>Coming soon</p>
+</body>
+</html>

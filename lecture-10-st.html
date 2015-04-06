@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="stylesheets/pandoc.css">
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="descent-theory">Descent theory</h1>
+<p>In the world, you learned about gluing sheaves together. I.e., given an open cover <span class="math">\(\{U_i\subset X\}\)</span> of a topological space, some sheaves <span class="math">\(F_i\)</span> on <span class="math">\(U_i\)</span>, and gluing isomorphisms <span class="math">\(\phi_{ij}:F_i\to F_j\)</span> over <span class="math">\(U_i\cap U_j\)</span> that satisfy</p>
+<ul>
+<li><span class="math">\(\phi_{ii}=\id\)</span></li>
+<li><span class="math">\(\phi_{jk}\circ\phi_{ij}=\phi_{ik}\)</span> over <span class="math">\(U_i\cap U_j\cap U_k\)</span>,</li>
+</ul>
+<p>you can “glue” these sheaves together to form a sheaf over all of <span class="math">\(X\)</span>. This is a fundamental operation that helps you do everything you do.</p>
+<p>What about for these exotic topologies? What does gluing even mean? Can we do it?</p>
+<h2 id="gluing-descent-theory">Gluing = “descent theory”</h2>
+<p>One of the triumph’s of Grothendieck’s theory is that the gluing operation from your youth aligns perfectly with the theory of descent that started appearing in the 1930s (I made this date up…fix and make a pull request). Here’s our first pass at it.</p>
+<h3 id="restricting-sheaves">Restricting sheaves</h3>
+<p>Let <span class="math">\(C\)</span> be a site and <span class="math">\(X\)</span> an object of <span class="math">\(C\)</span>. Given a sheaf <span class="math">\(F\)</span> on <span class="math">\(C\)</span>, we can define the <em>restriction</em> of <span class="math">\(F\)</span> to <span class="math">\(X\)</span>, denoted <span class="math">\[F|_X:C_{/X}\circ\to\Set\]</span> by sending an arrow <span class="math">\(Y\to X\)</span> to <span class="math">\(F(Y)\)</span>. (Why is this a sheaf?) From the description, it is clear that restriction to <span class="math">\(X\)</span> is a functor <span class="math">\[\Sh(C)\to\Sh(C_{/X}).\]</span></p>
+<p>We can further restrict: given a morphism <span class="math">\(Y\to X\)</span> and a sheaf <span class="math">\(F\)</span> “on” <span class="math">\(X\)</span> (i.e., a sheaf on <span class="math">\(C_{/X}\)</span>), we can further restrict it to <span class="math">\(Y\)</span>. In particular, we can restrict a sheaf to all elements of a covering.</p>
+<p>Note: this is just <span class="math">\(f_i^{-1}\)</span>, where <span class="math">\(f_i:U_i\to X\)</span> is the structure map. As such, restriction is exact.</p>
+<h3 id="the-category-of-descent-data">The category of descent data</h3>
+<p>Given a covering <span class="math">\(\{U_i\to X\}\)</span> in a site <span class="math">\(C\)</span>, define a category <span class="math">\[\Desc_{\{U_i\}}\]</span> as follows: the objects are tuples <span class="math">\((F_i, \phi_{ij})\)</span>, where <span class="math">\(F_i\in\Sh(U_i)\)</span> and <span class="math">\(\phi_{ij}:F_i|_{U_i\times_X U_j}\to F_j|_{U_i\times_X U_j}\)</span>$ are isomorphisms between the restriction such that</p>
+<ul>
+<li><span class="math">\(\phi_{ii}=\id\)</span> for all <span class="math">\(i\)</span>, and</li>
+<li>for all <span class="math">\(i, j, k\)</span>, we have <span class="math">\(\phi_{jk}\circ\phi_{ij}=\phi_{ik}\)</span> on <span class="math">\(U_i\times_X U_j\times_X U_k\)</span>. (Worry: what does it mean to restrict a sheaf, and then to restrict a map? Is it truly canonical? Should we panic?)</li>
+</ul>
+<p>Given a sheaf <span class="math">\(F\)</span> on <span class="math">\(X\)</span>, we get an object of <span class="math">\(\Desc_{\{U_i\}}\)</span> by sending <span class="math">\(F\)</span> to <span class="math">\((F|_{U_i})\)</span>, with the <span class="math">\(\phi_{ij}\)</span> given by the canonical composition of restriction functors. This gives a functor <span class="math">\[\delta:\Sh(X)\to\Desc_{\{U_i\}}.\]</span> The classical idea of gluing sheaves can be incarnated like this:</p>
+<div class="proposition">
+The functor <span class="math">\(\delta\)</span> defined above is an equivalence of categories.
+</div>
+<p><strong>Proof</strong>. Given an object of <span class="math">\(\Desc\)</span>, let’s define an object <span class="math">\(G\)</span> of <span class="math">\(\Sh(X)\)</span>. Here’s how: first, write <span class="math">\(f_i:U_i\to X\)</span> for the structure map. The maps <span class="math">\(\phi_i\)</span> give a diagram <span class="math">\[\prod (f_i)_\ast F_i\to\prod (f_{ij})_\ast (F_i)|_{U_i\times_X U_j}\to\prod (f_{ij})_\ast (F_i)|_{U_i\times_X U_j}.\]</span> Let <span class="math">\(G\)</span> be the kernel of this map. By definition and adjunction, there are maps <span class="math">\(G|_{U_i} F_i.\)</span> In fact, pulling the whole diagram back to <span class="math">\(U_i\)</span> and using the cocycle condition, we see that in fact these maps are ismorphisms. Etc. (I’ll do this again below.) QED</p>
+<h3 id="a-point-theoretic-view-of-gluing">A “point-theoretic” view of gluing</h3>
+<p>Here’s another way to think about gluing data. We will assume various things, like that <span class="math">\(\sqcup U_i\)</span> exists, without dwelling on them.</p>
+<p><strong>Question</strong>: If we were to try “gluing a sheaf on a bundle” <span class="math">\(E\to B\)</span>, what would we need in order to make the gluing work? <strong>Answer</strong>: We need the sheaf to be constant on fibers. That is, we would need to have a system of comparison isomorphisms <span class="math">\(\phi_{t_1t_2}:F_{t_1}\to F_{t_2}\)</span> for any two points <span class="math">\(t_1, t_2\)</span> in a fiber of the bundle projection <span class="math">\(E\to B\)</span>. We also need these to be consistent, so we need <span class="math">\(\phi_{tt}=\id\)</span> and <span class="math">\(\phi_{t_2t_3}\phi_{t_1t_2}=\phi_{t_1t_3}\)</span>.</p>
+<p>By Yoneda’s lemma, a descent datum is precisely this, but for points of <span class="math">\(\sqcup U_i\)</span> mapping to a fixed point of <span class="math">\(X\)</span>, all points having values in a fixed object <span class="math">\(T\)</span> of <span class="math">\(C\)</span>.</p>
+<h3 id="a-formal-proof-of-gluing">A formal proof of gluing</h3>
+<p>Given an object <span class="math">\((F_i,\phi_{ij})\)</span> of <span class="math">\(\Desc_{\{U_i\}}\)</span>, we get a diagram <span class="math">\[\prod (f_i)_\ast F_i\rightrightarrows\prod (f_{ij})_\ast F_{i}|_{U_{ij}},\]</span> defined as follows:</p>
+<ul>
+<li>the map <span class="math">\(U_{ij}\to U_i\)</span> defines a map (using adjunction) <span class="math">\[(f_i)_\ast F_i\to (f_{ij})_\ast F_{ij},\]</span> coming from applying <span class="math">\((f_i)_\ast\)</span> to the unit <span class="math">\(\id\to(\pr_1)_\ast(\pr_1)^{-1}\)</span>;</li>
+<li>we change the target of the map ending in <span class="math">\((F_j)|_{U_{ij}}\)</span> by applying <span class="math">\(\phi_{ij}\)</span>.</li>
+</ul>
+<p>We claim that the sheaf <span class="math">\(F\)</span> defined as the limit of this diagram is the sheaf we seek. Since maps between sheaves form a sheaf, and a descent diagram is a collection of maps between sheaves, it is enough to check that <span class="math">\(F\)</span> is canonically identified with the descent datum locally. That is, <em>we will show that there is a unique isomorphism between <span class="math">\(\delta(F)\)</span> and the original object <span class="math">\((F_i, \phi_{ij})\)</span> after restricting to each <span class="math">\(U_i\)</span></em>, and the rest will follow from the fact that maps between sheaves are a sheaf.</p>
+<p>The construction in question is compatible with restriction, so we are immediately reduced to the case in which one of the maps <span class="math">\(U_i\to X\)</span> admits a section <span class="math">\(X\to U_i\)</span>. Write <span class="math">\(U = \sqcup U_i\)</span> and <span class="math">\(f:U\to X\)</span> for the structure map (this will make life easier, but you can do without this if you want). We can rewrite the descent condition: we have <span class="math">\(\widetilde F\)</span> on <span class="math">\(U\)</span>, and a map <span class="math">\(\phi:(\pr_1)^{-1}\widetilde F\to(\pr_2)^{-1}\widetilde F\)</span> on <span class="math">\(U\times_X U\)</span> that satisfies the cocycle condition on <span class="math">\(U\times_X U\times_X U\)</span>. Using the above reformulation, we see that this is equivalent to a family of comparision maps <span class="math">\(\phi_{st}\)</span> for any point <span class="math">\((x, t)\in U(T)\times_{X(T)} U(T)\)</span> (for any <span class="math">\(T\)</span> in <span class="math">\(C\)</span>).</p>
+<p>Now, the section <span class="math">\(\sigma:X\to U\)</span> gives us a universal point. That is, for any <span class="math">\(\gamma:T\to X\)</span>, we get <span class="math">\(\sigma\gamma\in U(T)\)</span> mapping to <span class="math">\(\gamma\)</span>. We claim that <span class="math">\(\sigma^{-1}\widetilde F\)</span> gives the <em>unique</em> sheaf <span class="math">\(G\)</span> such that the associated canonical descent datum <span class="math">\((G, \can)\)</span> is isomorphic to <span class="math">\((\widetilde F,\phi)\)</span>.</p>
+<p>How do we check this? We need to produce an isomorphism <span class="math">\(\alpha:f^{-1}\sigma^{-1}\widetilde F\to \widetilde F\)</span> such that for any point <span class="math">\((s, t)\in U(T)\times_{X(T)} U(T)\)</span> (mapping to, say <span class="math">\(\gamma\in X(T)\)</span>) we have that the arrows <span class="math">\[s^{-1}\sigma^{-1}\widetilde F\to s^{-1}F\]</span> and <span class="math">\[t^{-1}\sigma^{-1}\widetilde F\to t^{-1}F\]</span> commute with the identifications <span class="math">\[s^{-1}\sigma^{-1}=\gamma^{-1}=t^{-1}\sigma^{-1}\]</span> and the descent datum <span class="math">\[\phi_{st}:t^{-1}F\to s^{-1}F.\]</span> There is only one choice for <span class="math">\(\alpha\)</span>: the maps <span class="math">\(\sigma f\)</span> and <span class="math">\(\id\)</span> both map to <span class="math">\(f\)</span> under the map <span class="math">\(U(U)\to X(U)\)</span>. The required commutativity follows from the descent assumption. The uniqueness comes from the cocycle condition!</p>
+<p>As insane as this sounds, <em>this establishes the proof</em>. Our walnut shell is now pure mush.</p>
+<h3 id="now-that-sheaves-glue-do-properties-glue-too">Now that sheaves glue, do properties glue, too?</h3>
+<p>That is, suppose each <span class="math">\(F_i\)</span> is quasi-coherent. Is the glued sheaf <span class="math">\(F\)</span> also quasi-coherent? Or suppose that each <span class="math">\(F_i\)</span> is representable by a scheme. Is the glued sheaf <span class="math">\(F\)</span> also representable by a scheme? Same question with affine schemes, or projective schemes, or flat morphisms, or anything you can think of.</p>
+<div class="theorem">
+Suppose <span class="math">\(C\)</span> is the fppf site of a scheme. (You can actually use a strange beast called the fpqc site, but it is too technical for us right now.) If each <span class="math">\(F_i\)</span> is quasi-coherent then the glued sheaf <span class="math">\(F\)</span> is also quasi-coherent.
+</div>
+<p><strong>Proof</strong>. Let’s recast the problem. We already know that quasi-coherence is local in the Zariski topology, so we may assume that <span class="math">\(X\)</span> is affine, say <span class="math">\(X=\Spec A\)</span>. Furthermore, any fppf covering of an affine may be refined by a finite fppf covering by affines <span class="math">\(U_i=\Spec B_i\)</span>. What does the gluing datum become? Let <span class="math">\(B=\prod B_i\)</span>. The sheaf <span class="math">\(F_i\)</span> is quasi-coherent, so it is associated to some module <span class="math">\(M_i\)</span> over <span class="math">\(B_i\)</span>. We get a <span class="math">\(B\)</span>-module <span class="math">\(M=\prod M_i\)</span>.</p>
+<p>We also have a formula for computing the descent, in terms of pushforwards. Note that <span class="math">\(f_\ast M\)</span> is the <span class="math">\(A\)</span>-module represented by <span class="math">\(M\tensor_A B\)</span>, and the pushforward from the double overlap space is <span class="math">\(M\tensor_A B\tensor_A B\)</span>. It is a lemma for self-contemplation that the maps between quasi-coherent sheaves the same in the Zariski topology and the fppf topology.</p>
+<p>Let us note that the formation of the kernel <span class="math">\(K\)</span> of the map <span class="math">\(M\tensor_A B\to M\tensor_A B\tensor_A B\)</span> is compatible with the faithfully flat base change <span class="math">\(A\to B\)</span>. Moreover, we <em>already know</em> that the kernel is <em>canonically (and uniquely) isomorphic</em> to <span class="math">\(M\)</span> when we make this base change. Finally, and here’s the kicker, we know this after making an <strong>arbitrary</strong> base change <span class="math">\(A\to C\)</span>. That is, by reducing to <span class="math">\(C\to C\tensor_A B\)</span>, which has a section, we know that the formation of this particular kernel is actually compatible with arbitrary base change. (More formally: the map from <span class="math">\(K\)</span> to the kernel of the base changed diagram over <span class="math">\(C\)</span> is an isomorphism for any <span class="math">\(C\)</span>, since it is an isomorphism after making the faithfully flat base change <span class="math">\(C\to C\tensor_A B\)</span>.) This shows that the kernel is in fact quas-coherent, as desired. QED</p>
+<h3 id="cocycles-as-descent-data">Cocycles as descent data</h3>
+<p>Recall that Cech cohomology always computes <span class="math">\(\H^1\)</span>. This tells us something very nice: that classes in <span class="math">\(\H^1\)</span> parametrize descent data!</p>
+<p>Recall that a cocycle in <span class="math">\(G\)</span> for a covering <span class="math">\(\{U_i\to X\}\)</span> is given by a section <span class="math">\(g_{ij}\in G(U_{ij})\)</span> such that <span class="math">\(g_{ik}=g_{jk}g_{ij}\)</span> over <span class="math">\(U_{ijk}\)</span>. (Wait, we can even give this definition for <strong>non-abelian</strong> groups! Woohoo!) This is precisely a descent datum, when <span class="math">\(G\)</span> is acting on a sheaf. Here’s a special case.</p>
+<div class="proposition">
+Suppose <span class="math">\(G=\G_m\)</span>, so <span class="math">\(G\)</span> is the full automorphism group of an invertible sheaf.Then the functors <span class="math">\(\Sh(X)\to\Desc_{\{U_i\}}\)</span> induce a bijection between the Picard group of <span class="math">\(X\)</span> and <span class="math">\(\H^1(X,\G_m)\)</span>.
+</div>
+<p><strong>Proof</strong>. Fix one covering <span class="math">\(\{U_i\}\)</span> of <span class="math">\(X\)</span>. Given an invertible sheaf <span class="math">\(L\)</span> on <span class="math">\(X\)</span> that is trivialized on each <span class="math">\(U_i\)</span>, the canonical gluing datum in <span class="math">\(\Aut(L|_{U_ij})\)</span> gets transformed into a cocycle in <span class="math">\(\G_m(U_{ij})\)</span> via the choices of local trivializations. Changing the local trivializations changes this cocycle by a coboundary. Refining the covering does not change the class in the colimit cohomology group (by definition!). Isomorphic invertible sheaves give the same cohomology class. Any sheaf that gives the trivial cohomology class must admit a compatible system of trivializations (a priori, over some refinement) that glue to a global trivialization. QED</p>
+<p>We have finally computed our <strong>first</strong> cohomology group!</p>
+<h2 id="descending-other-structures">Descending other structures</h2>
+<p>We just saw something awesome: descent theory not only respects quasi-coherent sheaves, it also respects <em>invertible</em> sheaves. And since we understand the full automorphism group, we could tie that to a cohomology group.</p>
+<p>We could ask more generally about descent theory respecting additional structures. Here are a few sample questions.</p>
+<ol type="1">
+<li>What about <em>quasi-coherent sheaves of algebras</em>?</li>
+<li>What about affine schemes?</li>
+<li>What about projective schemes?</li>
+<li>What about quasi-projective schemes?</li>
+<li>What about arbitrary schemes?</li>
+<li>What about <span class="math">\(G\)</span>-torsors?</li>
+<li>What about invertible sheaves?</li>
+<li>What about locally free sheaves?</li>
+</ol>
+<div class="corollary">
+Locally free sheaves glue in the fppf topology. Yes!
+</div>
+</body>
+</html>

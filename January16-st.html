@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="stylesheets/pandoc.css">
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+<p>(Below is Yannick’s reformating of Sid’s LaTeX file based off of Yannick’s handwritten notes. Naturally, all mistakes are due to Sid.)</p>
+<p>Given a CSA over <span class="math">\(k\)</span>, set <span class="math">\[
+I = {\operatorname{Isom}}(A, M_n)
+\]</span> Then <span class="math">\(I\)</span> is a sheaf in the fppf topology and a torsor under <span class="math">\({\operatorname{Isom}}(M_n, M_n)\)</span>. Furthermore, there exists <span class="math">\(n\)</span> such that <span class="math">\(I(\bar{k}) \neq 0\)</span>.</p>
+<p>Last time we proved the Skolem-Noether theorem: The sequence of sheaves <span class="math">\[
+1 \rightarrow {\bf{G}}_m \rightarrow GL_n \rightarrow \underline{{\operatorname{Aut}}}(M_n) \rightarrow 1
+\]</span> is exact in the fppf topology. This sequence is actually exact in the Zariski topology.</p>
+<p>In particular, we showed that if <span class="math">\(R\)</span> is a local ring, then all automorphisms of <span class="math">\(M_n(R)\)</span> arise as elements of <span class="math">\(GL_n(R)\)</span>. It is natural to ask if the same is true for all rings <span class="math">\(R\)</span>. We begin by showing this is not true.</p>
+<p>Notation: We will denote <span class="math">\(\underline{{\operatorname{Aut}}}(M_n)\)</span> by <span class="math">\(PGL_n\)</span>.</p>
+<p>We can rephrase the claim above as follows: It is not always true that <span class="math">\[
+PGL_n(R) = \frac{GL_n(R)}{R^\times}
+\]</span> That is, there exist rings <span class="math">\(R\)</span> for which the equality above does not hold.</p>
+<p>For example, consider the following cartesian square: <span class="math">\[
+\require{AMScd} \begin{CD}
+GL_n @&gt;a&gt;&gt; {\bf{A}}^{n^2}\backslash\{0\} \\
+@VbVV @VVcV \\
+PGL_n @&gt;&gt;d&gt; {\bf{P}}^{n^2 - 1} \\
+\end{CD}
+\]</span> <span class="math">\(GL_n\)</span> is the distinguished open of <span class="math">\({\bf{A}}^{n^2}\)</span> defined by <span class="math">\(\det\)</span> and <span class="math">\(PGL_n\)</span> is defined as the nonvanvanishing of the homogeneous form <span class="math">\(\overline{\det}\)</span> and is therefore affine. Let us write <span class="math">\(PGL_n = {\operatorname{Spec}}A\)</span>.</p>
+<p>Next, if we plug in <span class="math">\({\operatorname{Spec}}A\)</span> to the exact sequence above it is easy to see surjectivity would imply that <span class="math">\(Id_{PGL_n}\)</span> is in the image of <span class="math">\(GL_n({\operatorname{Spec}}A)\)</span>. In other words, surjectivity would imply there is a section of <span class="math">\(b: GL_n \to PGL_n\)</span>. In the next paragraph we show this is impossible.</p>
+<p>Note that the map <span class="math">\(c\)</span> defines a <span class="math">\({\bf{G}}_m\)</span>-torsor on <span class="math">\({\bf{P}}^{n^2-1}\)</span>. Indeed, if one considers the geometric line bundle: <span class="math">\(\pi: {\mathscr{Spec}}\mathbf{Sym}\mathcal{O}(1) \to \mathbf{P}^{n^2-1}\)</span>, and removes the zero section then they are left with the map <span class="math">\(c\)</span>. Thus a section of <span class="math">\(c\)</span> would yield a nonvanishing section of <span class="math">\(\pi\)</span> but the sheaf of all sections of <span class="math">\(\pi\)</span> is <span class="math">\(\mathcal{O}(-1)|{PGL_n}\)</span>. To finish the argument it suffices to understand why <span class="math">\(\mathcal{O}(-1)|{PGL_n}\)</span> has no nonvanishing global sections, or in other words, why it isn’t the trivial bundle. This follows immediately from the exact sequence of class groups <span class="math">\[
+{\bf{Z}} \rightarrow Pic(\mathbf{P}^{n^2-1}) \rightarrow Pic(PGL_n) \rightarrow 0
+\]</span> where the first map sends <span class="math">\(1 \mapsto \mathcal{O}(n)\)</span>.</p>
+<p>Now our aim is to show that a Central Simple Algebra <span class="math">\(\mathcal{A}\)</span> over <span class="math">\(k\)</span> is split over a separable field extension. We do this in three steps: first we define a functor parametrizing families of splittings, then we show this functor is representable by a smooth <span class="math">\(k\)</span>-scheme, and finally we show that all smooth <span class="math">\(k\)</span>-schemes have a point over <span class="math">\({\operatorname{Spec}}(k^{sep})\)</span>. Put <span class="math">\(I: Sch_k \to Set\)</span> to be <span class="math">\(Y \mapsto {\operatorname{Isom}}(A|_Y, M_n(\mathcal{O}_Y))\)</span>. Now we make a few observations: <span class="math">\(I\)</span> is a sheaf of sets in the fppf topology. Moreover, it is a sheaf of <span class="math">\({\operatorname{Aut}}(M_n)=PGL_n\)</span>-sets that is locally trivial in the fppf topology. The first follows from the fact that <span class="math">\(I\)</span> is quasicoherent and last quarter we saw quasicoherent presheaves are sheaves in the fppf topology. The reason it is locally trivial is because there is a finite extension <span class="math">\(l/k\)</span> such that <span class="math">\(A|_{{\operatorname{Spec}} (l)} \cong M_n(l)\)</span> (we proved this last time), so <span class="math">\(I({\operatorname{Spec}}(l))\)</span> is noncanonically isomorphic to <span class="math">\(PGL_n(l)\)</span> as a <span class="math">\(PGL_n(1)\)</span>-set (such an isomorphism depends on the choice of isomorphism <span class="math">\(A|_{{\operatorname{Spec}} (l)} \cong M_n(l)\)</span>).</p>
+<p>What we have shown is that <span class="math">\(I\)</span> restricted to the subcategory <span class="math">\(Sch_l\)</span> is isomorphic to <span class="math">\(PGL_n(l)\)</span> a functor represented by a smooth affine scheme. Thus, by fppf descent for relatively affine schemes (Proposition 2.23 on pg. 19 in Milne’s Etale Cohomology text) because there is a descent datum on <span class="math">\(I|_{Sch/l}\)</span> that respects the <span class="math">\(l\)</span>-algebra structure on <span class="math">\(PGL_n(l)(PGL_n(l))\)</span> it follows that <span class="math">\(I\)</span> is represented by an affine scheme on <span class="math">\(Sch/k\)</span>. That it is reprsented by a smooth scheme is also something we can check fppf locally (Proposition 1.15 in Vistoli’s Grothendieck topologies notes).</p>
+<p>Finally we need to show that smooth <span class="math">\(k\)</span>-schemes have <span class="math">\(k^{sep}\)</span>-points. We follow the stacks project and use the following fact: If <span class="math">\(f: X \to Y\)</span> is smooth of relative dimension <span class="math">\(d\)</span> then there are affine opens $ U X$ and <span class="math">\(V \subset Y\)</span> with <span class="math">\(f(U) \subset V\)</span> and an etale morphism <span class="math">\(\pi\)</span> making the diagram commute <span class="math">\[
+\require{AMScd} \begin{CD}
+X @&lt;&lt;open&lt; U @&gt;{\pi}&gt;&gt; {\bf{A}}^{d}_V \\
+@V{f}VV @V{f|_{U}}VV @VV{pr_2}V\\
+Y @&lt;&lt;open&lt; V @= V \\
+\end{CD}
+\]</span> where <span class="math">\(\pi\)</span> is étale. Now in our situation <span class="math">\(V=Y= {\operatorname{Spec}}(k)\)</span>. The image of <span class="math">\(\pi(U)\)</span> is open because it is 'etale and hence must contain a <span class="math">\(k\)</span>-point (because <span class="math">\(k\)</span>-points are dense in affine <span class="math">\(k\)</span>-space!). Call this point <span class="math">\(x\)</span> and choose <span class="math">\(y \in U\)</span> such that <span class="math">\(\pi(y)=x\)</span>. Because <span class="math">\(\pi\)</span> is étale we know that the field extension <span class="math">\(k=k(x) \subset k(y)\)</span> is finite and separable. In other words <span class="math">\(U\)</span> has a point over <span class="math">\(k^{sep}\)</span>.</p>
+<p>This result seemed heavy-handed and so I (Sid) asked in class if there were non-smooth morphisms over <span class="math">\(k\)</span> with no points over a separable closure. The answer is yes: consider <span class="math">\({\operatorname{Spec}}(k(x)) \rightarrow {\operatorname{Spec}}(k(x^p))\)</span> where <span class="math">\(k\)</span> has characteristic <span class="math">\(p\)</span>. This is not a smooth morphism because the Kahler differentials is nonzero. Moreover <span class="math">\({\operatorname{Spec}}(k(x))\)</span> cannot have a point over the separable closure <span class="math">\(k(x^p)^{sep}\)</span>. Indeed, if it did that would imply that the field extension <span class="math">\(k(x^p) \subset k(x)\)</span> was separable.</p>
+</body>
+</html>
